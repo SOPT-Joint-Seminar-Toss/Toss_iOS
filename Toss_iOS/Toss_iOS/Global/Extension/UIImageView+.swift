@@ -12,7 +12,7 @@ extension UIImageView{
     func kfSetImage(url : String?){
         
         guard let url = url else {
-            self.image = Image.gallery
+            self.image = Image.toss
             return }
         
         if let url = URL(string: url) {
