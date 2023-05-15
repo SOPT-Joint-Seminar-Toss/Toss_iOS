@@ -26,6 +26,8 @@
 		D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325E2A11E86C00C4281C /* PaySearchView.swift */; };
 		D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732602A11E87800C4281C /* PayProductCollectionView.swift */; };
 		D21732632A11E88B00C4281C /* PayMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732622A11E88B00C4281C /* PayMainView.swift */; };
+		D21732652A11F61D00C4281C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732642A11F61D00C4281C /* PayViewController.swift */; };
+		D21732672A11F62B00C4281C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732662A11F62B00C4281C /* BaseViewController.swift */; };
 		D22AC5842A11B1EA0097210D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5832A11B1EA0097210D /* Image.swift */; };
 		D22AC5862A11B7690097210D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5852A11B7690097210D /* UIView+.swift */; };
 		D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5892A11B7A20097210D /* UITableViewCell+.swift */; };
@@ -57,6 +59,8 @@
 		D217325E2A11E86C00C4281C /* PaySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaySearchView.swift; path = Pay/View/PaySearchView.swift; sourceTree = SOURCE_ROOT; };
 		D21732602A11E87800C4281C /* PayProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionView.swift; path = Pay/View/PayProductCollectionView.swift; sourceTree = SOURCE_ROOT; };
 		D21732622A11E88B00C4281C /* PayMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayMainView.swift; path = Pay/View/PayMainView.swift; sourceTree = SOURCE_ROOT; };
+		D21732642A11F61D00C4281C /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayViewController.swift; path = Pay/ViewController/PayViewController.swift; sourceTree = SOURCE_ROOT; };
+		D21732662A11F62B00C4281C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Pay/ViewController/BaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		D22AC5832A11B1EA0097210D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = SOURCE_ROOT; };
 		D22AC5852A11B7690097210D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D22AC5892A11B7A20097210D /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		2CDCEC822A0F7F1A009E6039 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				D21732662A11F62B00C4281C /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 		D217325A2A11E84400C4281C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D21732642A11F61D00C4281C /* PayViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -379,12 +385,14 @@
 				D22AC58E2A11B7CC0097210D /* UITextField+.swift in Sources */,
 				D21732632A11E88B00C4281C /* PayMainView.swift in Sources */,
 				D22AC5902A11B8040097210D /* UINavigationController+.swift in Sources */,
+				D21732672A11F62B00C4281C /* BaseViewController.swift in Sources */,
 				D22AC59A2A11B89B0097210D /* UIImageView+.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
 				D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */,
 				D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */,
 				D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */,
 				D22AC5842A11B1EA0097210D /* Image.swift in Sources */,
+				D21732652A11F61D00C4281C /* PayViewController.swift in Sources */,
 				D22AC5862A11B7690097210D /* UIView+.swift in Sources */,
 				2CDCEC572A0F7CFA009E6039 /* SceneDelegate.swift in Sources */,
 				2CB2AD622A10D9240086445A /* UIFont+.swift in Sources */,
