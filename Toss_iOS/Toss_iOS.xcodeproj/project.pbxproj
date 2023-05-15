@@ -39,6 +39,7 @@
 		D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5952A11B85F0097210D /* UILabel+.swift */; };
 		D22AC5982A11B8830097210D /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5972A11B8830097210D /* UIButton+.swift */; };
 		D22AC59A2A11B89B0097210D /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5992A11B89B0097210D /* UIImageView+.swift */; };
+		D2B143372A122DF3006BAB52 /* PayProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		D22AC5952A11B85F0097210D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		D22AC5972A11B8830097210D /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		D22AC5992A11B89B0097210D /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionViewCell.swift; path = Pay/Cell/PayProductCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 		D217325B2A11E84B00C4281C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				D22AC5942A11B8490097210D /* UITableHeaderFooterView+.swift in Sources */,
 				D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */,
 				2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */,
+				D2B143372A122DF3006BAB52 /* PayProductCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
