@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C223E9C2A1135100001D842 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C223E9B2A1135100001D842 /* UIImage+.swift */; };
 		2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB2AD4B2A10CB620086445A /* UIColor+.swift */; };
 		2CB2AD5C2A10D8FF0086445A /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2AD572A10D8FF0086445A /* SpoqaHanSansNeo-Bold.otf */; };
 		2CB2AD5D2A10D8FF0086445A /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2AD582A10D8FF0086445A /* SpoqaHanSansNeo-Medium.otf */; };
@@ -37,7 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C223E9B2A1135100001D842 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		2CB2AD4B2A10CB620086445A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		2CB2AD572A10D8FF0086445A /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
 		2CB2AD582A10D8FF0086445A /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 			children = (
 				2CB2AD4B2A10CB620086445A /* UIColor+.swift */,
 				2CB2AD612A10D9240086445A /* UIFont+.swift */,
-				2C223E9B2A1135100001D842 /* UIImage+.swift */,
 				D22AC5852A11B7690097210D /* UIView+.swift */,
 				D22AC5892A11B7A20097210D /* UITableViewCell+.swift */,
 				D22AC58B2A11B7B00097210D /* UICollectionViewCell+.swift */,
@@ -355,7 +352,6 @@
 				D22AC58C2A11B7B00097210D /* UICollectionViewCell+.swift in Sources */,
 				D22AC5942A11B8490097210D /* UITableHeaderFooterView+.swift in Sources */,
 				D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */,
-				2C223E9C2A1135100001D842 /* UIImage+.swift in Sources */,
 				2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
