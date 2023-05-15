@@ -30,6 +30,8 @@ final class PayProductCollectionView: UICollectionView {
             PayProductCollectionViewCell.self,
             forCellWithReuseIdentifier: PayProductCollectionViewCell.cellIdentifier
         )
+        
+        self.register(PayProductCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PayProductCollectionHeaderView.reuseCellIdentifier)
     }
     
     private func style() {
