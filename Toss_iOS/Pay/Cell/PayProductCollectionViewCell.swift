@@ -34,6 +34,8 @@ final class PayProductCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Custom Method
+    
     private func cellStyle() {
         productImage.do {
             $0.makeCornerRound(radius: 15)
@@ -114,5 +116,11 @@ final class PayProductCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    //MARK: - Custom Method
+    public func dataBind(_ product: Product) {
+        productImage.image = product.image
+        productLabel.text = product.name
+        productDiscount.text = product.disCount
+        productPrice.text = product.price
+    }
+    
 }

@@ -14,7 +14,7 @@ final class PayProductCollectionView: UICollectionView {
     
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: layout)
+        super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         
         register()
         
@@ -35,7 +35,7 @@ final class PayProductCollectionView: UICollectionView {
     private func style() {
         self.do{
             let layout = UICollectionViewFlowLayout()
-            layout.minimumLineSpacing = 0 // 상하간격
+            layout.minimumLineSpacing = 16 // 상하간격
             layout.scrollDirection = .vertical
             
             $0.translatesAutoresizingMaskIntoConstraints = false

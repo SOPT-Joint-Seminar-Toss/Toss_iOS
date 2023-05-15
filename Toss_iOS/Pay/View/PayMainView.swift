@@ -18,7 +18,7 @@ final class PayMainView: UIView {
     
     private let navigationView = PayNavigationView()
     private let searchView = PaySearchView()
-    private let productCollectionView = PayProductCollectionView()
+    public let productCollectionView = PayProductCollectionView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,7 +54,7 @@ final class PayMainView: UIView {
         
         productCollectionView.snp.makeConstraints {
             $0.top.equalTo(self.searchView.snp.bottom)
-            $0.width.equalToSuperview()
+            $0.width.equalTo(1000)
             $0.height.equalTo(489)
         }
     }

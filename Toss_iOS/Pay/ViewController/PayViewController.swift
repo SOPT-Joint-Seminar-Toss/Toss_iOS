@@ -14,6 +14,8 @@ final class PayViewController : BaseViewController{
     
     //MARK: - Properties
     
+    private let productMockData = Product.mockDummy()
+    
     //MARK: - UI Components
     
     private let rootView = PayMainView()
@@ -27,20 +29,35 @@ final class PayViewController : BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        target()
         
     }
     
     //MARK: - Custom Method
     
-    
-    private func setUI(){
-        
-    }
-    
-    private func setLayout(){
-        
+    private func target() {
+        rootView.productCollectionView.delegate = self
+        rootView.productCollectionView.dataSource = self
     }
     
     //MARK: - Action Method
     
+}
+
+extension PayViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 300, height: 375)
+    }
+}
+
+extension PayViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return productMockData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayProductCollectionViewCell.cellIdentifier, for: indexPath) as? PayProductCollectionViewCell else { return UICollectionViewCell() }
+        cell.dataBind(productMockData[indexPath.item])
+        return cell
+    }
 }
