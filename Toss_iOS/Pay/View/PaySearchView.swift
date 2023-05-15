@@ -40,9 +40,8 @@ final class PaySearchView: UIView {
         }
         
         searchTextField.do {
-            $0.leftView = UIImageView(image: Image.search)
-            $0.leftViewMode = .always
-            $0.addLeftPadding(inset: 7)
+            $0.addLeftImage(image: Image.search)
+            $0.font = .tossBody1
             $0.placeholder = "상품을 검색해보세요"
             $0.attributedPlaceholder = NSAttributedString(string: "상품을 검색해보세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.tossGrey300])
             $0.backgroundColor = .tossGrey100
