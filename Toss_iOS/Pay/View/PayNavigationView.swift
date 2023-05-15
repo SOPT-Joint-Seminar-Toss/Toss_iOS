@@ -42,9 +42,9 @@ final class PayNavigationView: UIView {
     
     private func layout() {
         settingImageView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.height.equalTo(38)
+            $0.top.equalToSuperview().offset(4)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.size.equalTo(30)
         }
     }
 }

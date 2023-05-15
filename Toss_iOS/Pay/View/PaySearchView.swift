@@ -37,7 +37,6 @@ final class PaySearchView: UIView {
             $0.font = .tossHeader1
             $0.textAlignment = .left
             $0.textColor = .tossGrey600
-            $0.addCharacterSpacing()
         }
         
         searchTextField.do {
@@ -47,7 +46,7 @@ final class PaySearchView: UIView {
             $0.placeholder = "상품을 검색해보세요"
             $0.attributedPlaceholder = NSAttributedString(string: "상품을 검색해보세요", attributes: [NSAttributedString.Key.foregroundColor : UIColor.tossGrey300])
             $0.backgroundColor = .tossGrey100
-            $0.makeCornerRound(ratio: 10)
+            $0.makeCornerRound(radius: 10)
         }
     }
     
@@ -65,7 +64,7 @@ final class PaySearchView: UIView {
         }
         
         searchTextField.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalTo(self.titleLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(22)
             $0.height.equalTo(42)
         }

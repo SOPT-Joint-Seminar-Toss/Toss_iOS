@@ -39,7 +39,7 @@ final class PayMainView: UIView {
     
     private func layout() {
         navigationView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaInsets)
+            $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.width.equalToSuperview()
             $0.height.equalTo(38)
         }
