@@ -26,7 +26,10 @@ final class PayProductCollectionView: UICollectionView {
     }
     
     private func register() {
-        
+        self.register(
+            PayProductCollectionViewCell.self,
+            forCellWithReuseIdentifier: PayProductCollectionViewCell.cellIdentifier
+        )
     }
     
     private func style() {
