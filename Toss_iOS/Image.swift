@@ -47,7 +47,7 @@ public enum Image {
     static let card = UIImage(named: "icn_card")
     static let icnNoname_toss = UIImage(named: "icn_noname_toss")
     
-    //MARK: Pay
+    //MARK: Gift
     
     static var heartFilled = UIImage(named: "icn_heart_filled")
     static let heart = UIImage(named: "icn_heart")
@@ -59,8 +59,9 @@ public enum Image {
     static let ghost = UIImage(named: "card_ghost")
     static let spaceShip = UIImage(named: "card_spaceship")
     
-    //MARK: Gift
+    //MARK: Pay
     
+    static var search = UIImage(named: "icn_search")
     static var payMockImage = UIImage(named: "icn_pay_mockData")
     static let profile = UIImage(named: "icn_profile")
     static let cashBack = UIImage(named: "icn_cashBack")
