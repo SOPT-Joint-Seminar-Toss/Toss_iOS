@@ -40,6 +40,8 @@ final class PayViewController : BaseViewController {
     //MARK: - Custom Method
     
     private func target() {
+        rootView.scrollView.delegate = self
+        
         rootView.productCollectionView.dataSource = self
         
         rootView.brandConCollectionView.dataSource = self
@@ -58,6 +60,11 @@ final class PayViewController : BaseViewController {
     
 }
 
+extension PayViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("yes")
+    }
+}
 extension PayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableView {

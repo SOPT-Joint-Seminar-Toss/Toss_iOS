@@ -54,7 +54,7 @@ final class PayPopularBrandTableFooterView: UITableViewHeaderFooterView {
     
     private func layout() {
         separator.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(1)
             $0.width.equalToSuperview()
             $0.height.equalTo(1)
         }

@@ -18,6 +18,7 @@ final class PayCashBackTableFooterView: UITableViewHeaderFooterView {
     
     private let separator = UIView()
     private lazy var moreProductButton = UIButton()
+    private let separatorView = UIView()
     
     //MARK: - Life Cycle
     override init(reuseIdentifier: String?) {
@@ -46,10 +47,14 @@ final class PayCashBackTableFooterView: UITableViewHeaderFooterView {
             $0.titleLabel?.font = .tossBody2
             $0.backgroundColor = .tossWhite
         }
+        
+        separatorView.do {
+            $0.backgroundColor = .tossGrey100
+        }
     }
     
     private func hierarchy() {
-        self.addSubviews(separator,moreProductButton)
+        self.addSubviews(separator,moreProductButton,separatorView)
     }
     
     private func layout() {
@@ -64,6 +69,12 @@ final class PayCashBackTableFooterView: UITableViewHeaderFooterView {
             $0.centerY.equalToSuperview()
             $0.width.equalToSuperview()
             $0.height.equalToSuperview()
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.top.equalTo(self.moreProductButton.snp.bottom)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(15)
         }
     }
 }

@@ -37,7 +37,7 @@ class BaseViewController : UIViewController{
     //MARK: - Custom Method
     
     private func setUI(){
-        view.backgroundColor = .tossGrey100
+        view.backgroundColor = .tossWhite
         self.navigationController?.isNavigationBarHidden = true
     }
     

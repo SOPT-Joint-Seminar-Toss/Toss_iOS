@@ -380,8 +380,8 @@
 				D2FA25272A13D6BE0044A59E /* PayPopularConTableHeaderView.swift */,
 				D2FA252F2A13DF5A0044A59E /* PayCashBackTableHeaderView.swift */,
 				D2FA25312A13E1ED0044A59E /* PayCashBackTableFooterView.swift */,
-				D2FA25392A13E8750044A59E /* PayPopularBrandFooterView.swift */,
 				D2FA253B2A13E8AB0044A59E /* PayPopularBrandTableHeaderView.swift */,
+				D2FA25392A13E8750044A59E /* PayPopularBrandFooterView.swift */,
 			);
 			path = HeaderFooterView;
 			sourceTree = "<group>";
