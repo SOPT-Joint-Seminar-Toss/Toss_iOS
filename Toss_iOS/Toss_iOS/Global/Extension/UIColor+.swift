@@ -14,6 +14,7 @@ extension UIColor {
     static let tossGrey300 = UIColor(hex: 0x8D94A0)
     static let tossGrey200 = UIColor(hex: 0xE4E9EC)
     static let tossGrey100 = UIColor(hex: 0xF2F3F5)
+    static let tossGrey4 = UIColor(hex: 0xF4F4F4)
     static let tossWhite = UIColor(hex: 0xFFFFFF)
     static let tossDarkblue = UIColor(hex: 0x204FF5)
     static let tossBlue = UIColor(hex: 0x4880EE)

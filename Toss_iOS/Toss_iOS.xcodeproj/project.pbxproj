@@ -22,6 +22,12 @@
 		2CDCEC6D2A0F7D2D009E6039 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6C2A0F7D2D009E6039 /* SnapKit */; };
 		2CDCEC702A0F7D37009E6039 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6F2A0F7D37009E6039 /* Then */; };
 		2CDCEC732A0F7D4F009E6039 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC722A0F7D4F009E6039 /* Kingfisher */; };
+		D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325C2A11E86200C4281C /* PayNavigationView.swift */; };
+		D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325E2A11E86C00C4281C /* PaySearchView.swift */; };
+		D21732612A11E87800C4281C /* PayProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732602A11E87800C4281C /* PayProductView.swift */; };
+		D21732632A11E88B00C4281C /* PayMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732622A11E88B00C4281C /* PayMainView.swift */; };
+		D21732652A11F61D00C4281C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732642A11F61D00C4281C /* PayViewController.swift */; };
+		D21732672A11F62B00C4281C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732662A11F62B00C4281C /* BaseViewController.swift */; };
 		D22AC5842A11B1EA0097210D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5832A11B1EA0097210D /* Image.swift */; };
 		D22AC5862A11B7690097210D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5852A11B7690097210D /* UIView+.swift */; };
 		D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5892A11B7A20097210D /* UITableViewCell+.swift */; };
@@ -33,6 +39,11 @@
 		D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5952A11B85F0097210D /* UILabel+.swift */; };
 		D22AC5982A11B8830097210D /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5972A11B8830097210D /* UIButton+.swift */; };
 		D22AC59A2A11B89B0097210D /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5992A11B89B0097210D /* UIImageView+.swift */; };
+		D2B143372A122DF3006BAB52 /* PayProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */; };
+		D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433A2A123382006BAB52 /* PayProductModel.swift */; };
+		D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433D2A123899006BAB52 /* PayProductCollectionHeaderView.swift */; };
+		D2B143402A1238A4006BAB52 /* PayProductCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433F2A1238A4006BAB52 /* PayProductCollectionFooterView.swift */; };
+		D2B143422A133893006BAB52 /* PayCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B143412A133893006BAB52 /* PayCollectionLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +60,12 @@
 		2CDCEC5D2A0F7CFB009E6039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CDCEC602A0F7CFB009E6039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CDCEC622A0F7CFB009E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D217325C2A11E86200C4281C /* PayNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayNavigationView.swift; path = Pay/View/PayNavigationView.swift; sourceTree = SOURCE_ROOT; };
+		D217325E2A11E86C00C4281C /* PaySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaySearchView.swift; path = Pay/View/PaySearchView.swift; sourceTree = SOURCE_ROOT; };
+		D21732602A11E87800C4281C /* PayProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductView.swift; path = Pay/View/PayProductView.swift; sourceTree = SOURCE_ROOT; };
+		D21732622A11E88B00C4281C /* PayMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayMainView.swift; path = Pay/View/PayMainView.swift; sourceTree = SOURCE_ROOT; };
+		D21732642A11F61D00C4281C /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayViewController.swift; path = Pay/ViewController/PayViewController.swift; sourceTree = SOURCE_ROOT; };
+		D21732662A11F62B00C4281C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Pay/ViewController/BaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		D22AC5832A11B1EA0097210D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Toss_iOS/Global/Constant/Image.swift; sourceTree = SOURCE_ROOT; };
 		D22AC5852A11B7690097210D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D22AC5892A11B7A20097210D /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -60,6 +77,11 @@
 		D22AC5952A11B85F0097210D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		D22AC5972A11B8830097210D /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		D22AC5992A11B89B0097210D /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionViewCell.swift; path = Pay/Cell/PayProductCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		D2B1433A2A123382006BAB52 /* PayProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductModel.swift; path = Pay/APIModel/PayProductModel.swift; sourceTree = SOURCE_ROOT; };
+		D2B1433D2A123899006BAB52 /* PayProductCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionHeaderView.swift; path = Pay/Cell/HeaderFooterView/PayProductCollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		D2B1433F2A1238A4006BAB52 /* PayProductCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionFooterView.swift; path = Pay/Cell/HeaderFooterView/PayProductCollectionFooterView.swift; sourceTree = SOURCE_ROOT; };
+		D2B143412A133893006BAB52 /* PayCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayCollectionLayout.swift; path = Pay/View/PayCollectionLayout.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +222,9 @@
 		2CDCEC7D2A0F7ED0009E6039 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				D217325B2A11E84B00C4281C /* Cell */,
+				D217325A2A11E84400C4281C /* ViewController */,
+				D21732592A11E83700C4281C /* View */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -221,6 +246,8 @@
 		2CDCEC802A0F7F05009E6039 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				D2B143392A123374006BAB52 /* Model */,
+				D2B143382A12336B006BAB52 /* APIModel */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -235,6 +262,7 @@
 		2CDCEC822A0F7F1A009E6039 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				D21732662A11F62B00C4281C /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -249,6 +277,59 @@
 				2CB2AD5B2A10D8FF0086445A /* SpoqaHanSansNeo-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		D21732592A11E83700C4281C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D217325C2A11E86200C4281C /* PayNavigationView.swift */,
+				D217325E2A11E86C00C4281C /* PaySearchView.swift */,
+				D21732602A11E87800C4281C /* PayProductView.swift */,
+				D21732622A11E88B00C4281C /* PayMainView.swift */,
+				D2B143412A133893006BAB52 /* PayCollectionLayout.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D217325A2A11E84400C4281C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D21732642A11F61D00C4281C /* PayViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D217325B2A11E84B00C4281C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D2B1433C2A123877006BAB52 /* HeaderFooterView */,
+				D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D2B143382A12336B006BAB52 /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2B1433A2A123382006BAB52 /* PayProductModel.swift */,
+			);
+			path = APIModel;
+			sourceTree = "<group>";
+		};
+		D2B143392A123374006BAB52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2B1433C2A123877006BAB52 /* HeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				D2B1433D2A123899006BAB52 /* PayProductCollectionHeaderView.swift */,
+				D2B1433F2A1238A4006BAB52 /* PayProductCollectionFooterView.swift */,
+			);
+			path = HeaderFooterView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,19 +421,30 @@
 			files = (
 				2CDCEC552A0F7CFA009E6039 /* AppDelegate.swift in Sources */,
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
+				D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */,
 				D22AC58E2A11B7CC0097210D /* UITextField+.swift in Sources */,
+				D21732632A11E88B00C4281C /* PayMainView.swift in Sources */,
 				D22AC5902A11B8040097210D /* UINavigationController+.swift in Sources */,
+				D21732672A11F62B00C4281C /* BaseViewController.swift in Sources */,
 				D22AC59A2A11B89B0097210D /* UIImageView+.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
 				D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */,
+				D21732612A11E87800C4281C /* PayProductView.swift in Sources */,
+				D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */,
+				D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */,
 				D22AC5842A11B1EA0097210D /* Image.swift in Sources */,
+				D2B143422A133893006BAB52 /* PayCollectionLayout.swift in Sources */,
+				D21732652A11F61D00C4281C /* PayViewController.swift in Sources */,
 				D22AC5862A11B7690097210D /* UIView+.swift in Sources */,
 				2CDCEC572A0F7CFA009E6039 /* SceneDelegate.swift in Sources */,
 				2CB2AD622A10D9240086445A /* UIFont+.swift in Sources */,
+				D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */,
 				D22AC58C2A11B7B00097210D /* UICollectionViewCell+.swift in Sources */,
 				D22AC5942A11B8490097210D /* UITableHeaderFooterView+.swift in Sources */,
 				D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */,
 				2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */,
+				D2B143402A1238A4006BAB52 /* PayProductCollectionFooterView.swift in Sources */,
+				D2B143372A122DF3006BAB52 /* PayProductCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
