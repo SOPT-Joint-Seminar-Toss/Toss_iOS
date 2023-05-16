@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class PayBrandConView: UICollectionView {
+final class PayBrandConCollectionView: UICollectionView {
     
     //MARK: - Properties
     

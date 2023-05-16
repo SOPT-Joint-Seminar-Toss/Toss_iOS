@@ -100,7 +100,7 @@ extension PayCollectionViewLayout {
         case .product:
             return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0)
         case .brand:
-            return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0)
+            return NSDirectionalEdgeInsets(top: 0, leading: 7, bottom: 12, trailing: 0)
         }
     }
     
@@ -110,8 +110,7 @@ extension PayCollectionViewLayout {
             return NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(76))
         case .brand:
-            return NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0), heightDimension: .absolute(0))
+            return nil
         }
     }
     
@@ -124,10 +123,7 @@ extension PayCollectionViewLayout {
                elementKind: UICollectionView.elementKindSectionFooter,
                alignment: .bottom)
         case .brand:
-            return NSCollectionLayoutBoundarySupplementaryItem(
-               layoutSize: footerSize,
-               elementKind: UICollectionView.elementKindSectionFooter,
-               alignment: .bottom)
+            return nil
         }
     }
     
@@ -145,7 +141,7 @@ extension PayCollectionViewLayout {
         case .product:
             return NSDirectionalEdgeInsets(top: 0, leading: 22, bottom: 0, trailing: 0)
         case .brand:
-            return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16)
+            return NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
         }
     }
     
