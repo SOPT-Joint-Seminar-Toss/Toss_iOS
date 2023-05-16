@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class PayPopularConTableViewCell: UICollectionViewCell {
+final class PayPopularConTableViewCell: UITableViewCell {
     
     //MARK: - UI Components
     
@@ -20,8 +20,9 @@ final class PayPopularConTableViewCell: UICollectionViewCell {
     private let popularCashBack = UILabel()
     
     //MARK: - Life Cycle
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         cellStyle()
         hierarchy()

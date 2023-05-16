@@ -37,18 +37,42 @@ final class PayViewController : BaseViewController {
     //MARK: - Custom Method
     
     private func target() {
-        rootView.productCollectionView.delegate = self
         rootView.productCollectionView.dataSource = self
         
-        rootView.brandConCollectionView.delegate = self
         rootView.brandConCollectionView.dataSource = self
+        
+        rootView.popularConTableView.delegate = self
+        rootView.popularConTableView.dataSource = self
     }
     
     //MARK: - Action Method
     
 }
 
-extension PayViewController: UICollectionViewDelegate {
+extension PayViewController: UITableViewDelegate {
+    
+}
+
+extension PayViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch tableView {
+        case rootView.popularConTableView:
+            return 0
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch tableView {
+        case rootView.popularConTableView:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PayPopularConTableViewCell.cellIdentifier, for: indexPath) as? PayPopularConTableViewCell else { return UITableViewCell() }
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+    
     
 }
 
