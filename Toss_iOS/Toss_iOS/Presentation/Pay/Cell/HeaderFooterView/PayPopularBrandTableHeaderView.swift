@@ -1,5 +1,5 @@
 //
-//  PayCashBackTableHeaderView.swift
+//  PayPopularBrandTableHeaderView.swift
 //  Toss_iOS
 //
 //  Created by 류희재 on 2023/05/17.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class PayCashBackTableHeaderView: UITableViewHeaderFooterView {
+final class PayPopularBrandTableHeaderView: UITableViewHeaderFooterView {
     
     private let title = UILabel()
     
@@ -28,7 +28,7 @@ final class PayCashBackTableHeaderView: UITableViewHeaderFooterView {
     
     private func style() {
         title.do {
-            $0.text = "쇼핑하고 혜택 받기"
+            $0.text = "토스페이 인기 브랜드"
             $0.textColor = .tossGrey500
             $0.font = .tossTitle1
             $0.textAlignment = .left
@@ -45,4 +45,5 @@ final class PayCashBackTableHeaderView: UITableViewHeaderFooterView {
         }
     }
 }
+
 

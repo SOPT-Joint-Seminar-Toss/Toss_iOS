@@ -18,6 +18,7 @@ final class PayViewController : BaseViewController {
     private let brandConData = BrandCon.mockDummy()
     private let popularMockData = PopularConModel.mockDummy()
     private let cashMockData = CashBack.mockDummy()
+    private let brandMockData = Brand.mockDummy()
     
     //MARK: - UI Components
     
@@ -48,6 +49,9 @@ final class PayViewController : BaseViewController {
         
         rootView.cashBackTableView.delegate = self
         rootView.cashBackTableView.dataSource = self
+        
+        rootView.popularBrandTableView.delegate = self
+        rootView.popularBrandTableView.dataSource = self
     }
     
     //MARK: - Action Method
@@ -61,6 +65,8 @@ extension PayViewController: UITableViewDelegate {
             return 20
         case rootView.cashBackTableView:
             return 68
+        case rootView.popularBrandTableView:
+            return 66
         default:
             return 0
         }
@@ -69,6 +75,8 @@ extension PayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch tableView {
         case rootView.cashBackTableView:
+            return 56
+        case rootView.popularBrandTableView:
             return 56
         default:
             return 0
@@ -83,6 +91,8 @@ extension PayViewController: UITableViewDataSource {
             return popularMockData.count
         case rootView.cashBackTableView:
             return cashMockData.count
+        case rootView.popularBrandTableView:
+            return brandMockData.count
         default:
             return 0
         }
@@ -100,6 +110,11 @@ extension PayViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.dataBind(cashMockData[indexPath.row])
             return cell
+        case rootView.popularBrandTableView:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PayPopularBrandTableViewCell.cellIdentifier, for: indexPath) as? PayPopularBrandTableViewCell else { return UITableViewCell() }
+            cell.selectionStyle = .none
+            cell.dataBind(brandMockData[indexPath.row])
+            return cell
         default:
             return UITableViewCell()
         }
@@ -114,6 +129,10 @@ extension PayViewController: UITableViewDataSource {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: PayCashBackTableHeaderView.cellIdentifier) as?
                     PayCashBackTableHeaderView else { return UIView()}
             return header
+        case rootView.popularBrandTableView:
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: PayPopularBrandTableHeaderView.cellIdentifier) as?
+                    PayPopularBrandTableHeaderView else { return UIView()}
+            return header
         default:
             return UIView()
         }
@@ -123,6 +142,9 @@ extension PayViewController: UITableViewDataSource {
         switch tableView {
         case rootView.cashBackTableView:
             guard let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: PayCashBackTableFooterView.cellIdentifier) as? PayCashBackTableFooterView else { return UIView() }
+            return footer
+        case rootView.popularBrandTableView:
+            guard let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: PayPopularBrandTableFooterView.cellIdentifier) as? PayPopularBrandTableFooterView else { return UIView() }
             return footer
         default:
             return UIView()

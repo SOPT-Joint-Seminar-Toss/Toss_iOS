@@ -32,6 +32,10 @@ final class PaySearchView: UIView {
     }
     
     private func style() {
+        self.do {
+            $0.backgroundColor = .tossWhite
+        }
+        
         titleLabel.do {
             $0.text = "토스페이"
             $0.font = .tossHeader1

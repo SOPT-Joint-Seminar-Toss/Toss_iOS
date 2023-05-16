@@ -37,7 +37,7 @@ final class PayCashBackTableViewCell: UITableViewCell {
     
     private func cellStyle() {
         cashBackImage.do {
-            $0.makeCornerRound(radius: self.frame.width)
+            $0.makeCornerRound(radius: 19)
         }
         
         cashBackName.do {
