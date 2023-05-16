@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class PayViewController : BaseViewController{
+final class PayViewController : BaseViewController {
     
     //MARK: - Properties
     
@@ -36,10 +36,15 @@ final class PayViewController : BaseViewController{
     //MARK: - Custom Method
     
     private func target() {
+        rootView.productCollectionView.delegate = self
         rootView.productCollectionView.dataSource = self
     }
     
     //MARK: - Action Method
+    
+}
+
+extension PayViewController: UICollectionViewDelegate {
     
 }
 
@@ -60,12 +65,12 @@ extension PayViewController: UICollectionViewDataSource {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionHeaderView.reuseCellIdentifier, for: indexPath)
                     as? PayProductCollectionHeaderView else { return UICollectionReusableView() }
             return header
-        
+            
         case UICollectionView.elementKindSectionFooter:
             guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionFooterView.reuseCellIdentifier, for: indexPath)
                     as? PayProductCollectionFooterView else { return UICollectionReusableView() }
             return footer
-        
+            
         default:
             return UICollectionReusableView()
         }

@@ -150,7 +150,7 @@ extension PayCollectionViewLayout {
         group.contentInsets = self.groupEdgeInsets
         
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
+        section.orthogonalScrollingBehavior = .groupPaging
         
         section.contentInsets = self.sectionEdgeInsets
         
