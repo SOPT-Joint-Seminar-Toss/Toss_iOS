@@ -81,16 +81,29 @@ extension PayViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionHeaderView.reuseCellIdentifier, for: indexPath)
-                    as? PayProductCollectionHeaderView else { return UICollectionReusableView() }
+        switch collectionView {
+        case rootView.brandConCollectionView:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayBrandConCollectionViewHeaderView.reuseCellIdentifier, for: indexPath) as? PayBrandConCollectionViewHeaderView else { return UICollectionReusableView()}
             return header
             
-        case UICollectionView.elementKindSectionFooter:
-            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionFooterView.reuseCellIdentifier, for: indexPath)
-                    as? PayProductCollectionFooterView else { return UICollectionReusableView() }
-            return footer
+        case rootView.productCollectionView:
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                guard let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier:PayProductCollectionHeaderView.reuseCellIdentifier,
+                    for: indexPath
+                )as? PayProductCollectionHeaderView else { return UICollectionReusableView() }
+                return header
+                
+            case UICollectionView.elementKindSectionFooter:
+                guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionFooterView.reuseCellIdentifier, for: indexPath)
+                        as? PayProductCollectionFooterView else { return UICollectionReusableView() }
+                return footer
+                
+            default:
+                return UICollectionReusableView()
+            }
             
         default:
             return UICollectionReusableView()

@@ -34,7 +34,10 @@ final class PayMainView: UIScrollView {
     }
     
     private func style() {
-        self.backgroundColor = .tossGrey100
+        self.do {
+            $0.backgroundColor = .tossGrey400
+            $0.isScrollEnabled = true
+        }
     }
     
     private func hierarchy() {
@@ -48,7 +51,7 @@ final class PayMainView: UIScrollView {
     
     private func layout() {
         navigationView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.top.equalToSuperview()
             $0.width.equalToSuperview()
             $0.height.equalTo(38)
         }
@@ -69,6 +72,7 @@ final class PayMainView: UIScrollView {
             $0.top.equalTo(self.productCollectionView.snp.bottom).offset(15)
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.height.equalTo(278)
+            $0.bottom.equalToSuperview()
         }
     }
 }

@@ -30,7 +30,15 @@ final class PayBrandConCollectionView: UICollectionView {
     }
     
     private func register() {
-        self.register(PayBrandConCollectionViewCell.self, forCellWithReuseIdentifier: PayBrandConCollectionViewCell.cellIdentifier)
+        self.register(
+            PayBrandConCollectionViewCell.self,
+            forCellWithReuseIdentifier: PayBrandConCollectionViewCell.cellIdentifier
+        )
+        
+        self.register(
+            PayBrandConCollectionViewHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: PayBrandConCollectionViewHeaderView.reuseCellIdentifier)
     }
     
     private func style() {

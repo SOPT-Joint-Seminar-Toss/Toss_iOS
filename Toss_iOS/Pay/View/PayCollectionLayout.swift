@@ -75,7 +75,7 @@ extension PayCollectionViewLayout {
                 widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(38))
         case .brand:
             return NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(70))
+                widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(96))
         }
     }
     
@@ -155,7 +155,9 @@ extension PayCollectionViewLayout {
     }
     
     func createLayout() -> UICollectionViewCompositionalLayout {
-        print(self.groupSize)
+        
+        var supplementaryItem: [NSCollectionLayoutBoundarySupplementaryItem] = []
+        
         let item = NSCollectionLayoutItem(layoutSize: self.itemSize)
         item.contentInsets = self.itemEdgeInsets
         
@@ -167,12 +169,17 @@ extension PayCollectionViewLayout {
         
         section.contentInsets = self.sectionEdgeInsets
         
-        if let header = self.header, let footer = self.footer {
+        if let header = self.header {
             header.contentInsets = self.headerEdgeInsets
-            footer.contentInsets = self.footerEdgeInsets
-            section.boundarySupplementaryItems = [header, footer]
+            supplementaryItem.append(header)
         }
         
+        if let footer = self.footer {
+            footer.contentInsets = self.footerEdgeInsets
+            supplementaryItem.append(footer)
+        }
+        
+        section.boundarySupplementaryItems = supplementaryItem
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
