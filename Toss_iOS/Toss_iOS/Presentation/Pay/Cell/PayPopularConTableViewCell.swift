@@ -77,7 +77,7 @@ final class PayPopularConTableViewCell: UITableViewCell {
         
         popularConName.snp.makeConstraints {
             $0.top.equalToSuperview().offset(22)
-            $0.leading.equalToSuperview().offset(16)
+            $0.leading.equalTo(self.popularConImage.snp.trailing).offset(16)
         }
         
         popularConPrice.snp.makeConstraints {
@@ -93,9 +93,12 @@ final class PayPopularConTableViewCell: UITableViewCell {
         }
     }
     
-//    public func dataBind(_ brandCon: BrandCon) {
-//
-//    }
+    public func dataBind(_ popularCon: PopularConModel) {
+        popularConImage.image = popularCon.image
+        popularConName.text = popularCon.name
+        popularConPrice.text = popularCon.price
+        popularCashBack.text = popularCon.cacheBack
+    }
 }
 
 

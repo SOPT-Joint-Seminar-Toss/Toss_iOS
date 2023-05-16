@@ -17,6 +17,8 @@ final class PayPopularConTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
+        tableStyle()
+        
         register()
     }
     
@@ -24,7 +26,18 @@ final class PayPopularConTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func tableStyle() {
+        self.do {
+            $0.isScrollEnabled = false
+            $0.rowHeight = 82
+            $0.showsVerticalScrollIndicator = false
+            $0.separatorStyle = .none
+        }
+    }
+    
     private func register() {
-        self.register(PayPopularConTableViewCell.self, forCellReuseIdentifier: PayPopularConTableViewCell.reuseCellIdentifier)
+        self.register(PayPopularConTableViewCell.self, forCellReuseIdentifier: PayPopularConTableViewCell.cellIdentifier)
+        
+        self.register(PayPopularConTableHeaderView.self, forHeaderFooterViewReuseIdentifier: PayPopularConTableHeaderView.cellIdentifier)
     }
 }

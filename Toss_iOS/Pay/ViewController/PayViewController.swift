@@ -16,6 +16,7 @@ final class PayViewController : BaseViewController {
     
     private let productMockData = Product.mockDummy()
     private let brandConData = BrandCon.mockDummy()
+    private let popularMockData = PopularConModel.mockDummy()
     
     //MARK: - UI Components
     
@@ -50,14 +51,16 @@ final class PayViewController : BaseViewController {
 }
 
 extension PayViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
 }
 
 extension PayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case rootView.popularConTableView:
-            return 0
+            return popularMockData.count
         default:
             return 0
         }
@@ -67,9 +70,21 @@ extension PayViewController: UITableViewDataSource {
         switch tableView {
         case rootView.popularConTableView:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PayPopularConTableViewCell.cellIdentifier, for: indexPath) as? PayPopularConTableViewCell else { return UITableViewCell() }
+            cell.dataBind(popularMockData[indexPath.row])
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch tableView {
+        case rootView.popularConTableView:
+            print("❤️❤️❤️❤️❤️❤️❤️❤️")
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: PayPopularConTableHeaderView.cellIdentifier) as? PayPopularConTableHeaderView else { return UIView()}
+            return header
+        default:
+            return UIView()
         }
     }
     
