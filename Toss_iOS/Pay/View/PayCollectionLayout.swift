@@ -14,6 +14,12 @@ enum PayCollectionViewLayout {
 
 extension PayCollectionViewLayout {
     
+    var defaultEdgeInsets: NSDirectionalEdgeInsets {
+        get {
+            NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        }
+    }
+    
     var itemSize: NSCollectionLayoutSize {
         switch self {
         case .product:
@@ -23,8 +29,8 @@ extension PayCollectionViewLayout {
             )
         case .brand:
             return NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
+                widthDimension: .absolute(80),
+                heightDimension: .absolute(76)
             )
         }
     }
@@ -47,7 +53,7 @@ extension PayCollectionViewLayout {
             )
         case .brand:
             return NSCollectionLayoutSize(
-                widthDimension: .absolute(80),
+                widthDimension: .absolute(93),
                 heightDimension: .absolute(76)
             )
         }
@@ -56,24 +62,25 @@ extension PayCollectionViewLayout {
     var groupEdgeInsets: NSDirectionalEdgeInsets {
         switch self {
         case .product:
-            return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+            return defaultEdgeInsets
         case .brand:
-            return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 13)
+            return defaultEdgeInsets
         }
     }
     
-    var headerSize: NSCollectionLayoutSize {
+    var headerSize: NSCollectionLayoutSize? {
         switch self {
         case .product:
             return NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(38))
         case .brand:
             return NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
+                widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(70))
         }
     }
     
-    var header: NSCollectionLayoutBoundarySupplementaryItem {
+    var header: NSCollectionLayoutBoundarySupplementaryItem? {
+        guard let headerSize = self.headerSize else { return nil}
         switch self {
         case .product:
             return NSCollectionLayoutBoundarySupplementaryItem(
@@ -93,22 +100,23 @@ extension PayCollectionViewLayout {
         case .product:
             return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0)
         case .brand:
-            return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16)
+            return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0)
         }
     }
     
-    var footerSize: NSCollectionLayoutSize {
+    var footerSize: NSCollectionLayoutSize? {
         switch self {
         case .product:
             return NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(76))
         case .brand:
             return NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
+                widthDimension: .fractionalWidth(0), heightDimension: .absolute(0))
         }
     }
     
-    var footer: NSCollectionLayoutBoundarySupplementaryItem {
+    var footer: NSCollectionLayoutBoundarySupplementaryItem? {
+        guard let footerSize = self.footerSize else { return nil}
         switch self {
         case .product:
             return NSCollectionLayoutBoundarySupplementaryItem(
@@ -128,7 +136,7 @@ extension PayCollectionViewLayout {
         case .product:
             return NSDirectionalEdgeInsets(top: 20, leading: -22, bottom: 0, trailing: 0)
         case .brand:
-            return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16)
+            return defaultEdgeInsets
         }
     }
     
@@ -154,15 +162,11 @@ extension PayCollectionViewLayout {
         
         section.contentInsets = self.sectionEdgeInsets
         
-        let header = self.header
-        header.contentInsets = self.headerEdgeInsets
-        let footer = self.footer
-        footer.contentInsets = self.footerEdgeInsets
-        
-        section.boundarySupplementaryItems = [header, footer]
- 
-        
-        
+        if let header = self.header, let footer = self.footer {
+            header.contentInsets = self.headerEdgeInsets
+            footer.contentInsets = self.footerEdgeInsets
+            section.boundarySupplementaryItems = [header, footer]
+        }
         
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
