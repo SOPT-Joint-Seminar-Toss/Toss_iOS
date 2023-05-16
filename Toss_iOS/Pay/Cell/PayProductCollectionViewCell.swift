@@ -39,6 +39,7 @@ final class PayProductCollectionViewCell: UICollectionViewCell {
     private func cellStyle() {
         productImage.do {
             $0.makeCornerRound(radius: 15)
+            $0.clipsToBounds = true
         }
         
         productLabel.do {

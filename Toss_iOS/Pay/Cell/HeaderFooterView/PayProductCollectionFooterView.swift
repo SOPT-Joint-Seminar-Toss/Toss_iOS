@@ -16,6 +16,7 @@ final class PayProductCollectionFooterView: UICollectionReusableView {
     
     //MARK: - UI Components
     
+    private let separator = UIView()
     private lazy var moreProductButton = UIButton()
     private let rightButton = UIImageView()
     
@@ -36,10 +37,15 @@ final class PayProductCollectionFooterView: UICollectionReusableView {
     //MARK: - Custom Method
     
     private func style() {
+        separator.do {
+            $0.backgroundColor = .tossGrey4
+        }
+        
         moreProductButton.do {
             $0.setTitle("최저가 공동구매 상품 더 보기", for: .normal)
             $0.setTitleColor(.tossGrey300, for: .normal)
             $0.titleLabel?.textAlignment = .center
+            $0.titleLabel?.font = .tossBody2
         }
         
         rightButton.do {
@@ -48,19 +54,27 @@ final class PayProductCollectionFooterView: UICollectionReusableView {
     }
     
     private func hierarchy() {
-        self.addSubviews(moreProductButton, rightButton)
+        self.addSubviews(separator,moreProductButton, rightButton)
     }
     
     private func layout() {
+        separator.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+        
         moreProductButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
         }
         
         rightButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(8)
-            $0.size.equalTo(40)
+            $0.size.equalTo(25)
         }
     }
 }

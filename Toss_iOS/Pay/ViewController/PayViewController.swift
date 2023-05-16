@@ -36,26 +36,11 @@ final class PayViewController : BaseViewController{
     //MARK: - Custom Method
     
     private func target() {
-        rootView.productCollectionView.delegate = self
         rootView.productCollectionView.dataSource = self
     }
     
     //MARK: - Action Method
     
-}
-
-extension PayViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 375)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15, left: 22, bottom: 0, right: 20)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 375, height: 23)
-    }
 }
 
 extension PayViewController: UICollectionViewDataSource {
@@ -70,9 +55,19 @@ extension PayViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionHeaderView.reuseCellIdentifier, for: indexPath)
-                as? PayProductCollectionHeaderView else { return UICollectionReusableView() }
-        return header
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionHeaderView.reuseCellIdentifier, for: indexPath)
+                    as? PayProductCollectionHeaderView else { return UICollectionReusableView() }
+            return header
+        
+        case UICollectionView.elementKindSectionFooter:
+            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PayProductCollectionFooterView.reuseCellIdentifier, for: indexPath)
+                    as? PayProductCollectionFooterView else { return UICollectionReusableView() }
+            return footer
+        
+        default:
+            return UICollectionReusableView()
+        }
     }
 }

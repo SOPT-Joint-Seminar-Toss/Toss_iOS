@@ -43,6 +43,7 @@
 		D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433A2A123382006BAB52 /* PayProductModel.swift */; };
 		D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433D2A123899006BAB52 /* PayProductCollectionHeaderView.swift */; };
 		D2B143402A1238A4006BAB52 /* PayProductCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433F2A1238A4006BAB52 /* PayProductCollectionFooterView.swift */; };
+		D2B143422A133893006BAB52 /* PayCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B143412A133893006BAB52 /* PayCollectionLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		D2B1433A2A123382006BAB52 /* PayProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductModel.swift; path = Pay/APIModel/PayProductModel.swift; sourceTree = SOURCE_ROOT; };
 		D2B1433D2A123899006BAB52 /* PayProductCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionHeaderView.swift; path = Pay/Cell/HeaderFooterView/PayProductCollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		D2B1433F2A1238A4006BAB52 /* PayProductCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionFooterView.swift; path = Pay/Cell/HeaderFooterView/PayProductCollectionFooterView.swift; sourceTree = SOURCE_ROOT; };
+		D2B143412A133893006BAB52 /* PayCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayCollectionLayout.swift; path = Pay/View/PayCollectionLayout.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 				D217325E2A11E86C00C4281C /* PaySearchView.swift */,
 				D21732602A11E87800C4281C /* PayProductView.swift */,
 				D21732622A11E88B00C4281C /* PayMainView.swift */,
+				D2B143412A133893006BAB52 /* PayCollectionLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */,
 				D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */,
 				D22AC5842A11B1EA0097210D /* Image.swift in Sources */,
+				D2B143422A133893006BAB52 /* PayCollectionLayout.swift in Sources */,
 				D21732652A11F61D00C4281C /* PayViewController.swift in Sources */,
 				D22AC5862A11B7690097210D /* UIView+.swift in Sources */,
 				2CDCEC572A0F7CFA009E6039 /* SceneDelegate.swift in Sources */,

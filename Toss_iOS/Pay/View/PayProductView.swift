@@ -12,9 +12,12 @@ import Then
 
 final class PayProductCollectionView: UICollectionView {
     
+    //MARK: - Properties
+    
+    let layout = PayCollectionViewLayout.product.createLayout()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        super.init(frame: .zero, collectionViewLayout: self.layout)
         
         register()
         
@@ -31,18 +34,23 @@ final class PayProductCollectionView: UICollectionView {
             forCellWithReuseIdentifier: PayProductCollectionViewCell.cellIdentifier
         )
         
-        self.register(PayProductCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PayProductCollectionHeaderView.reuseCellIdentifier)
+        self.register(
+            PayProductCollectionHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: PayProductCollectionHeaderView.reuseCellIdentifier
+        )
+        
+        self.register(
+            PayProductCollectionFooterView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: PayProductCollectionFooterView.reuseCellIdentifier
+        )
     }
     
     private func style() {
         self.do{
-            let layout = UICollectionViewFlowLayout()
-            layout.minimumLineSpacing = 16 // 상하간격
-            layout.scrollDirection = .vertical
-            
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.showsHorizontalScrollIndicator = true
-            $0.collectionViewLayout = layout
+            $0.showsHorizontalScrollIndicator = false
             $0.contentInsetAdjustmentBehavior = .never
             $0.backgroundColor = .tossWhite
         }

@@ -58,7 +58,7 @@ final class PayProductCollectionHeaderView: UICollectionReusableView {
     private func layout() {
         productTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().offset(22)
+            $0.leading.equalToSuperview()
         }
         
         countLabel.snp.makeConstraints {
