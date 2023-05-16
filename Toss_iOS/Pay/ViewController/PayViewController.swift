@@ -38,6 +38,9 @@ final class PayViewController : BaseViewController {
     private func target() {
         rootView.productCollectionView.delegate = self
         rootView.productCollectionView.dataSource = self
+        
+        rootView.brandConCollectionView.delegate = self
+        rootView.brandConCollectionView.dataSource = self
     }
     
     //MARK: - Action Method
@@ -50,7 +53,15 @@ extension PayViewController: UICollectionViewDelegate {
 
 extension PayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productMockData.count
+        switch collectionView {
+        case rootView.productCollectionView:
+            return productMockData.count
+        case rootView.brandConCollectionView:
+            return 0
+        default:
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

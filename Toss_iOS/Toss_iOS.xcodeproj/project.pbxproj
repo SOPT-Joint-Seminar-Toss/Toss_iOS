@@ -46,6 +46,7 @@
 		D2B143422A133893006BAB52 /* PayCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B143412A133893006BAB52 /* PayCollectionLayout.swift */; };
 		D2E3E2812A13A00E002B65C6 /* PayBrandConCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3E2802A13A00D002B65C6 /* PayBrandConCollectionView.swift */; };
 		D2E3E2832A13A045002B65C6 /* PayBrandConCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3E2822A13A045002B65C6 /* PayBrandConCollectionViewCell.swift */; };
+		D2E3E2852A13A66C002B65C6 /* PayBrandConModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3E2842A13A66C002B65C6 /* PayBrandConModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		D2B143412A133893006BAB52 /* PayCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayCollectionLayout.swift; path = Pay/View/PayCollectionLayout.swift; sourceTree = SOURCE_ROOT; };
 		D2E3E2802A13A00D002B65C6 /* PayBrandConCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBrandConCollectionView.swift; sourceTree = "<group>"; };
 		D2E3E2822A13A045002B65C6 /* PayBrandConCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBrandConCollectionViewCell.swift; sourceTree = "<group>"; };
+		D2E3E2842A13A66C002B65C6 /* PayBrandConModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBrandConModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 		D2B143392A123374006BAB52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D2E3E2842A13A66C002B65C6 /* PayBrandConModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				D22AC5902A11B8040097210D /* UINavigationController+.swift in Sources */,
 				D21732672A11F62B00C4281C /* BaseViewController.swift in Sources */,
 				D22AC59A2A11B89B0097210D /* UIImageView+.swift in Sources */,
+				D2E3E2852A13A66C002B65C6 /* PayBrandConModel.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
 				D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */,
 				D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */,
