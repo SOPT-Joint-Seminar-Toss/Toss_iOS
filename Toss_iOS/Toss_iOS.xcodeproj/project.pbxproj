@@ -66,7 +66,7 @@
 		D21732622A11E88B00C4281C /* PayMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayMainView.swift; path = Pay/View/PayMainView.swift; sourceTree = SOURCE_ROOT; };
 		D21732642A11F61D00C4281C /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayViewController.swift; path = Pay/ViewController/PayViewController.swift; sourceTree = SOURCE_ROOT; };
 		D21732662A11F62B00C4281C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Pay/ViewController/BaseViewController.swift; sourceTree = SOURCE_ROOT; };
-		D22AC5832A11B1EA0097210D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = SOURCE_ROOT; };
+		D22AC5832A11B1EA0097210D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Toss_iOS/Global/Constant/Image.swift; sourceTree = SOURCE_ROOT; };
 		D22AC5852A11B7690097210D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D22AC5892A11B7A20097210D /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		D22AC58B2A11B7B00097210D /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
