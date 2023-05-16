@@ -35,6 +35,7 @@ final class PayBrandConCollectionView: UICollectionView {
     
     private func style() {
         self.do{
+            $0.isScrollEnabled = false
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.showsHorizontalScrollIndicator = false
             $0.contentInsetAdjustmentBehavior = .never

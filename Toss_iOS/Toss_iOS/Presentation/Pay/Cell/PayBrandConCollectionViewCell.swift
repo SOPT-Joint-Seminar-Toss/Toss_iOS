@@ -64,7 +64,9 @@ final class PayBrandConCollectionViewCell: UICollectionViewCell {
         }
     }
     
-//    public func dataBind(_ brandCon: BrandCon) {
-//    }
+    public func dataBind(_ brandCon: BrandCon) {
+        brandConImage.image = brandCon.image
+        brandConName.text = brandCon.name
+    }
 }
 

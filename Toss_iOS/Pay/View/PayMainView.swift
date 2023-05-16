@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class PayMainView: UIView {
+final class PayMainView: UIScrollView {
     
     //MARK: - Properties
     
@@ -24,6 +24,7 @@ final class PayMainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        style()
         hierarchy()
         layout()
     }
@@ -32,11 +33,16 @@ final class PayMainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func style() {
+        self.backgroundColor = .tossGrey100
+    }
+    
     private func hierarchy() {
         self.addSubviews(
             navigationView,
             searchView,
-            productCollectionView
+            productCollectionView,
+            brandConCollectionView
         )
     }
     
@@ -61,7 +67,7 @@ final class PayMainView: UIView {
         
         brandConCollectionView.snp.makeConstraints {
             $0.top.equalTo(self.productCollectionView.snp.bottom).offset(15)
-            $0.width.equalToSuperview()
+            $0.width.equalTo(UIScreen.main.bounds.width)
             $0.height.equalTo(278)
         }
     }

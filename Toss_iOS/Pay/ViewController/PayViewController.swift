@@ -15,6 +15,7 @@ final class PayViewController : BaseViewController {
     //MARK: - Properties
     
     private let productMockData = Product.mockDummy()
+    private let brandConData = BrandCon.mockDummy()
     
     //MARK: - UI Components
     
@@ -57,7 +58,7 @@ extension PayViewController: UICollectionViewDataSource {
         case rootView.productCollectionView:
             return productMockData.count
         case rootView.brandConCollectionView:
-            return 0
+            return brandConData.count
         default:
             return 0
         }
@@ -65,9 +66,18 @@ extension PayViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayProductCollectionViewCell.cellIdentifier, for: indexPath) as? PayProductCollectionViewCell else { return UICollectionViewCell() }
-        cell.dataBind(productMockData[indexPath.item])
-        return cell
+        switch collectionView {
+        case rootView.productCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayProductCollectionViewCell.cellIdentifier, for: indexPath) as? PayProductCollectionViewCell else { return UICollectionViewCell() }
+            cell.dataBind(productMockData[indexPath.item])
+            return cell
+        case rootView.brandConCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayBrandConCollectionViewCell.cellIdentifier, for: indexPath) as? PayBrandConCollectionViewCell else { return UICollectionViewCell() }
+            cell.dataBind(brandConData[indexPath.item])
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

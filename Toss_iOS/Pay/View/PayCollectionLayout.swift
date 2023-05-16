@@ -29,8 +29,8 @@ extension PayCollectionViewLayout {
             )
         case .brand:
             return NSCollectionLayoutSize(
-                widthDimension: .absolute(80),
-                heightDimension: .absolute(76)
+                widthDimension: .fractionalWidth(0.25),
+                heightDimension: .fractionalHeight(1.0)
             )
         }
     }
@@ -53,7 +53,7 @@ extension PayCollectionViewLayout {
             )
         case .brand:
             return NSCollectionLayoutSize(
-                widthDimension: .absolute(93),
+                widthDimension: .fractionalWidth(1.0),
                 heightDimension: .absolute(76)
             )
         }
@@ -136,6 +136,15 @@ extension PayCollectionViewLayout {
         }
     }
     
+    var sectionBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior  {
+        switch self {
+        case .product:
+            return .groupPaging
+        case .brand:
+            return .none
+        }
+    }
+    
     var sectionEdgeInsets: NSDirectionalEdgeInsets {
         switch self {
         case .product:
@@ -154,7 +163,7 @@ extension PayCollectionViewLayout {
         group.contentInsets = self.groupEdgeInsets
         
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPaging
+        section.orthogonalScrollingBehavior = sectionBehavior
         
         section.contentInsets = self.sectionEdgeInsets
         
