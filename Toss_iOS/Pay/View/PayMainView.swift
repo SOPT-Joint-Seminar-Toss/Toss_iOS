@@ -21,6 +21,7 @@ final class PayMainView: UIScrollView {
     public let productCollectionView = PayProductCollectionView()
     public let brandConCollectionView = PayBrandConCollectionView()
     public let popularConTableView = PayPopularConTableView()
+    public let cashBackTableView = PayCashBackTableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +48,8 @@ final class PayMainView: UIScrollView {
             searchView,
             productCollectionView,
             brandConCollectionView,
-            popularConTableView
+            popularConTableView,
+            cashBackTableView
         )
     }
     
@@ -74,13 +76,19 @@ final class PayMainView: UIScrollView {
             $0.top.equalTo(self.productCollectionView.snp.bottom).offset(15)
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.height.equalTo(278)
-            $0.bottom.equalToSuperview()
         }
         
         popularConTableView.snp.makeConstraints {
             $0.top.equalTo(self.brandConCollectionView.snp.bottom)
             $0.width.equalToSuperview()
             $0.height.equalTo(276)
+        }
+        
+        cashBackTableView.snp.makeConstraints {
+            $0.top.equalTo(self.popularConTableView.snp.bottom).offset(15)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(343)
+            $0.bottom.equalToSuperview()
         }
     }
 }
