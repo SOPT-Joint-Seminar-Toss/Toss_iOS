@@ -48,6 +48,8 @@
 		D2E3E2832A13A045002B65C6 /* PayBrandConCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3E2822A13A045002B65C6 /* PayBrandConCollectionViewCell.swift */; };
 		D2E3E2852A13A66C002B65C6 /* PayBrandConModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3E2842A13A66C002B65C6 /* PayBrandConModel.swift */; };
 		D2E3E2872A13AD0F002B65C6 /* PayBrandConCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3E2862A13AD0F002B65C6 /* PayBrandConCollectionViewHeaderView.swift */; };
+		D2FA25222A13CD4C0044A59E /* PayPopularConTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA25212A13CD4C0044A59E /* PayPopularConTableView.swift */; };
+		D2FA25242A13CEDC0044A59E /* PayPopularConTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA25232A13CEDC0044A59E /* PayPopularConTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		D2E3E2822A13A045002B65C6 /* PayBrandConCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBrandConCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2E3E2842A13A66C002B65C6 /* PayBrandConModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBrandConModel.swift; sourceTree = "<group>"; };
 		D2E3E2862A13AD0F002B65C6 /* PayBrandConCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBrandConCollectionViewHeaderView.swift; sourceTree = "<group>"; };
+		D2FA25212A13CD4C0044A59E /* PayPopularConTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPopularConTableView.swift; sourceTree = "<group>"; };
+		D2FA25232A13CEDC0044A59E /* PayPopularConTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPopularConTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 				D2E3E2802A13A00D002B65C6 /* PayBrandConCollectionView.swift */,
 				D21732622A11E88B00C4281C /* PayMainView.swift */,
 				D2B143412A133893006BAB52 /* PayCollectionLayout.swift */,
+				D2FA25212A13CD4C0044A59E /* PayPopularConTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				D2B1433C2A123877006BAB52 /* HeaderFooterView */,
 				D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */,
 				D2E3E2822A13A045002B65C6 /* PayBrandConCollectionViewCell.swift */,
+				D2FA25232A13CEDC0044A59E /* PayPopularConTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				D2E3E2852A13A66C002B65C6 /* PayBrandConModel.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
 				D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */,
+				D2FA25222A13CD4C0044A59E /* PayPopularConTableView.swift in Sources */,
 				D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */,
 				D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */,
 				D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */,
@@ -452,6 +459,7 @@
 				D2B143422A133893006BAB52 /* PayCollectionLayout.swift in Sources */,
 				D21732652A11F61D00C4281C /* PayViewController.swift in Sources */,
 				D22AC5862A11B7690097210D /* UIView+.swift in Sources */,
+				D2FA25242A13CEDC0044A59E /* PayPopularConTableViewCell.swift in Sources */,
 				2CDCEC572A0F7CFA009E6039 /* SceneDelegate.swift in Sources */,
 				2CB2AD622A10D9240086445A /* UIFont+.swift in Sources */,
 				D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */,
