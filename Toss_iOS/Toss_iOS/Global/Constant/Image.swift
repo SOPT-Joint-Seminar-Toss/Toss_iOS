@@ -75,7 +75,7 @@ public enum Image {
     static let chicken = UIImage(named: "brandCon_chicken")!
     static let pizza = UIImage(named: "brandCon_pizza")!
     static let dessert = UIImage(named: "brandCon_dessert")!
-    static let coupon = UIImage(named: "brandCon_coupon")
+    static let coupon = UIImage(named: "brandCon_coupon")!
     static let conv = UIImage(named: "brandCon_conv")!
     static let food = UIImage(named: "brandCon_food")!
     }

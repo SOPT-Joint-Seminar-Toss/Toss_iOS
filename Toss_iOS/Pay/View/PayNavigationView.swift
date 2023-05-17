@@ -31,6 +31,10 @@ final class PayNavigationView: UIView {
     }
     
     private func style() {
+        self.do {
+            $0.backgroundColor = .tossWhite
+        }
+        
         settingImageView.do {
             $0.image = Image.setting
         }
