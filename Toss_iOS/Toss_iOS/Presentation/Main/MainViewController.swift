@@ -14,6 +14,16 @@ class MainViewController : UIViewController {
     //MARK: - UI Components
     private var mainView = MainView()
     
+    private let tossMainButton = UIButton().then {
+        $0.setImage(Image.logoToss, for: .normal)
+    }
+    private let alarmButton = UIButton().then {
+        $0.setImage(Image.alarm, for: .normal)
+    }
+    private let menuButton = UIButton().then {
+        $0.setImage(Image.menu, for: .normal)
+    }
+    
     
     //MARK: - Life Cycle
     override func loadView() {
@@ -28,6 +38,16 @@ class MainViewController : UIViewController {
     }
     //MARK: - Custom Method
     private func setUI(){
+        let leftBarButton = UIBarButtonItem()
+        leftBarButton.customView = tossMainButton
+        let rightBarLeftButton = UIBarButtonItem()
+        rightBarLeftButton.customView = alarmButton
+        let rightBarRightButton = UIBarButtonItem()
+        rightBarRightButton.customView = menuButton
+        navigationItem.leftBarButtonItem = leftBarButton
+        navigationItem.rightBarButtonItems = [rightBarRightButton, rightBarLeftButton]
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
     }
     // MARK: - ACTIONS
 }
