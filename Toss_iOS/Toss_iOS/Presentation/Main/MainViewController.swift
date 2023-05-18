@@ -15,7 +15,7 @@ class MainViewController : UIViewController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        
     }
     
     // MARK: - ACTIONS
