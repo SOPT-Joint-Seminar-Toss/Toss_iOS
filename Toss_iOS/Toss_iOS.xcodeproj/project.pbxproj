@@ -22,6 +22,7 @@
 		2CDCEC6D2A0F7D2D009E6039 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6C2A0F7D2D009E6039 /* SnapKit */; };
 		2CDCEC702A0F7D37009E6039 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6F2A0F7D37009E6039 /* Then */; };
 		2CDCEC732A0F7D4F009E6039 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC722A0F7D4F009E6039 /* Kingfisher */; };
+		2CE5E4F52A135BDF00E7DD31 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5E4F42A135BDF00E7DD31 /* GiftViewController.swift */; };
 		D22AC5842A11B1EA0097210D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5832A11B1EA0097210D /* Image.swift */; };
 		D22AC5862A11B7690097210D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5852A11B7690097210D /* UIView+.swift */; };
 		D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5892A11B7A20097210D /* UITableViewCell+.swift */; };
@@ -49,6 +50,7 @@
 		2CDCEC5D2A0F7CFB009E6039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CDCEC602A0F7CFB009E6039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CDCEC622A0F7CFB009E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CE5E4F42A135BDF00E7DD31 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		D22AC5832A11B1EA0097210D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Toss_iOS/Global/Constant/Image.swift; sourceTree = SOURCE_ROOT; };
 		D22AC5852A11B7690097210D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D22AC5892A11B7A20097210D /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		2CDCEC7E2A0F7ED6009E6039 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				2CE5E4F42A135BDF00E7DD31 /* GiftViewController.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				2CDCEC572A0F7CFA009E6039 /* SceneDelegate.swift in Sources */,
 				2CB2AD622A10D9240086445A /* UIFont+.swift in Sources */,
 				D22AC58C2A11B7B00097210D /* UICollectionViewCell+.swift in Sources */,
+				2CE5E4F52A135BDF00E7DD31 /* GiftViewController.swift in Sources */,
 				D22AC5942A11B8490097210D /* UITableHeaderFooterView+.swift in Sources */,
 				D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */,
 				2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */,
