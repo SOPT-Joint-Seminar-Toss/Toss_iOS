@@ -57,6 +57,6 @@ extension UIFont {
         case thin = "Thin"
     }
     static func spoqaHanSanNeo(_ type: SpoqaHanSanNeoType, size: CGFloat) -> UIFont {
-        return UIFont(name: "SPoqaHanSanNeo-\(type.rawValue)", size: size)!
+        return UIFont(name: "SpoqaHanSansNeo-\(type.rawValue)", size: size)!
     }
 }

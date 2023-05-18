@@ -9,15 +9,26 @@ import UIKit
 
 
 class MainViewController : UIViewController {
-    // MARK: - PROPERTIES
+    //MARK: - Properties
+
+    //MARK: - UI Components
+    private var mainView = MainView()
     
     
-    // MARK: - LIFECYCLE
+    //MARK: - Life Cycle
+    override func loadView() {
+        super.loadView()
+        mainView = MainView(frame: self.view.frame)
+        view = mainView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUI()
     }
-    
+    //MARK: - Custom Method
+    private func setUI(){
+    }
     // MARK: - ACTIONS
 }
 // MARK: - EXTENSIONs
