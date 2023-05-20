@@ -22,13 +22,6 @@
 		2CDCEC6D2A0F7D2D009E6039 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6C2A0F7D2D009E6039 /* SnapKit */; };
 		2CDCEC702A0F7D37009E6039 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6F2A0F7D37009E6039 /* Then */; };
 		2CDCEC732A0F7D4F009E6039 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC722A0F7D4F009E6039 /* Kingfisher */; };
-		A5552D472A154FBC00835B40 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5552D462A154FBC00835B40 /* TabBarController.swift */; };
-		A5E2DEDD2A15E364002A60A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEDC2A15E364002A60A4 /* MainViewController.swift */; };
-		A5E2DEDF2A15F76B002A60A4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEDE2A15F76B002A60A4 /* MainView.swift */; };
-		A5E2DEE12A15FA40002A60A4 /* MainSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE02A15FA40002A60A4 /* MainSectionView.swift */; };
-		A5E2DEE32A15FA49002A60A4 /* MainSectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE22A15FA49002A60A4 /* MainSectionCellView.swift */; };
-		A5E2DEE52A163B42002A60A4 /* SubSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE42A163B42002A60A4 /* SubSectionView.swift */; };
-		A5E2DEE72A164640002A60A4 /* SubSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE62A164640002A60A4 /* SubSectionButton.swift */; };
 		D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325C2A11E86200C4281C /* PayNavigationView.swift */; };
 		D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325E2A11E86C00C4281C /* PaySearchView.swift */; };
 		D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732602A11E87800C4281C /* PayProductCollectionView.swift */; };
@@ -85,13 +78,6 @@
 		2CDCEC5D2A0F7CFB009E6039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CDCEC602A0F7CFB009E6039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CDCEC622A0F7CFB009E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5552D462A154FBC00835B40 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		A5E2DEDC2A15E364002A60A4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		A5E2DEDE2A15F76B002A60A4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		A5E2DEE02A15FA40002A60A4 /* MainSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionView.swift; sourceTree = "<group>"; };
-		A5E2DEE22A15FA49002A60A4 /* MainSectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionCellView.swift; sourceTree = "<group>"; };
-		A5E2DEE42A163B42002A60A4 /* SubSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionView.swift; sourceTree = "<group>"; };
-		A5E2DEE62A164640002A60A4 /* SubSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionButton.swift; sourceTree = "<group>"; };
 		D217325C2A11E86200C4281C /* PayNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayNavigationView.swift; path = Pay/View/PayNavigationView.swift; sourceTree = SOURCE_ROOT; };
 		D217325E2A11E86C00C4281C /* PaySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaySearchView.swift; path = Pay/View/PaySearchView.swift; sourceTree = SOURCE_ROOT; };
 		D21732602A11E87800C4281C /* PayProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionView.swift; path = Pay/View/PayProductCollectionView.swift; sourceTree = SOURCE_ROOT; };
@@ -209,10 +195,10 @@
 		2CDCEC772A0F7E47009E6039 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A5552D452A154F9E00835B40 /* Base */,
-				A5552D4A2A15568800835B40 /* Main */,
+				2CDCEC822A0F7F1A009E6039 /* Base */,
 				2CDCEC7E2A0F7ED6009E6039 /* Gift */,
 				2CDCEC7D2A0F7ED0009E6039 /* Pay */,
+				2CDCEC7C2A0F7EC6009E6039 /* Main */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -260,6 +246,13 @@
 				D22AC5992A11B89B0097210D /* UIImageView+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		2CDCEC7C2A0F7EC6009E6039 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		2CDCEC7D2A0F7ED0009E6039 /* Pay */ = {
@@ -322,26 +315,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		A5552D452A154F9E00835B40 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				A5552D462A154FBC00835B40 /* TabBarController.swift */,
-			);
-			name = Base;
-			path = ../Global/Base;
-			sourceTree = "<group>";
-		};
-		A5552D4A2A15568800835B40 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				A5E2DEDC2A15E364002A60A4 /* MainViewController.swift */,
-				A5E2DEDE2A15F76B002A60A4 /* MainView.swift */,
-				A5E2DEE02A15FA40002A60A4 /* MainSectionView.swift */,
-				A5E2DEE22A15FA49002A60A4 /* MainSectionCellView.swift */,
-				A5E2DEE42A163B42002A60A4 /* SubSectionView.swift */,
-				A5E2DEE62A164640002A60A4 /* SubSectionButton.swift */,
-			);
-			path = Main;
 		D21732592A11E83700C4281C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,16 +475,10 @@
 			files = (
 				D2E3E2812A13A00E002B65C6 /* PayBrandConCollectionView.swift in Sources */,
 				2CDCEC552A0F7CFA009E6039 /* AppDelegate.swift in Sources */,
-				A5E2DEE52A163B42002A60A4 /* SubSectionView.swift in Sources */,
-				A5E2DEE72A164640002A60A4 /* SubSectionButton.swift in Sources */,
-				A5E2DEDF2A15F76B002A60A4 /* MainView.swift in Sources */,
-				A5552D472A154FBC00835B40 /* TabBarController.swift in Sources */,
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
 				D2FA253C2A13E8AB0044A59E /* PayPopularBrandTableHeaderView.swift in Sources */,
 				D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */,
 				D22AC58E2A11B7CC0097210D /* UITextField+.swift in Sources */,
-				A5E2DEE32A15FA49002A60A4 /* MainSectionCellView.swift in Sources */,
-				A5E2DEE12A15FA40002A60A4 /* MainSectionView.swift in Sources */,
 				D2FA252A2A13DA7F0044A59E /* PayCashBackTableView.swift in Sources */,
 				D21732632A11E88B00C4281C /* PayMainView.swift in Sources */,
 				D2FA25282A13D6BE0044A59E /* PayPopularConTableHeaderView.swift in Sources */,
@@ -524,7 +491,6 @@
 				D2FA25322A13E1ED0044A59E /* PayCashBackTableFooterView.swift in Sources */,
 				D2E3E2852A13A66C002B65C6 /* PayBrandConModel.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
-				A5E2DEDD2A15E364002A60A4 /* MainViewController.swift in Sources */,
 				D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */,
 				D2FA25222A13CD4C0044A59E /* PayPopularConTableView.swift in Sources */,
 				D2FA25362A13E4DD0044A59E /* PayPopularBrandTableViewCell.swift in Sources */,
@@ -689,7 +655,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JB8T59WMFR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toss_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -717,7 +682,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JB8T59WMFR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toss_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
