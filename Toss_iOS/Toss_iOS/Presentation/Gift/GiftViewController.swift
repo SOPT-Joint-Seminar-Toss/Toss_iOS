@@ -12,6 +12,8 @@ import Then
 
 class GiftViewController: UIViewController {
     
+    
+    
     //MARK: - UI Components
     //scrollview 구현
     private var scrollView = UIScrollView()
