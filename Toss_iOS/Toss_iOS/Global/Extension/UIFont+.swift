@@ -44,4 +44,18 @@ extension UIFont {
     class var tossButton: UIFont {
         return UIFont(name: "SpoqaHanSansNeo-Medium", size: 16)!
     }
+    class var tossMedium: UIFont {
+        return UIFont(name: "SpoqaHanSansNeo-Medium", size: 10)!
+    }
+    
+    public enum SpoqaHanSanNeoType: String {
+        case bold = "Bold"
+        case medium = "Medium"
+        case light = "Light"
+        case regular = "Regular"
+        case thin = "Thin"
+    }
+    static func spoqaHanSanNeo(_ type: SpoqaHanSanNeoType, size: CGFloat) -> UIFont {
+        return UIFont(name: "SpoqaHanSansNeo-\(type.rawValue)", size: size)!
+    }
 }

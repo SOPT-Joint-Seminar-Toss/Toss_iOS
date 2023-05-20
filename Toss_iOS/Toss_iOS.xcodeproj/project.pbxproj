@@ -23,6 +23,13 @@
 		2CDCEC702A0F7D37009E6039 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6F2A0F7D37009E6039 /* Then */; };
 		2CDCEC732A0F7D4F009E6039 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC722A0F7D4F009E6039 /* Kingfisher */; };
 		2CE0FB252A189E9A00BDE59C /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE0FB242A189E9A00BDE59C /* GiftViewController.swift */; };
+		A5021ED32A18EAC8007DE096 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021ED22A18EAC8007DE096 /* TabBarController.swift */; };
+		A5021ED62A18EB28007DE096 /* SubSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021ED52A18EB28007DE096 /* SubSectionButton.swift */; };
+		A5021ED82A18EB5C007DE096 /* SubSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021ED72A18EB5C007DE096 /* SubSectionView.swift */; };
+		A5021EDA2A18EB7C007DE096 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021ED92A18EB7C007DE096 /* MainViewController.swift */; };
+		A5021EDC2A18EB9A007DE096 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021EDB2A18EB9A007DE096 /* MainView.swift */; };
+		A5021EDE2A18EBB2007DE096 /* MainSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021EDD2A18EBB2007DE096 /* MainSectionView.swift */; };
+		A5021EE02A18EBC6007DE096 /* MainSectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021EDF2A18EBC6007DE096 /* MainSectionCellView.swift */; };
 		D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325C2A11E86200C4281C /* PayNavigationView.swift */; };
 		D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325E2A11E86C00C4281C /* PaySearchView.swift */; };
 		D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732602A11E87800C4281C /* PayProductCollectionView.swift */; };
@@ -80,6 +87,13 @@
 		2CDCEC602A0F7CFB009E6039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CDCEC622A0F7CFB009E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE0FB242A189E9A00BDE59C /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
+		A5021ED22A18EAC8007DE096 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = "../../../../../../../.Trash/Toss_iOS 오후 3.29.10/Toss_iOS/Toss_iOS/Presentation/Base/TabBarController.swift"; sourceTree = "<group>"; };
+		A5021ED52A18EB28007DE096 /* SubSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubSectionButton.swift; path = "../../../../../../../.Trash/Toss_iOS 오후 3.29.10/Toss_iOS/Toss_iOS/Presentation/Main/SubSectionButton.swift"; sourceTree = "<group>"; };
+		A5021ED72A18EB5C007DE096 /* SubSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionView.swift; sourceTree = "<group>"; };
+		A5021ED92A18EB7C007DE096 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A5021EDB2A18EB9A007DE096 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A5021EDD2A18EBB2007DE096 /* MainSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionView.swift; sourceTree = "<group>"; };
+		A5021EDF2A18EBC6007DE096 /* MainSectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionCellView.swift; sourceTree = "<group>"; };
 		D217325C2A11E86200C4281C /* PayNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayNavigationView.swift; path = Pay/View/PayNavigationView.swift; sourceTree = SOURCE_ROOT; };
 		D217325E2A11E86C00C4281C /* PaySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaySearchView.swift; path = Pay/View/PaySearchView.swift; sourceTree = SOURCE_ROOT; };
 		D21732602A11E87800C4281C /* PayProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionView.swift; path = Pay/View/PayProductCollectionView.swift; sourceTree = SOURCE_ROOT; };
@@ -197,10 +211,10 @@
 		2CDCEC772A0F7E47009E6039 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A5021ED42A18EB0C007DE096 /* Main */,
 				2CDCEC822A0F7F1A009E6039 /* Base */,
 				2CDCEC7E2A0F7ED6009E6039 /* Gift */,
 				2CDCEC7D2A0F7ED0009E6039 /* Pay */,
-				2CDCEC7C2A0F7EC6009E6039 /* Main */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -250,13 +264,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		2CDCEC7C2A0F7EC6009E6039 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		2CDCEC7D2A0F7ED0009E6039 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				D21732662A11F62B00C4281C /* BaseViewController.swift */,
+				A5021ED22A18EAC8007DE096 /* TabBarController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -316,6 +324,19 @@
 				2CB2AD5B2A10D8FF0086445A /* SpoqaHanSansNeo-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		A5021ED42A18EB0C007DE096 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A5021ED52A18EB28007DE096 /* SubSectionButton.swift */,
+				A5021ED72A18EB5C007DE096 /* SubSectionView.swift */,
+				A5021ED92A18EB7C007DE096 /* MainViewController.swift */,
+				A5021EDB2A18EB9A007DE096 /* MainView.swift */,
+				A5021EDD2A18EBB2007DE096 /* MainSectionView.swift */,
+				A5021EDF2A18EBC6007DE096 /* MainSectionCellView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		D21732592A11E83700C4281C /* View */ = {
@@ -481,24 +502,30 @@
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
 				D2FA253C2A13E8AB0044A59E /* PayPopularBrandTableHeaderView.swift in Sources */,
 				D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */,
+				A5021ED32A18EAC8007DE096 /* TabBarController.swift in Sources */,
 				D22AC58E2A11B7CC0097210D /* UITextField+.swift in Sources */,
 				D2FA252A2A13DA7F0044A59E /* PayCashBackTableView.swift in Sources */,
 				D21732632A11E88B00C4281C /* PayMainView.swift in Sources */,
+				A5021EE02A18EBC6007DE096 /* MainSectionCellView.swift in Sources */,
 				D2FA25282A13D6BE0044A59E /* PayPopularConTableHeaderView.swift in Sources */,
 				D2FA25342A13E4B10044A59E /* PayPopularBrandTableView.swift in Sources */,
 				D2FA25302A13DF5A0044A59E /* PayCashBackTableHeaderView.swift in Sources */,
 				D22AC5902A11B8040097210D /* UINavigationController+.swift in Sources */,
+				A5021EDC2A18EB9A007DE096 /* MainView.swift in Sources */,
 				D21732672A11F62B00C4281C /* BaseViewController.swift in Sources */,
 				2CE0FB252A189E9A00BDE59C /* GiftViewController.swift in Sources */,
 				D22AC59A2A11B89B0097210D /* UIImageView+.swift in Sources */,
 				D2E3E2872A13AD0F002B65C6 /* PayBrandConCollectionViewHeaderView.swift in Sources */,
 				D2FA25322A13E1ED0044A59E /* PayCashBackTableFooterView.swift in Sources */,
 				D2E3E2852A13A66C002B65C6 /* PayBrandConModel.swift in Sources */,
+				A5021ED62A18EB28007DE096 /* SubSectionButton.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
 				D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */,
+				A5021EDE2A18EBB2007DE096 /* MainSectionView.swift in Sources */,
 				D2FA25222A13CD4C0044A59E /* PayPopularConTableView.swift in Sources */,
 				D2FA25362A13E4DD0044A59E /* PayPopularBrandTableViewCell.swift in Sources */,
 				D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */,
+				A5021ED82A18EB5C007DE096 /* SubSectionView.swift in Sources */,
 				D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */,
 				D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */,
 				D2E3E2832A13A045002B65C6 /* PayBrandConCollectionViewCell.swift in Sources */,
@@ -515,6 +542,7 @@
 				D2FA25262A13D3C60044A59E /* PayPopularConModel.swift in Sources */,
 				D22AC5942A11B8490097210D /* UITableHeaderFooterView+.swift in Sources */,
 				D2FA252E2A13DD340044A59E /* PayCashBackModel.swift in Sources */,
+				A5021EDA2A18EB7C007DE096 /* MainViewController.swift in Sources */,
 				D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */,
 				2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */,
 				D2B143402A1238A4006BAB52 /* PayProductCollectionFooterView.swift in Sources */,
