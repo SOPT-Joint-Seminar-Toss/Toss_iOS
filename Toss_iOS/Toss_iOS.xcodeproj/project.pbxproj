@@ -24,6 +24,11 @@
 		2CDCEC732A0F7D4F009E6039 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC722A0F7D4F009E6039 /* Kingfisher */; };
 		A5552D472A154FBC00835B40 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5552D462A154FBC00835B40 /* TabBarController.swift */; };
 		A5E2DEDD2A15E364002A60A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEDC2A15E364002A60A4 /* MainViewController.swift */; };
+		A5E2DEDF2A15F76B002A60A4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEDE2A15F76B002A60A4 /* MainView.swift */; };
+		A5E2DEE12A15FA40002A60A4 /* MainSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE02A15FA40002A60A4 /* MainSectionView.swift */; };
+		A5E2DEE32A15FA49002A60A4 /* MainSectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE22A15FA49002A60A4 /* MainSectionCellView.swift */; };
+		A5E2DEE52A163B42002A60A4 /* SubSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE42A163B42002A60A4 /* SubSectionView.swift */; };
+		A5E2DEE72A164640002A60A4 /* SubSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2DEE62A164640002A60A4 /* SubSectionButton.swift */; };
 		D22AC5842A11B1EA0097210D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5832A11B1EA0097210D /* Image.swift */; };
 		D22AC5862A11B7690097210D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5852A11B7690097210D /* UIView+.swift */; };
 		D22AC58A2A11B7A20097210D /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AC5892A11B7A20097210D /* UITableViewCell+.swift */; };
@@ -53,6 +58,11 @@
 		2CDCEC622A0F7CFB009E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5552D462A154FBC00835B40 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A5E2DEDC2A15E364002A60A4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A5E2DEDE2A15F76B002A60A4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A5E2DEE02A15FA40002A60A4 /* MainSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionView.swift; sourceTree = "<group>"; };
+		A5E2DEE22A15FA49002A60A4 /* MainSectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSectionCellView.swift; sourceTree = "<group>"; };
+		A5E2DEE42A163B42002A60A4 /* SubSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionView.swift; sourceTree = "<group>"; };
+		A5E2DEE62A164640002A60A4 /* SubSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionButton.swift; sourceTree = "<group>"; };
 		D22AC5832A11B1EA0097210D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Toss_iOS/Global/Constant/Image.swift; sourceTree = SOURCE_ROOT; };
 		D22AC5852A11B7690097210D /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D22AC5892A11B7A20097210D /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
@@ -254,6 +264,11 @@
 			isa = PBXGroup;
 			children = (
 				A5E2DEDC2A15E364002A60A4 /* MainViewController.swift */,
+				A5E2DEDE2A15F76B002A60A4 /* MainView.swift */,
+				A5E2DEE02A15FA40002A60A4 /* MainSectionView.swift */,
+				A5E2DEE22A15FA49002A60A4 /* MainSectionCellView.swift */,
+				A5E2DEE42A163B42002A60A4 /* SubSectionView.swift */,
+				A5E2DEE62A164640002A60A4 /* SubSectionButton.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -346,9 +361,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CDCEC552A0F7CFA009E6039 /* AppDelegate.swift in Sources */,
+				A5E2DEE52A163B42002A60A4 /* SubSectionView.swift in Sources */,
+				A5E2DEE72A164640002A60A4 /* SubSectionButton.swift in Sources */,
+				A5E2DEDF2A15F76B002A60A4 /* MainView.swift in Sources */,
 				A5552D472A154FBC00835B40 /* TabBarController.swift in Sources */,
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
 				D22AC58E2A11B7CC0097210D /* UITextField+.swift in Sources */,
+				A5E2DEE32A15FA49002A60A4 /* MainSectionCellView.swift in Sources */,
+				A5E2DEE12A15FA40002A60A4 /* MainSectionView.swift in Sources */,
 				D22AC5902A11B8040097210D /* UINavigationController+.swift in Sources */,
 				D22AC59A2A11B89B0097210D /* UIImageView+.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
