@@ -17,7 +17,7 @@ public enum Image {
     //MARK: Icon
     
     static let alarm = UIImage(named: "icn_alarm")!
-    static let BackArrow = UIImage(named: "icn_back_arrow")!
+    static let backArrow = UIImage(named: "icn_back_arrow")!
     static let benefit = UIImage(named: "icn_benefit")!
     static let financialTip = UIImage(named: "icn_financial_tip")!
     static let friend = UIImage(named: "icn_friend")!
