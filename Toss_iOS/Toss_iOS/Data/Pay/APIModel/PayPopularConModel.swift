@@ -24,4 +24,27 @@ extension PopularConModel {
     }
 }
 
+struct PopularConRequest {
+    var userId: String
+}
 
+// MARK: - PopulaConResponse
+struct PopulaConResponse: Codable {
+    let status: Int
+    let message: String
+    let data: [Datum]
+}
+
+// MARK: - Datum
+struct Datum: Codable {
+    let id: Int
+    let imageURL, title: String
+    let discountRate, price: Int
+    let endDate: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case imageURL = "imageUrl"
+        case title, discountRate, price, endDate
+    }
+}
