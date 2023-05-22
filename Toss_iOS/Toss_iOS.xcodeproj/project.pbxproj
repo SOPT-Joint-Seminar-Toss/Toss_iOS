@@ -23,6 +23,7 @@
 		2CDCEC702A0F7D37009E6039 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC6F2A0F7D37009E6039 /* Then */; };
 		2CDCEC732A0F7D4F009E6039 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2CDCEC722A0F7D4F009E6039 /* Kingfisher */; };
 		2CE0FB252A189E9A00BDE59C /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE0FB242A189E9A00BDE59C /* GiftViewController.swift */; };
+		2CE7D0892A1B9FFF00FB4F8F /* GiftcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE7D0882A1B9FFF00FB4F8F /* GiftcardViewController.swift */; };
 		A5021ED82A18EB5C007DE096 /* SubSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021ED72A18EB5C007DE096 /* SubSectionView.swift */; };
 		A5021EDA2A18EB7C007DE096 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021ED92A18EB7C007DE096 /* MainViewController.swift */; };
 		A5021EDC2A18EB9A007DE096 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021EDB2A18EB9A007DE096 /* MainView.swift */; };
@@ -87,6 +88,7 @@
 		2CDCEC602A0F7CFB009E6039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CDCEC622A0F7CFB009E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE0FB242A189E9A00BDE59C /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
+		2CE7D0882A1B9FFF00FB4F8F /* GiftcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftcardViewController.swift; sourceTree = "<group>"; };
 		A5021ED72A18EB5C007DE096 /* SubSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionView.swift; sourceTree = "<group>"; };
 		A5021ED92A18EB7C007DE096 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A5021EDB2A18EB9A007DE096 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE0FB242A189E9A00BDE59C /* GiftViewController.swift */,
+				2CE7D0882A1B9FFF00FB4F8F /* GiftcardViewController.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				D2E3E2812A13A00E002B65C6 /* PayBrandConCollectionView.swift in Sources */,
 				A5021EE42A18F789007DE096 /* TabBarController.swift in Sources */,
 				2CDCEC552A0F7CFA009E6039 /* AppDelegate.swift in Sources */,
+				2CE7D0892A1B9FFF00FB4F8F /* GiftcardViewController.swift in Sources */,
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
 				D2FA253C2A13E8AB0044A59E /* PayPopularBrandTableHeaderView.swift in Sources */,
 				D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */,
