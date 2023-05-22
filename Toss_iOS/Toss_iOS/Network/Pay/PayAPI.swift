@@ -18,9 +18,9 @@ class PayAPI: BaseAPI {
 extension PayAPI{
     
     public func getPopularCon(completion: @escaping (NetworkResult<Any>) -> Void) {
-        AFManager.request(PayService.getUserInfo).responseData { response in
+        AFManager.request(PayService.getPopularCon).responseData { response in
             self.disposeNetwork(response,
-                                dataModel: PopulaConResponse.self,
+                                dataModel: [PopularConResponse].self,
                                 completion: completion)
         }
     }

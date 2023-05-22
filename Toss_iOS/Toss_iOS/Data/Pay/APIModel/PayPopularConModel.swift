@@ -29,22 +29,14 @@ struct PopularConRequest {
 }
 
 // MARK: - PopulaConResponse
-struct PopulaConResponse: Codable {
-    let status: Int
-    let message: String
-    let data: [Datum]
-}
-
-// MARK: - Datum
-struct Datum: Codable {
+struct PopularConResponse: Codable {
     let id: Int
-    let imageURL, title: String
-    let discountRate, price: Int
-    let endDate: String
+    let imageURL, brandTitle, productTitle: String
+    let price, point: Int
 
     enum CodingKeys: String, CodingKey {
         case id
         case imageURL = "imageUrl"
-        case title, discountRate, price, endDate
+        case brandTitle, productTitle, price, point
     }
 }

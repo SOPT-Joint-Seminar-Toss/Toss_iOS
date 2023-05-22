@@ -13,7 +13,7 @@ enum PayService{
     case getPopularCon
 }
 
-extension HomeService: BaseTargetType {
+extension PayService: BaseTargetType {
     var parameters: RequestParams {
         switch self{
         case .getPopularCon:
@@ -31,7 +31,7 @@ extension HomeService: BaseTargetType {
     var path: String {
         switch self {
         case .getPopularCon:
-            return "product"
+            return "product/brand"
         }
     }
 }
