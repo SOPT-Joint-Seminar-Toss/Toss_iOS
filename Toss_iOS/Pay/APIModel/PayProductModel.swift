@@ -28,3 +28,18 @@ extension Product {
     }
 }
 
+struct ProductReqeust: Codable {
+    let userId: String
+}
+
+struct ProductResponse: Codable {
+    let id: Int
+    let imageURL, brandTitle, productTitle: String
+    let price, point: Int
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case imageURL = "imageUrl"
+        case brandTitle, productTitle, price, point
+    }
+}
