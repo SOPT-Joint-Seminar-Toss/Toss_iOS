@@ -102,6 +102,7 @@ class GiftcardViewController: UIViewController {
                 $0.text = "우주선"
                 $0.font = .tossBody3
                 $0.textColor = UIColor.init(hex: 0xB9BCC2)
+                
             }
         }
         
