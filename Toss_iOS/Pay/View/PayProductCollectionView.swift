@@ -58,4 +58,3 @@ final class PayProductCollectionView: UICollectionView {
     }
 }
 
-

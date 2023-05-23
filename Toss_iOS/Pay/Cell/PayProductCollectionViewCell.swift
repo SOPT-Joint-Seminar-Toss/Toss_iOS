@@ -12,6 +12,11 @@ import Then
 
 final class PayProductCollectionViewCell: UICollectionViewCell {
     
+    //MARK: - Properties
+    
+    private var productId: Int?
+    private var productEndData: String?
+    
     //MARK: - UI Components
     
     private let productImage = UIImageView()
@@ -94,14 +99,14 @@ final class PayProductCollectionViewCell: UICollectionViewCell {
             $0.leading.equalToSuperview()
         }
         
-        productPrice.snp.makeConstraints {
+        productDiscount.snp.makeConstraints {
             $0.top.equalTo(self.productLabel.snp.bottom).offset(7)
             $0.leading.equalToSuperview()
         }
         
-        productDiscount.snp.makeConstraints {
-            $0.top.equalTo(self.productPrice)
-            $0.leading.equalTo(self.productPrice.snp.trailing).offset(5)
+        productPrice.snp.makeConstraints {
+            $0.top.equalTo(self.productDiscount)
+            $0.leading.equalTo(self.productDiscount.snp.trailing).offset(5)
         }
         
         purchaserProfile.snp.makeConstraints {
@@ -117,11 +122,12 @@ final class PayProductCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    public func dataBind(_ product: Product) {
-        productImage.image = product.image
-        productLabel.text = product.name
-        productDiscount.text = product.disCount
-        productPrice.text = product.price
+    public func dataBind(_ product: ProductResponse) {
+        productImage.kfSetImage(url: product.imageURL)
+        productLabel.text = product.title
+        productDiscount.text = "\(String(product.discountRate))%"
+        productPrice.text = "\(String(product.price))원"
+        productEndData = product.endDate
+        productId = product.id
     }
-    
 }

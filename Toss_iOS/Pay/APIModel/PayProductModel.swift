@@ -34,12 +34,13 @@ struct ProductReqeust: Codable {
 
 struct ProductResponse: Codable {
     let id: Int
-    let imageURL, brandTitle, productTitle: String
-    let price, point: Int
+    let imageURL, title: String
+    let discountRate, price: Int
+    let endDate: String
 
     enum CodingKeys: String, CodingKey {
         case id
         case imageURL = "imageUrl"
-        case brandTitle, productTitle, price, point
+        case title, discountRate, price, endDate
     }
 }

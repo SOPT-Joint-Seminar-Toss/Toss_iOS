@@ -14,6 +14,7 @@ final class PayViewController : BaseViewController {
     
     //MARK: - Properties
     
+    
     private let productMockData = Product.mockDummy()
     private let brandConData = BrandCon.mockDummy()
     private let cashMockData = CashBack.mockDummy()
@@ -24,6 +25,27 @@ final class PayViewController : BaseViewController {
             self.rootView.popularConTableView.reloadData()
         }
     }
+    
+    private var productData: [ProductResponse] = [] {
+        didSet {
+            self.rootView.productCollectionView.reloadData()
+        }
+    }
+    
+    public var index: Int = 0 {
+        didSet {
+            if !productData.isEmpty {
+                self.endDate = self.productData[self.index].endDate
+            }
+        }
+    }
+    
+    public var endDate: String? {
+        didSet {
+            self.rootView.productCollectionView.reloadData()
+        }
+    }
+    
     
     //MARK: - UI Components
     
@@ -40,7 +62,11 @@ final class PayViewController : BaseViewController {
         
         target()
         requestPay()
-        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(dataReceived),
+            name: NSNotification.Name("page"),
+            object: nil)
     }
     
     //MARK: - Custom Method
@@ -66,11 +92,6 @@ final class PayViewController : BaseViewController {
     
 }
 
-extension PayViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("yes")
-    }
-}
 extension PayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableView {
@@ -172,7 +193,7 @@ extension PayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case rootView.productCollectionView:
-            return productMockData.count
+            return productData.count
         case rootView.brandConCollectionView:
             return brandConData.count
         default:
@@ -185,7 +206,7 @@ extension PayViewController: UICollectionViewDataSource {
         switch collectionView {
         case rootView.productCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayProductCollectionViewCell.cellIdentifier, for: indexPath) as? PayProductCollectionViewCell else { return UICollectionViewCell() }
-            cell.dataBind(productMockData[indexPath.item])
+            cell.dataBind(productData[indexPath.item])
             return cell
         case rootView.brandConCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayBrandConCollectionViewCell.cellIdentifier, for: indexPath) as? PayBrandConCollectionViewCell else { return UICollectionViewCell() }
@@ -210,6 +231,7 @@ extension PayViewController: UICollectionViewDataSource {
                     withReuseIdentifier:PayProductCollectionHeaderView.reuseCellIdentifier,
                     for: indexPath
                 )as? PayProductCollectionHeaderView else { return UICollectionReusableView() }
+                header.dataBind(self.endDate)
                 return header
                 
             case UICollectionView.elementKindSectionFooter:
@@ -238,5 +260,22 @@ extension PayViewController {
             print("🍏🍏🍏🍏🍏🍏🍏")
             self.popularConData = result
         })
+        
+        PayAPI.shared.getProduct (completion: { result in
+            guard let result = self.validateResult(result) as? [ProductResponse] else {
+                print("🍎🍎🍎🍎🍎🍎🍎🍎")
+                return
+            }
+            print("🍏🍏🍏🍏🍏🍏🍏")
+            self.productData = result
+            self.endDate = self.productData[self.index].endDate
+        })
+    }
+    
+    @objc func dataReceived(notification: NSNotification) {
+        guard let page = notification.object as? Int else { return }
+        if self.index != page {
+            self.index = page
+        }
     }
 }
