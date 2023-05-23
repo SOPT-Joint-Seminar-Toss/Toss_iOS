@@ -56,6 +56,8 @@
 		D2348F8E2A1B6FF200FF50D9 /* AlamofireLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2348F8D2A1B6FF200FF50D9 /* AlamofireLogger.swift */; };
 		D2348F902A1B700500FF50D9 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2348F8F2A1B700500FF50D9 /* APIConstants.swift */; };
 		D2348F932A1B705400FF50D9 /* VoidResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2348F922A1B705400FF50D9 /* VoidResult.swift */; };
+		D2348F9B2A1B733300FF50D9 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2348F9A2A1B733300FF50D9 /* PayAPI.swift */; };
+		D2348F9D2A1B733B00FF50D9 /* PayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2348F9C2A1B733B00FF50D9 /* PayService.swift */; };
 		D2B143372A122DF3006BAB52 /* PayProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */; };
 		D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433A2A123382006BAB52 /* PayProductModel.swift */; };
 		D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B1433D2A123899006BAB52 /* PayProductCollectionHeaderView.swift */; };
@@ -129,6 +131,8 @@
 		D2348F8D2A1B6FF200FF50D9 /* AlamofireLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireLogger.swift; sourceTree = "<group>"; };
 		D2348F8F2A1B700500FF50D9 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		D2348F922A1B705400FF50D9 /* VoidResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResult.swift; sourceTree = "<group>"; };
+		D2348F9A2A1B733300FF50D9 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
+		D2348F9C2A1B733B00FF50D9 /* PayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayService.swift; sourceTree = "<group>"; };
 		D2B143362A122DF3006BAB52 /* PayProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionViewCell.swift; path = Pay/Cell/PayProductCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		D2B1433A2A123382006BAB52 /* PayProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductModel.swift; path = Pay/APIModel/PayProductModel.swift; sourceTree = SOURCE_ROOT; };
 		D2B1433D2A123899006BAB52 /* PayProductCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionHeaderView.swift; path = Pay/Cell/HeaderFooterView/PayProductCollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
@@ -391,6 +395,7 @@
 		D2348F7F2A1B6F6D00FF50D9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D2348F992A1B732900FF50D9 /* Pay */,
 				D2348F802A1B6F7400FF50D9 /* Foundation */,
 			);
 			path = Network;
@@ -417,6 +422,15 @@
 				D2348F922A1B705400FF50D9 /* VoidResult.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		D2348F992A1B732900FF50D9 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				D2348F9A2A1B733300FF50D9 /* PayAPI.swift */,
+				D2348F9C2A1B733B00FF50D9 /* PayService.swift */,
+			);
+			path = Pay;
 			sourceTree = "<group>";
 		};
 		D2B143382A12336B006BAB52 /* APIModel */ = {
@@ -566,9 +580,11 @@
 				D2E3E2872A13AD0F002B65C6 /* PayBrandConCollectionViewHeaderView.swift in Sources */,
 				D2FA25322A13E1ED0044A59E /* PayCashBackTableFooterView.swift in Sources */,
 				D2E3E2852A13A66C002B65C6 /* PayBrandConModel.swift in Sources */,
+				D2348F9D2A1B733B00FF50D9 /* PayService.swift in Sources */,
 				D22AC5982A11B8830097210D /* UIButton+.swift in Sources */,
 				D22AC5962A11B85F0097210D /* UILabel+.swift in Sources */,
 				A5021EDE2A18EBB2007DE096 /* MainSectionView.swift in Sources */,
+				D2348F9B2A1B733300FF50D9 /* PayAPI.swift in Sources */,
 				A5021EE62A18F7C1007DE096 /* SubSectionButton.swift in Sources */,
 				D2FA25222A13CD4C0044A59E /* PayPopularConTableView.swift in Sources */,
 				D2FA25362A13E4DD0044A59E /* PayPopularBrandTableViewCell.swift in Sources */,

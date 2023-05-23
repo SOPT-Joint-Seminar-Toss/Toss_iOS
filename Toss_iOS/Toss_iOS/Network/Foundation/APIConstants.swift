@@ -11,12 +11,18 @@ struct APIConstants{
     
     static let contentType = "Content-Type"
     static let applicationJSON = "application/json"
+    static let auth = "Authorization"
+    static let userId = "1"
 }
 
 extension APIConstants{
     
     static var noTokenHeader: Dictionary<String,String> {
         [contentType: applicationJSON]
+    }
+    
+    static var hasTokenHeader: Dictionary<String,String> {
+        [auth : userId]
     }
 }
 
