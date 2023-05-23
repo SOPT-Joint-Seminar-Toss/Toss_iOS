@@ -11,12 +11,15 @@ import Alamofire
 
 enum PayService{
     case getPopularCon
+    case getProduct
 }
 
 extension PayService: BaseTargetType {
     var parameters: RequestParams {
         switch self{
         case .getPopularCon:
+            return .none
+        case .getProduct:
             return .none
         }
     }
@@ -25,6 +28,8 @@ extension PayService: BaseTargetType {
         switch self {
         case .getPopularCon:
             return .get
+        case .getProduct:
+            return .get
         }
     }
     
@@ -32,6 +37,8 @@ extension PayService: BaseTargetType {
         switch self {
         case .getPopularCon:
             return "product/brand"
+        case .getProduct:
+            return "product"
         }
     }
 }
