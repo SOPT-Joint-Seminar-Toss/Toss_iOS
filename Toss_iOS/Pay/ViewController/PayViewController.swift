@@ -43,6 +43,7 @@ final class PayViewController : BaseViewController {
     public var endDate: String? {
         didSet {
             self.rootView.productCollectionView.reloadData()
+            self.endDate = calculateRemainngTime()
         }
     }
     
@@ -62,11 +63,7 @@ final class PayViewController : BaseViewController {
         
         target()
         requestPay()
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(dataReceived),
-            name: NSNotification.Name("page"),
-            object: nil)
+        calculateRemainngTime()
     }
     
     //MARK: - Custom Method
@@ -86,6 +83,12 @@ final class PayViewController : BaseViewController {
         
         rootView.popularBrandTableView.delegate = self
         rootView.popularBrandTableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(dataReceived),
+            name: NSNotification.Name("page"),
+            object: nil)
     }
     
     //MARK: - Action Method
@@ -278,4 +281,38 @@ extension PayViewController {
             self.index = page
         }
     }
+    
+    func calculateRemainngTime() -> String{
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+         //1. 주어진 시간 DataFormat으로 바꾸기
+        guard let endDate = self.endDate else { return "옵셔널 처리 중 문제가 발생했습니다"}
+        let formatEndDate: String = endDate.replacingOccurrences(of: "T", with: " ")
+        print("🔫🔫🔫🔫🔫🔫\(formatEndDate)🔫🔫🔫🔫🔫🔫🔫")
+        guard let endTime = format.date(from: formatEndDate) else { return "주어진 시간을 format하면 에러가 났스빈다"}
+        print("🦁🦁🦁🦁🦁🦁\(endTime)🦁🦁🦁🦁🦁🦁🦁")
+        
+        //2. 현재 시간 DataFormat으로 바꾸기
+        
+        let currentTime = Date()
+        print("🦖🦖🦖🦖🦖🦖🦖\(currentTime)🦖🦖🦖🦖🦖🦖🦖")
+        
+         
+         //3. 두 개 시간 빼주기
+        
+        var useTime = Int(endTime.timeIntervalSince(currentTime))
+        print("🐼🐼🐼🐼🐼🐼🐼\(useTime)🐼🐼🐼🐼🐼🐼🐼🐼")
+        
+        var hour = String(useTime / 3600)
+        var minute = String((useTime % 3600) / 60)
+        var second = String((useTime % 3600) % 60)
+        print("🕊🕊🕊🕊🕊🕊🕊 hour: \(hour)")
+        print("🕊🕊🕊🕊🕊🕊🕊 minute: \(minute)")
+        print("🕊🕊🕊🕊🕊🕊🕊 second: \(second)")
+        
+        //4. HH:MM:SS로 format 해주기
+        return hour + ":" + minute + ":" + second + " 남음"
+         
+    }
 }
+
