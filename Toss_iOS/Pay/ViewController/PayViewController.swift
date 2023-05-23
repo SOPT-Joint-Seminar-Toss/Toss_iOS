@@ -16,7 +16,6 @@ final class PayViewController : BaseViewController {
     
     private let productMockData = Product.mockDummy()
     private let brandConData = BrandCon.mockDummy()
-    private let popularMockData = PopularConModel.mockDummy()
     private let cashMockData = CashBack.mockDummy()
     private let brandMockData = Brand.mockDummy()
     
