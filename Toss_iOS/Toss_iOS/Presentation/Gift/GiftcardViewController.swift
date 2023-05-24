@@ -53,6 +53,7 @@ class GiftcardViewController: UIViewController {
         setStyle()
         setLayout()
         balloncardTextView.delegate = self
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func addContentView() {
@@ -90,6 +91,7 @@ class GiftcardViewController: UIViewController {
             
             backButton.do {
                 $0.setImage(Image.backArrow, for: .normal)
+                $0.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
             }
         }
         
@@ -344,6 +346,16 @@ extension GiftcardViewController {
     @objc
     private func clean() {
         balloncardTextView.text = ""
+    }
+    
+    @objc
+    func backButtonTapped() {
+        if self.navigationController == nil {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }
