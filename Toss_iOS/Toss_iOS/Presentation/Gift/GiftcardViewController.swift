@@ -12,6 +12,8 @@ import Then
 
 class GiftcardViewController: UIViewController {
     
+    let placeHolder = "고마운 마음을 담아\n선물을 보내요"
+    
     //상단 고정 영역
     private var topNavBar = UIView()
     private var backButton = UIButton()
@@ -29,13 +31,20 @@ class GiftcardViewController: UIViewController {
     private var spaceshipLabel = UILabel()
     
     //카드 작성 영역
-    //private var cardeditView = UIView()
     private var balloncardView = UIImageView()
     private var balloncardTextView = UITextView()
-    private var messageEditButton = UIButton()
+    private var editMessageButton = UIButton()
+    private var editCompleteButton = UIButton()
+    private var writeContentLabel = UILabel()
+    private var cardEditState = false
+    private var deleteButton = UIButton()
     
     //하단 고정 영역
     private var completeButton = UIButton()
+    
+    // inputAccessoryView
+    private var textViewAccessoryView = UIView()
+    private var textViewEditMessageButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +52,34 @@ class GiftcardViewController: UIViewController {
         addContentView()
         setStyle()
         setLayout()
+        balloncardTextView.delegate = self
     }
     
     func addContentView() {
-        view.addSubviews(topNavBar, cardselectView, balloncardView, completeButton)
+        view.addSubviews(topNavBar,
+                         cardselectView,
+                         balloncardView,
+                         editCompleteButton,
+                         completeButton)
+        
         topNavBar.addSubview(backButton)
-        cardselectView.addSubviews(cardLabel, ballonButton, turtleButton, ghostButton, spaceshipButton, ballonLabel, turtleLabel, ghostLabel, spaceshipLabel)
-        balloncardView.addSubviews(balloncardTextView, messageEditButton)
+        
+        cardselectView.addSubviews(cardLabel,
+                                   ballonButton,
+                                   turtleButton,
+                                   ghostButton,
+                                   spaceshipButton,
+                                   ballonLabel,
+                                   turtleLabel,
+                                   ghostLabel,
+                                   spaceshipLabel)
+        
+        balloncardView.addSubviews(balloncardTextView,
+                                   editMessageButton,
+                                   writeContentLabel,
+                                   deleteButton)
+        
+        textViewAccessoryView.addSubview(textViewEditMessageButton)
     }
     
     func setStyle() {
@@ -102,15 +132,13 @@ class GiftcardViewController: UIViewController {
                 $0.text = "우주선"
                 $0.font = .tossBody3
                 $0.textColor = UIColor.init(hex: 0xB9BCC2)
-                
             }
         }
-        
         
         balloncardView.do {
             $0.image = Image.giftCard
             $0.isUserInteractionEnabled = true
-            $0.contentMode = .scaleAspectFill
+            $0.contentMode = .scaleAspectFill //비율 설정!
             
             balloncardTextView.do {
                 $0.isScrollEnabled = false
@@ -121,8 +149,9 @@ class GiftcardViewController: UIViewController {
                 $0.backgroundColor = UIColor.clear
                 $0.isEditable = true
                 $0.textContainerInset = UIEdgeInsets(top: 20, left: 18, bottom: 18, right: 18)
+                $0.inputAccessoryView = textViewAccessoryView
             }
-            messageEditButton.do {
+            editMessageButton.do {
                 $0.setTitle("메시지 수정", for: .normal)
                 $0.titleLabel?.font = .tossBody3
                 $0.backgroundColor = UIColor.init(hex: 0x8D94A0).withAlphaComponent(0.15)
@@ -132,9 +161,44 @@ class GiftcardViewController: UIViewController {
                 $0.imageView?.contentMode = .scaleAspectFit
                 $0.contentHorizontalAlignment = .center
                 $0.semanticContentAttribute = .forceLeftToRight
+                $0.addTarget(self, action: #selector(editMessageButtonTap), for: .touchUpInside)
+            }
+            editCompleteButton.do {
+                $0.setTitle("수정 완료", for: .normal)
+                $0.titleLabel?.font = .tossBody2
+                $0.setTitleColor(.tossWhite, for: .normal)
+                $0.makeCornerRound(radius: 20)
+                $0.backgroundColor = .tossBlue
+                $0.addTarget(self, action: #selector(editCompletedTap), for: .touchUpInside)
+            }
+            writeContentLabel.do {
+                $0.isHidden = true
+                $0.textColor = .tossGrey400
+                $0.font = .tossBody3
+            }
+            deleteButton.do {
+                $0.isHidden = true
+                $0.setImage(Image.delete, for: .normal)
+                $0.addTarget(self, action: #selector(clean), for: .touchUpInside)
             }
         }
         
+        textViewAccessoryView.do {
+            $0.frame = .init(x: 0, y: 0, width: 400, height: 67)
+            $0.backgroundColor = .clear
+            
+            
+            textViewEditMessageButton.do {
+                $0.setTitle("수정 완료", for: .normal)
+                $0.titleLabel?.font = .tossBody2
+                $0.setTitleColor(.tossWhite, for: .normal)
+                $0.makeCornerRound(radius: 20)
+                $0.backgroundColor = .tossBlue
+                $0.addTarget(self,
+                             action: #selector(editCompletedTap),
+                             for: .touchUpInside)
+            }
+        }
         
         completeButton.do {
             $0.setImage(Image.complete, for: .normal)
@@ -213,12 +277,33 @@ class GiftcardViewController: UIViewController {
                 $0.leading.trailing.equalToSuperview().inset(31)
                 $0.height.greaterThanOrEqualTo(100)
             }
-            messageEditButton.snp.makeConstraints {
+            editMessageButton.snp.makeConstraints {
                 $0.top.equalTo(balloncardTextView.snp.bottom).offset(12)
                 $0.centerX.equalToSuperview()
                 $0.width.equalTo(117)
                 $0.height.equalTo(38)
             }
+            writeContentLabel.snp.makeConstraints {
+                $0.top.equalTo(balloncardTextView.snp.bottom).offset(20)
+                $0.centerX.equalToSuperview()
+            }
+            deleteButton.snp.makeConstraints {
+                $0.leading.equalTo(writeContentLabel.snp.trailing)
+                $0.centerY.equalTo(writeContentLabel.snp.centerY)
+            }
+        }
+        
+        textViewEditMessageButton.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(132)
+            $0.height.equalTo(40)
+        }
+        
+        editCompleteButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(132)
+            $0.height.equalTo(40)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
         
         completeButton.snp.makeConstraints {
@@ -230,21 +315,81 @@ class GiftcardViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            balloncardTextView.endEditing(true)
+        balloncardTextView.resignFirstResponder()
+    }
+}
+
+extension GiftcardViewController {
+    
+    @objc
+    private func editMessageButtonTap() {
+        if(balloncardTextView.text == "고마운 마음을 담아\n선물을 보내요") {
+            balloncardTextView.text = ""
         }
+        balloncardTextView.becomeFirstResponder()
+        editMessageButton.isHidden = true
+    }
+    
+    @objc
+    private func editCompletedTap() {
+        let text = balloncardTextView.text
+        print("수정 완료 버튼이 눌렸습니다.")
+        balloncardTextView.resignFirstResponder()
+        completeButton.isHidden = false
+        writeContentLabel.isHidden = true
+        deleteButton.isHidden = true
+        editMessageButton.isHidden = false
+    }
+    
+    @objc
+    private func clean() {
+        balloncardTextView.text = ""
+    }
     
 }
 
-//extension GiftcardViewController: UITextViewDelegate {
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        <#code#>
-//    }
-//
-//    func textViewDidChange(_ textView: UITextView) {
-//        <#code#>
-//    }
-//
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        <#code#>
-//    }
-//}
+extension GiftcardViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        
+        if placeHolder == textView.text {
+            balloncardTextView.text = ""
+        }
+        
+        completeButton.isHidden = true
+        editMessageButton.isHidden = true
+        writeContentLabel.isHidden = false
+    }
+
+    func textViewDidChange(_ textView: UITextView) {
+        deleteButton.isHidden = false
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        editMessageButton.isHidden = textView.hasText
+        if !textView.hasText {
+            textView.text = placeHolder
+        }
+        
+        writeContentLabel.isHidden = !textView.hasText
+        deleteButton.isHidden = !textView.hasText
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else  { return false }
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        writeContentLabel.text = "\(changedText.count)자/86자"
+
+        if(changedText.count > 21) {
+            balloncardTextView.font = .tossTitle2
+            balloncardTextView.textContainerInset = UIEdgeInsets(top: 20, left: 18, bottom: 18, right: 18)
+        }
+        else {
+            balloncardTextView.font = .tossHeader2
+            balloncardTextView.textContainerInset = UIEdgeInsets(top: 20, left: 18, bottom: 18, right: 18)
+        }
+        return changedText.count <= 85
+    }
+}
