@@ -63,26 +63,26 @@ class BaseViewController : UIViewController{
 //        })
 //    }
 //    
-//    func validateResult(_ result: NetworkResult<Any>) -> Any?{
-//        switch result{
-//        case .success(let data):
-//            print("성공했습니다.")
-//            return data
-//        case .requestErr(let message):
-//            presentBottomAlert(message)
-//        case .pathErr:
-//            presentBottomAlert("path 혹은 method 오류입니다.")
-//        case .serverErr:
-//            presentBottomAlert("서버 내 오류입니다.")
-//        case .networkFail:
-//            presentBottomAlert("네트워크가 불안정합니다.")
-//        case .decodedErr:
-//            presentBottomAlert("디코딩 오류가 발생했습니다.")
-//        case .authorizationFail(_):
-//            presentBottomAlert("인증 오류가 발생했습니다. 다시 로그인해주세요")
-//        }
-//        return nil
-//    }
+    func validateResult(_ result: NetworkResult<Any>) -> Any?{
+        switch result{
+        case .success(let data):
+            print("성공했습니다.")
+            return data
+        case .requestErr(let message):
+            print(message)
+        case .pathErr:
+            print("path 혹은 method 오류입니다.")
+        case .serverErr:
+            print("서버 내 오류입니다.")
+        case .networkFail:
+            print("네트워크가 불안정합니다.")
+        case .decodedErr:
+            print("디코딩 오류가 발생했습니다.")
+        case .authorizationFail(_):
+            print("인증 오류가 발생했습니다. 다시 로그인해주세요")
+        }
+        return nil
+    }
     
     //MARK: - Keyboard 관련 처리
    
