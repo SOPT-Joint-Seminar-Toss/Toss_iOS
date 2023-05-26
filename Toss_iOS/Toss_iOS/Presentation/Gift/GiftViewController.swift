@@ -475,13 +475,16 @@ extension GiftViewController {
     
     func dataBind(_ productData: GiftproductModel?) {
         //productImage.kfSetImage(url: productData?.imageURL)
-        productbrandLabel.text = productData?.brandTitle
-        productnameLabel.text = productData?.productTitle
-        productpriceLabel.text = String(productData?.price ?? 0) + "원"
-        cashbackpointLabel.text = String(productData?.point ?? 0) + "원"
-        expirydateLabel.text = String(productData?.expiration ?? 0) + "일"
-        itemInfotextLabel.text = productData?.productInfo
-        itemInfoText = productData?.productInfo
-//
+        guard let productData = self.productData else { return }
+        productbrandLabel.text = productData.brandTitle
+        productnameLabel.text = productData.productTitle
+        productpriceLabel.text = String(productData.price ?? 0) + "원"
+        cashbackpointLabel.text = String(productData.point ?? 0) + "원"
+        expirydateLabel.text = String(productData.expiration ?? 0) + "일"
+        itemInfotextLabel.text = productData.productInfo
+        itemInfoText = productData.productInfo
+        
+        let heart = productData.like ? Image.heartFilled : Image.heart
+        heartButton.setImage(heart, for: .normal)
     }
 }

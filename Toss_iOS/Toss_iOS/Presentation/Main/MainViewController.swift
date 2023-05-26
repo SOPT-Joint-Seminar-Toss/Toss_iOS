@@ -86,15 +86,7 @@ extension MainViewController : UIScrollViewDelegate {
         else if overTabView == false && trigger == true {
             scrollAnimation()
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         func tabBarAnimation() {
             self.mainView.tabConsumptionSectionView.snp.remakeConstraints {
                 $0.leading.trailing.equalToSuperview()

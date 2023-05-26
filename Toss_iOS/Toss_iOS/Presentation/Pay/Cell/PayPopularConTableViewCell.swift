@@ -97,7 +97,7 @@ final class PayPopularConTableViewCell: UITableViewCell {
         popularConImage.kfSetImage(url: popularCon.imageURL)
         popularConName.text = "\(popularCon.brandTitle) | \(popularCon.productTitle)"
         popularConPrice.text = "\(String(popularCon.price))원"
-        popularCashBack.text = "\(String(popularCon.point)) 적립"
+        popularCashBack.text = "\(String(popularCon.point))원 적립"
     }
 }
 
