@@ -36,6 +36,8 @@
 		A5021EE62A18F7C1007DE096 /* SubSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021EE52A18F7C1007DE096 /* SubSectionButton.swift */; };
 		A526C1322A1CF98900DAC0EF /* ConsumptionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526C1312A1CF98900DAC0EF /* ConsumptionSectionView.swift */; };
 		A58327722A1FB6FF002F8F6E /* MainAssetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58327712A1FB6FF002F8F6E /* MainAssetResponse.swift */; };
+		A58327742A209443002F8F6E /* GiftResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58327732A209443002F8F6E /* GiftResponse.swift */; };
+		A58327762A209C4C002F8F6E /* ToastMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58327752A209C4C002F8F6E /* ToastMessageViewController.swift */; };
 		D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325C2A11E86200C4281C /* PayNavigationView.swift */; };
 		D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325E2A11E86C00C4281C /* PaySearchView.swift */; };
 		D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732602A11E87800C4281C /* PayProductCollectionView.swift */; };
@@ -118,6 +120,8 @@
 		A5021EE52A18F7C1007DE096 /* SubSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionButton.swift; sourceTree = "<group>"; };
 		A526C1312A1CF98900DAC0EF /* ConsumptionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionSectionView.swift; sourceTree = "<group>"; };
 		A58327712A1FB6FF002F8F6E /* MainAssetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssetResponse.swift; sourceTree = "<group>"; };
+		A58327732A209443002F8F6E /* GiftResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftResponse.swift; sourceTree = "<group>"; };
+		A58327752A209C4C002F8F6E /* ToastMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessageViewController.swift; sourceTree = "<group>"; };
 		D217325C2A11E86200C4281C /* PayNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayNavigationView.swift; path = Pay/View/PayNavigationView.swift; sourceTree = SOURCE_ROOT; };
 		D217325E2A11E86C00C4281C /* PaySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaySearchView.swift; path = Pay/View/PaySearchView.swift; sourceTree = SOURCE_ROOT; };
 		D21732602A11E87800C4281C /* PayProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionView.swift; path = Pay/View/PayProductCollectionView.swift; sourceTree = SOURCE_ROOT; };
@@ -318,6 +322,7 @@
 			children = (
 				2CE0FB242A189E9A00BDE59C /* GiftViewController.swift */,
 				2CE7D0882A1B9FFF00FB4F8F /* GiftcardViewController.swift */,
+				A58327752A209C4C002F8F6E /* ToastMessageViewController.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4146012A207C8A00F525EF /* GiftHeartResponse.swift */,
+				A58327732A209443002F8F6E /* GiftResponse.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -587,6 +593,7 @@
 				A5021EE42A18F789007DE096 /* TabBarController.swift in Sources */,
 				2CDCEC552A0F7CFA009E6039 /* AppDelegate.swift in Sources */,
 				2CE7D0892A1B9FFF00FB4F8F /* GiftcardViewController.swift in Sources */,
+				A58327762A209C4C002F8F6E /* ToastMessageViewController.swift in Sources */,
 				D2348F882A1B6FBF00FF50D9 /* BaseTargetType.swift in Sources */,
 				D2348F842A1B6F9900FF50D9 /* NetworkResult.swift in Sources */,
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
@@ -604,6 +611,7 @@
 				2C9EBE852A1FF931009E3A30 /* GiftService.swift in Sources */,
 				D2FA25342A13E4B10044A59E /* PayPopularBrandTableView.swift in Sources */,
 				D2FA25302A13DF5A0044A59E /* PayCashBackTableHeaderView.swift in Sources */,
+				A58327742A209443002F8F6E /* GiftResponse.swift in Sources */,
 				D22AC5902A11B8040097210D /* UINavigationController+.swift in Sources */,
 				A5021EDC2A18EB9A007DE096 /* MainView.swift in Sources */,
 				D21732672A11F62B00C4281C /* BaseViewController.swift in Sources */,
