@@ -337,6 +337,11 @@ class GiftcardViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         balloncardTextView.resignFirstResponder()
+        if(balloncardTextView.text == placeHolder){
+            writeContentLabel.isHidden = true
+            deleteButton.isHidden = true
+        }
+        
     }
 }
 
@@ -398,6 +403,10 @@ extension GiftcardViewController {
     @objc
     private func clean() {
         balloncardTextView.text = ""
+        writeContentLabel.text = "0자/86자"
+        writeContentLabel.isHidden = true
+        deleteButton.isHidden = true
+        
     }
     
     @objc
@@ -424,10 +433,12 @@ extension GiftcardViewController: UITextViewDelegate {
         completeButton.isHidden = true
         editMessageButton.isHidden = true
         writeContentLabel.isHidden = false
+        deleteButton.isHidden = false
     }
 
     func textViewDidChange(_ textView: UITextView) {
         deleteButton.isHidden = false
+        writeContentLabel.isHidden = false
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -435,9 +446,14 @@ extension GiftcardViewController: UITextViewDelegate {
         if !textView.hasText {
             textView.text = placeHolder
         }
-        
-        writeContentLabel.isHidden = !textView.hasText
-        deleteButton.isHidden = !textView.hasText
+        if(!editMessageButton.isHidden){
+            writeContentLabel.isHidden = true
+            deleteButton.isHidden = true
+        }
+        else {
+            writeContentLabel.isHidden = false
+            deleteButton.isHidden = false
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
