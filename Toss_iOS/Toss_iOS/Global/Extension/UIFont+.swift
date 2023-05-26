@@ -47,6 +47,9 @@ extension UIFont {
     class var tossMedium: UIFont {
         return UIFont(name: "SpoqaHanSansNeo-Medium", size: 10)!
     }
+    class var tossMedium18: UIFont {
+        return UIFont(name: "SpoqaHanSansNeo-Medium", size: 18)!
+    }
     
     public enum SpoqaHanSanNeoType: String {
         case bold = "Bold"
