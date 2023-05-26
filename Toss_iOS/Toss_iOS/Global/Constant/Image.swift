@@ -58,6 +58,12 @@ public enum Image {
     static let turtle = UIImage(named: "card_turtle")!
     static let ghost = UIImage(named: "card_ghost")!
     static let spaceShip = UIImage(named: "card_spaceship")!
+    static let complete = UIImage(named: "btn_next_iOS")!
+    static let editComplete = UIImage(named: "btn_edit_done_iOS")!
+    static let messageEdit = UIImage(named: "btn_edit_iOS")!
+    static let delete = UIImage(named: "btn_delete_all")!
+    static let whiteGradient = UIImage(named: "Rectangle 5693")!
+    
     
     //MARK: Pay
     

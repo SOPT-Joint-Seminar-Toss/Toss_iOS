@@ -11,9 +11,7 @@ import SnapKit
 import Then
 
 class GiftViewController: UIViewController {
-    
-    
-    
+
     //MARK: - UI Components
     //scrollview 구현
     private var scrollView = UIScrollView()
@@ -49,7 +47,8 @@ class GiftViewController: UIViewController {
         addContentView() //먼저 안하면 에러남 어이없음
         setStyle()
         setLayout()
-        //setConfiguration()
+        
+        self.navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -158,6 +157,9 @@ class GiftViewController: UIViewController {
                 $0.setTitleColor(.tossLightblue, for: .normal)
                 $0.titleLabel?.textAlignment = .center
                 $0.makeCornerRound(radius: 16)
+                $0.addTarget(self,
+                             action: #selector(giftButtonTap),
+                             for: .touchUpInside)
             }
         }
     }
@@ -257,10 +259,6 @@ class GiftViewController: UIViewController {
         
     }
     
-    //    func setConfiguration() {
-    //
-    //    }
-    
     @objc
     func infoBtnTap() {
         checkInfo.toggle()
@@ -279,7 +277,6 @@ class GiftViewController: UIViewController {
     @objc
     func heartBtnTap() {
         heartButton.isSelected.toggle()
-        
     }
     
     let originFrame = CGRect(x: 60, y: 0, width: 67, height: 3)
@@ -308,6 +305,12 @@ class GiftViewController: UIViewController {
         UIView.animate(withDuration: 0.5) { [self] in
             self.rectanglebarView.superview?.layoutIfNeeded()
         }
+    }
+    
+    @objc
+    func giftButtonTap() {
+        let giftcardVC = GiftcardViewController()
+        self.navigationController?.pushViewController(giftcardVC, animated: true)
     }
 }
 
