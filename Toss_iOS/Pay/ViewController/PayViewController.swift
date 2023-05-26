@@ -16,9 +16,14 @@ final class PayViewController : BaseViewController {
     
     private let productMockData = Product.mockDummy()
     private let brandConData = BrandCon.mockDummy()
-    private let popularMockData = PopularConModel.mockDummy()
     private let cashMockData = CashBack.mockDummy()
     private let brandMockData = Brand.mockDummy()
+    
+    private var popularConData: [PopularConResponse] = [] {
+        didSet {
+            self.rootView.popularConTableView.reloadData()
+        }
+    }
     
     //MARK: - UI Components
     
@@ -34,6 +39,7 @@ final class PayViewController : BaseViewController {
         super.viewDidLoad()
         
         target()
+        requestPay()
         
     }
     
@@ -95,7 +101,7 @@ extension PayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case rootView.popularConTableView:
-            return popularMockData.count
+            return popularConData.count
         case rootView.cashBackTableView:
             return cashMockData.count
         case rootView.popularBrandTableView:
@@ -110,7 +116,7 @@ extension PayViewController: UITableViewDataSource {
         case rootView.popularConTableView:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PayPopularConTableViewCell.cellIdentifier, for: indexPath) as? PayPopularConTableViewCell else { return UITableViewCell() }
             cell.selectionStyle = .none
-            cell.dataBind(popularMockData[indexPath.row])
+            cell.dataBind(popularConData[indexPath.row])
             return cell
         case rootView.cashBackTableView:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PayCashBackTableViewCell.cellIdentifier, for: indexPath) as? PayCashBackTableViewCell else { return UITableViewCell() }
@@ -218,5 +224,19 @@ extension PayViewController: UICollectionViewDataSource {
         default:
             return UICollectionReusableView()
         }
+    }
+}
+
+
+extension PayViewController {
+    func requestPay() {
+        PayAPI.shared.getPopularCon (completion: { result in
+            guard let result = self.validateResult(result) as? [PopularConResponse] else {
+                print("🍎🍎🍎🍎🍎🍎🍎🍎")
+                return
+            }
+            print("🍏🍏🍏🍏🍏🍏🍏")
+            self.popularConData = result
+        })
     }
 }
