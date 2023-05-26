@@ -25,6 +25,17 @@ class GiftViewController: UIViewController {
     private var checkInfo = true
     
     private var itemEtcView = UIView()
+    private var productImage = UIImageView()
+    private var productbrandLabel = UILabel()
+    private var productnameLabel = UILabel()
+    private var productpriceLabel = UILabel()
+    
+    private var cashbackView = UIView()
+    private var cashbackIcon = UIImageView()
+    private var cashbackmessageLabel = UILabel()
+    private var cashbackpointLabel = UILabel()
+    
+    private var expirydateinfoLabel = UILabel()
     private var expirydateLabel = UILabel()
     private var noticeButton = UIButton()
     private var brandconButton = UIButton()
@@ -56,11 +67,16 @@ class GiftViewController: UIViewController {
     func addContentView() {
         view.addSubviews(scrollView, bottomNavBar, topNavBar)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(itemMainView, itemInfoView, itemEtcView,rectanglebarView)
+        contentView.addSubviews(itemMainView, itemInfoView, itemEtcView,
+                                rectanglebarView,
+                                productImage,productbrandLabel, productnameLabel, productpriceLabel,
+                                cashbackView)
+        cashbackView.addSubviews(cashbackIcon, cashbackmessageLabel, cashbackpointLabel)
         itemInfoView.addSubviews(infoButton, reviewButton)
-        itemEtcView.addSubviews(expirydateLabel, noticeButton, brandconButton)
+        itemEtcView.addSubviews(expirydateinfoLabel, expirydateLabel,
+                                noticeButton, brandconButton)
         topNavBar.addSubviews(backButton, searchButton, heartButton)
-        bottomNavBar.addSubviews(giftButton,buyButton)
+        bottomNavBar.addSubviews(giftButton, buyButton)
     }
     
     func setStyle() {
@@ -88,7 +104,44 @@ class GiftViewController: UIViewController {
         }
         itemMainView.do {
             $0.backgroundColor = .tossWhite
+            
+            productImage.do {
+                $0.image = Image.coffee
+            }
+            productbrandLabel.do {
+                $0.text = "메가MGC커피"
+                $0.font = .tossBody1
+                $0.textColor = .tossGrey400
+            }
+            productnameLabel.do {
+                $0.text = "ime"
+                $0.font = .tossSubTitle
+                $0.textColor = .tossGrey500
+            }
+            productpriceLabel.do {
+                $0.text = "2,000원"
+                $0.font = .tossHeader1
+                $0.textColor = .tossGrey500
+            }
+            cashbackView.do {
+                $0.backgroundColor = .tossWhite
+                
+                cashbackIcon.do {
+                    $0.image = Image.point
+                }
+                cashbackmessageLabel.do {
+                    $0.text = "3% 캐시백드려요"
+                    $0.font = .tossSubTitle
+                    $0.textColor = UIColor(hex: 0x6D7582)
+                }
+                cashbackpointLabel.do {
+                    $0.text = "60원"
+                    $0.font = .tossTitle2
+                    $0.textColor = .tossBlue
+                }
+            }
         }
+        
         itemInfoView.do {
             $0.backgroundColor = .tossWhite
             
@@ -126,16 +179,29 @@ class GiftViewController: UIViewController {
         itemEtcView.do {
             $0.backgroundColor = .tossWhite
             
-            expirydateLabel.do {
+            expirydateinfoLabel.do {
                 $0.text = "유효기간"
+                $0.font = .tossTitle2
+                $0.textColor = .tossGrey400
+            }
+            expirydateLabel.do {
+                $0.text = "366일"
                 $0.font = .tossTitle2
                 $0.textColor = .tossGrey400
             }
             noticeButton.do {
                 $0.backgroundColor = .tossWhite
+                $0.setTitle("메가MGC커피 유의사항", for: .normal)
+                $0.setTitleColor(.tossGrey400, for: .normal)
+                $0.titleLabel?.font = .tossBody1
+                $0.titleLabel?.textAlignment = .left
             }
             brandconButton.do {
                 $0.backgroundColor = .tossWhite
+                $0.setTitle("브랜드콘 안내", for: .normal)
+                $0.setTitleColor(.tossGrey400, for: .normal)
+                $0.titleLabel?.font = .tossBody1
+                $0.titleLabel?.textAlignment = .left
             }
         }
         
@@ -197,10 +263,46 @@ class GiftViewController: UIViewController {
             $0.width.equalToSuperview()
         }
         
-        itemMainView.snp.makeConstraints{
+        itemMainView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(599)
+            
+            productImage.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(45)
+                $0.width.equalToSuperview()
+            }
+            productbrandLabel.snp.makeConstraints {
+                $0.top.equalTo(productImage.snp.bottom).offset(27)
+                $0.leading.equalToSuperview().inset(26)
+            }
+            productnameLabel.snp.makeConstraints {
+                $0.top.equalTo(productbrandLabel.snp.bottom).offset(10)
+                $0.leading.equalTo(productbrandLabel.snp.leading)
+            }
+            productpriceLabel.snp.makeConstraints {
+                $0.top.equalTo(productnameLabel.snp.bottom).offset(22)
+                $0.leading.equalTo(productbrandLabel.snp.leading)
+            }
+            cashbackView.snp.makeConstraints {
+                $0.width.equalToSuperview()
+                $0.top.equalTo(productpriceLabel.snp.bottom).offset(38)
+                $0.height.equalTo(23)
+                
+                cashbackIcon.snp.makeConstraints {
+                    $0.leading.equalToSuperview().inset(22)
+                    $0.centerY.equalToSuperview()
+                    $0.size.equalTo(22)
+                }
+                cashbackmessageLabel.snp.makeConstraints {
+                    $0.leading.equalTo(cashbackIcon.snp.trailing).offset(16)
+                    $0.centerY.equalToSuperview()
+                }
+                cashbackpointLabel.snp.makeConstraints {
+                    $0.trailing.equalToSuperview().inset(24)
+                    $0.centerY.equalToSuperview()
+                }
+            }
         }
         
         itemInfoView.snp.makeConstraints {
@@ -232,9 +334,23 @@ class GiftViewController: UIViewController {
             $0.height.equalTo(242)
             $0.bottom.equalToSuperview()
             
-            expirydateLabel.snp.makeConstraints {
+            expirydateinfoLabel.snp.makeConstraints {
                 $0.top.equalToSuperview().offset(28)
                 $0.leading.equalToSuperview().offset(22)
+            }
+            expirydateLabel.snp.makeConstraints {
+                $0.top.equalTo(expirydateinfoLabel.snp.top)
+                $0.trailing.equalToSuperview().inset(22)
+            }
+            noticeButton.snp.makeConstraints {
+                $0.top.equalTo(expirydateLabel.snp.bottom).offset(25)
+                $0.width.equalToSuperview()
+                $0.height.equalTo(40)
+            }
+            brandconButton.snp.makeConstraints {
+                $0.top.equalTo(noticeButton.snp.bottom).offset(16)
+                $0.width.equalToSuperview()
+                $0.height.equalTo(40)
             }
         }
         
