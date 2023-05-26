@@ -40,7 +40,12 @@ class GiftcardViewController: UIViewController {
     private var deleteButton = UIButton()
     
     //하단 고정 영역
-    private var completeButton = UIButton()
+    private var completeButton = UIButton(type: .custom)
+    var indicator = UIActivityIndicatorView().then {
+        $0.backgroundColor = UIColor(hex: 0xD478C5)
+        $0.layer.cornerRadius = 14
+    }
+    
     
     // inputAccessoryView
     private var textViewAccessoryView = UIView()
@@ -61,7 +66,8 @@ class GiftcardViewController: UIViewController {
                          cardselectView,
                          balloncardView,
                          editCompleteButton,
-                         completeButton)
+                         completeButton,
+                         indicator)
         
         topNavBar.addSubview(backButton)
         
@@ -81,6 +87,7 @@ class GiftcardViewController: UIViewController {
                                    deleteButton)
         
         textViewAccessoryView.addSubview(textViewEditMessageButton)
+        
     }
     
     func setStyle() {
@@ -203,8 +210,14 @@ class GiftcardViewController: UIViewController {
         }
         
         completeButton.do {
-            $0.setImage(Image.complete, for: .normal)
+            $0.setTitle("완료", for: .normal)
+            $0.titleLabel?.font = .spoqaHanSanNeo(.bold, size: 18)
+            $0.setTitleColor(.tossWhite, for: .normal)
+            $0.backgroundColor = UIColor(hex: 0xD478C5)
+            $0.layer.cornerRadius = 14
+            $0.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
         }
+        
     }
     
     func setLayout() {
@@ -314,6 +327,12 @@ class GiftcardViewController: UIViewController {
             $0.width.equalTo(335)
             $0.height.equalTo(54)
         }
+        indicator.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(35)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(335)
+            $0.height.equalTo(54)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -342,7 +361,40 @@ extension GiftcardViewController {
         deleteButton.isHidden = true
         editMessageButton.isHidden = false
     }
-    
+    @objc func completeButtonTapped() {
+        indicator.startAnimating()
+        
+        GiftManager().postGift(self, productID: 1) { statusCode in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2 , execute: {
+                self.indicator.stopAnimating()
+                let toastMessageViewController = ToastMessageViewController()
+                toastMessageViewController.modalPresentationStyle = .overFullScreen
+                switch statusCode {
+                case 200:
+                    print("성공")
+                    UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut, animations: {
+                        self.present(toastMessageViewController, animated: false)
+                    }) { (completed) in
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut) {
+                                toastMessageViewController.dismiss(animated: false)
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        })
+                    }
+                case 400:
+                    print("유효하지 않은 입력")
+                case 404:
+                    print("존재하지 않는 상품")
+                case 500:
+                    print("서버 오류")
+                default:
+                    print(statusCode, "????/")
+                }
+            })
+        }
+    }
+
     @objc
     private func clean() {
         balloncardTextView.text = ""
@@ -405,3 +457,10 @@ extension GiftcardViewController: UITextViewDelegate {
         return changedText.count <= 85
     }
 }
+
+//
+//extension GiftcardViewController {
+//    func postGiftRespnse(_ respnse : GiftResponse) {
+//        print(respnse.status, "dddd")
+//    }
+//}
