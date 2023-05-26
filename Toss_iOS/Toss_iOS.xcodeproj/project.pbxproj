@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C4146022A207C8A00F525EF /* GiftHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4146012A207C8A00F525EF /* GiftHeartResponse.swift */; };
+		2C4146042A2089AA00F525EF /* GiftproductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4146032A2089AA00F525EF /* GiftproductModel.swift */; };
 		2C9EBE832A1FF921009E3A30 /* GiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EBE822A1FF921009E3A30 /* GiftAPI.swift */; };
 		2C9EBE852A1FF931009E3A30 /* GiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EBE842A1FF931009E3A30 /* GiftService.swift */; };
 		2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB2AD4B2A10CB620086445A /* UIColor+.swift */; };
@@ -88,7 +88,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C4146012A207C8A00F525EF /* GiftHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftHeartResponse.swift; sourceTree = "<group>"; };
+		2C4146032A2089AA00F525EF /* GiftproductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftproductModel.swift; sourceTree = "<group>"; };
 		2C9EBE822A1FF921009E3A30 /* GiftAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftAPI.swift; sourceTree = "<group>"; };
 		2C9EBE842A1FF931009E3A30 /* GiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftService.swift; sourceTree = "<group>"; };
 		2CB2AD4B2A10CB620086445A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 		2CDCEC812A0F7F0A009E6039 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
-				2C4146012A207C8A00F525EF /* GiftHeartResponse.swift */,
+				2C4146032A2089AA00F525EF /* GiftproductModel.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -581,8 +581,8 @@
 				D2348F882A1B6FBF00FF50D9 /* BaseTargetType.swift in Sources */,
 				D2348F842A1B6F9900FF50D9 /* NetworkResult.swift in Sources */,
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
-				2C4146022A207C8A00F525EF /* GiftHeartResponse.swift in Sources */,
 				D2FA253C2A13E8AB0044A59E /* PayPopularBrandTableHeaderView.swift in Sources */,
+				2C4146042A2089AA00F525EF /* GiftproductModel.swift in Sources */,
 				D2348F8E2A1B6FF200FF50D9 /* AlamofireLogger.swift in Sources */,
 				D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */,
 				D22AC58E2A11B7CC0097210D /* UITextField+.swift in Sources */,

@@ -11,12 +11,15 @@ import Alamofire
 
 enum GiftService{
     case patchHeart
+    case getProduct
 }
 
 extension GiftService: BaseTargetType {
     var parameters: RequestParams {
         switch self{
         case .patchHeart:
+            return .none
+        case .getProduct:
             return .none
         }
     }
@@ -25,12 +28,16 @@ extension GiftService: BaseTargetType {
         switch self {
         case .patchHeart:
             return .patch
+        case .getProduct:
+            return .get
         }
     }
     
     var path: String {
         switch self {
         case .patchHeart:
+            return "product/brand/1"
+        case .getProduct:
             return "product/brand/1"
         }
     }
