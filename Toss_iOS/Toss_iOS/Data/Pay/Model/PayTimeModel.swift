@@ -53,10 +53,18 @@ extension TimeCheker {
     }
     
     func currentTime(hour: Int, minute: Int, second: Int) -> String {
-        
-        let currentSecond = second + self.secondResult
-        let currentMinute = minute + self.minuteResult
-        let currentHour = hour + self.hourResult
+        var currentSecond: Int
+        var currentMinute: Int
+        var currentHour: Int
+        if hour < 0 && minute < 0 && second < 0 {
+            currentSecond = self.secondResult
+            currentMinute = self.minuteResult
+            currentHour = self.hourResult
+        } else {
+            currentSecond = second + self.secondResult
+            currentMinute = minute + self.minuteResult
+            currentHour = hour + self.hourResult
+        }
         return "\(currentHour):\(currentMinute):\(currentSecond) 남음"
     }
 }
