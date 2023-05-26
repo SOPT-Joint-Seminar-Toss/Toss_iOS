@@ -485,6 +485,11 @@ extension GiftViewController {
         itemInfoText = productData.productInfo
         
         let heart = productData.like ? Image.heartFilled : Image.heart
-        heartButton.setImage(heart, for: .normal)
+        if(heart == Image.heart){
+            heartButton.isSelected = false
+        }
+        else {
+            heartButton.isSelected = true
+        }
     }
 }
