@@ -6,40 +6,40 @@
 //
 
 enum TimeCheker {
-    case second
+    case second //second 1뺄때
     case minute
     case hour
     case end
 }
 
 extension TimeCheker {
-    var second: Int {
+    var secondResult: Int {
         switch self {
         case .second:
             return -1
         case .minute:
-            return 59
+            return 58
         case .hour:
-            return 59
+            return 58
         case .end:
             return 0
         }
     }
     
-    var minute: Int {
+    var minuteResult: Int {
         switch self {
         case .second:
             return 0
         case .minute:
             return -1
         case .hour:
-            return 59
+            return 58
         case .end:
             return 0
         }
     }
     
-    var hour: Int {
+    var hourResult: Int {
         switch self {
         case .second:
             return 0
@@ -53,9 +53,10 @@ extension TimeCheker {
     }
     
     func currentTime(hour: Int, minute: Int, second: Int) -> String {
-        let currentSecond = second - self.second
-        let currentMinute = minute - self.minute
-        let currentHour = hour - self.hour
+        
+        let currentSecond = second + self.secondResult
+        let currentMinute = minute + self.minuteResult
+        let currentHour = hour + self.hourResult
         return "\(currentHour):\(currentMinute):\(currentSecond) 남음"
     }
 }

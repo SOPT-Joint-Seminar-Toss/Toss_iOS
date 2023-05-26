@@ -337,26 +337,16 @@ extension PayViewController {
     }
     // [실시간 반복 작업 수행 부분]
     func timerCallback() {
-        if self.second > 0 {
-            self.second -= 1
-        } else {
-            if self.minute > 0 {
-                self.minute -= 1
-                self.second = 59
-            } else {
-                if self.hour > 0 {
-                    self.minute = 59
-                    self.second = 59
-                } else {
-                    self.hour = 0
-                    self.minute = 0
-                    self.second = 0
-                }
-            }
-        }
-        print("🍪🍪🍪🍪🍪🍪🍪 hour: \(hour)")
-        print("🍪🍪🍪🍪🍪🍪🍪 minute: \(minute)")
-        print("🍪🍪🍪🍪🍪🍪🍪 second: \(second)")
-        self.endDate = "\(hour):\(minute):\(second) 남음"
+        var timeChecker: TimeCheker?
+        if self.second > 1 { timeChecker = .second }
+        else if self.second <= 1 && self.minute > 0 { timeChecker = .minute }
+        else if self.second <= 0 && self.minute <= 0 && self.hour > 0 { timeChecker = .hour }
+        else { timeChecker = .end}
+        
+        self.endDate = timeChecker?.currentTime(hour: self.hour, minute: self.minute, second: self.second)
+        
+        self.second += timeChecker?.secondResult ?? 0
+        self.minute += timeChecker?.minuteResult ?? 0
+        self.hour += timeChecker?.hourResult ?? 0
     }
 }
