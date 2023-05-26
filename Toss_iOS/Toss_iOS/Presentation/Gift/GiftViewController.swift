@@ -277,6 +277,9 @@ class GiftViewController: UIViewController {
     @objc
     func heartBtnTap() {
         heartButton.isSelected.toggle()
+        GiftAPI.shared.patchHeart { result in
+            print("data response를 받았습니다")
+        }
     }
     
     let originFrame = CGRect(x: 60, y: 0, width: 67, height: 3)

@@ -27,6 +27,7 @@ extension BaseTargetType {
         let url = try baseURL.asURL()
         var urlRequest = try URLRequest(url: url.appendingPathComponent(path), method: method)
         urlRequest.setValue(APIConstants.applicationJSON, forHTTPHeaderField: APIConstants.contentType)
+        urlRequest.setValue(APIConstants.userId, forHTTPHeaderField: APIConstants.auth)
         
         switch parameters {
         case .query(let request):
