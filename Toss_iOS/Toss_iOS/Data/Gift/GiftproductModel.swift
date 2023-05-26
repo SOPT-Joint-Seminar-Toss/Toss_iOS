@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct GiftproductModel: Codable {
     let id: Int
     let imageURL: String

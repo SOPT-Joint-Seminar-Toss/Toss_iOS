@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 class GiftViewController: UIViewController {
-
+    
     //MARK: - UI Components
     //scrollview 구현
     private var scrollView = UIScrollView()
@@ -317,3 +317,10 @@ class GiftViewController: UIViewController {
     }
 }
 
+extension GiftViewController {
+    func requestGiftAPI() {
+        GiftAPI.shared.getProduct { result in
+            print("data2 response를 받았습니다")
+        }
+    }
+}
