@@ -36,21 +36,21 @@ class MainView: UIView {
         $0.textColor = UIColor(hex: 0x000000)
     }
     
-    private let assetSectionView = MainSectionView(title: "자산", hasPushButton: true).then {
+    let assetSectionView = MainSectionView(title: "자산", hasPushButton: true).then {
         $0.layer.cornerRadius = 20
         $0.layer.masksToBounds = true
     }
     
-    private let assetTossBankView = MainSectionCellView(
-        title: "토스뱅크 통장",
-        subTitle: "123,456,789 원",
+    let assetTossBankView = MainSectionCellView(
+        title: "",
+        subTitle: "",
         buttonHidden: false,
         buttonTitle: "송금",
         mainImage: Image.toss,
         subImage: UIImage(),
         doubleImage: false)
     
-    private let assetSavingMoneyView = MainSectionCellView(
+    let assetSavingMoneyView = MainSectionCellView(
         title: "토스뱅크 돈 모으기",
         subTitle: "123,456 원",
         buttonHidden: true,
@@ -59,7 +59,7 @@ class MainView: UIView {
         subImage: UIImage(),
         doubleImage: false)
     
-    private let assetKbBankView = MainSectionCellView(
+    let assetKbBankView = MainSectionCellView(
         title: "KB 국민은행 통장",
         subTitle: "123,456 원",
         buttonHidden: true,
