@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C4146022A207C8A00F525EF /* GiftHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4146012A207C8A00F525EF /* GiftHeartResponse.swift */; };
+		2C9EBE832A1FF921009E3A30 /* GiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EBE822A1FF921009E3A30 /* GiftAPI.swift */; };
+		2C9EBE852A1FF931009E3A30 /* GiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9EBE842A1FF931009E3A30 /* GiftService.swift */; };
 		2CB2AD4C2A10CB620086445A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB2AD4B2A10CB620086445A /* UIColor+.swift */; };
 		2CB2AD5C2A10D8FF0086445A /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2AD572A10D8FF0086445A /* SpoqaHanSansNeo-Bold.otf */; };
 		2CB2AD5D2A10D8FF0086445A /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2AD582A10D8FF0086445A /* SpoqaHanSansNeo-Medium.otf */; };
@@ -87,6 +90,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C4146012A207C8A00F525EF /* GiftHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftHeartResponse.swift; sourceTree = "<group>"; };
+		2C9EBE822A1FF921009E3A30 /* GiftAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftAPI.swift; sourceTree = "<group>"; };
+		2C9EBE842A1FF931009E3A30 /* GiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftService.swift; sourceTree = "<group>"; };
 		2CB2AD4B2A10CB620086445A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		2CB2AD572A10D8FF0086445A /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
 		2CB2AD582A10D8FF0086445A /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
@@ -179,6 +185,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C9EBE812A1FF90D009E3A30 /* Gift */ = {
+			isa = PBXGroup;
+			children = (
+				2C9EBE822A1FF921009E3A30 /* GiftAPI.swift */,
+				2C9EBE842A1FF931009E3A30 /* GiftService.swift */,
+			);
+			path = Gift;
+			sourceTree = "<group>";
+		};
 		2CDCEC482A0F7CFA009E6039 = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +332,7 @@
 		2CDCEC812A0F7F0A009E6039 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				2C4146012A207C8A00F525EF /* GiftHeartResponse.swift */,
 			);
 			path = Gift;
 			sourceTree = "<group>";
@@ -404,6 +420,7 @@
 		D2348F7F2A1B6F6D00FF50D9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2C9EBE812A1FF90D009E3A30 /* Gift */,
 				D2348F992A1B732900FF50D9 /* Pay */,
 				D2348F802A1B6F7400FF50D9 /* Foundation */,
 			);
@@ -570,6 +587,7 @@
 				D2348F882A1B6FBF00FF50D9 /* BaseTargetType.swift in Sources */,
 				D2348F842A1B6F9900FF50D9 /* NetworkResult.swift in Sources */,
 				D22AC5922A11B8270097210D /* UICollectionReusableView+.swift in Sources */,
+				2C4146022A207C8A00F525EF /* GiftHeartResponse.swift in Sources */,
 				D2FA253C2A13E8AB0044A59E /* PayPopularBrandTableHeaderView.swift in Sources */,
 				D2348F8E2A1B6FF200FF50D9 /* AlamofireLogger.swift in Sources */,
 				D2B1433E2A123899006BAB52 /* PayProductCollectionHeaderView.swift in Sources */,
@@ -580,6 +598,7 @@
 				D2348F8A2A1B6FD000FF50D9 /* SimpleResponse.swift in Sources */,
 				A5021EE02A18EBC6007DE096 /* MainSectionCellView.swift in Sources */,
 				D2FA25282A13D6BE0044A59E /* PayPopularConTableHeaderView.swift in Sources */,
+				2C9EBE852A1FF931009E3A30 /* GiftService.swift in Sources */,
 				D2FA25342A13E4B10044A59E /* PayPopularBrandTableView.swift in Sources */,
 				D2FA25302A13DF5A0044A59E /* PayCashBackTableHeaderView.swift in Sources */,
 				D22AC5902A11B8040097210D /* UINavigationController+.swift in Sources */,
@@ -619,6 +638,7 @@
 				D22AC58C2A11B7B00097210D /* UICollectionViewCell+.swift in Sources */,
 				D2FA25262A13D3C60044A59E /* PayPopularConModel.swift in Sources */,
 				D22AC5942A11B8490097210D /* UITableHeaderFooterView+.swift in Sources */,
+				2C9EBE832A1FF921009E3A30 /* GiftAPI.swift in Sources */,
 				D2FA252E2A13DD340044A59E /* PayCashBackModel.swift in Sources */,
 				A5021EDA2A18EB7C007DE096 /* MainViewController.swift in Sources */,
 				D2348F8C2A1B6FDF00FF50D9 /* Config.swift in Sources */,
