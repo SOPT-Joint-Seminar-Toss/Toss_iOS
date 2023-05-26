@@ -7,10 +7,16 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 import Then
 
-class GiftViewController: UIViewController {
+class GiftViewController: BaseViewController {
+    
+    //MARK: - Property
+    
+    private var productData: GiftproductModel?
+    
     
     //MARK: - UI Components
     //scrollview 구현
@@ -19,6 +25,8 @@ class GiftViewController: UIViewController {
     private var itemMainView = UIView()
     
     private var itemInfoView = UIView()
+    private var itemInfotextLabel = UILabel()
+    private var itemInfoText : String?
     private lazy var infoButton = UIButton()
     private lazy var reviewButton = UIButton()
     private lazy var rectanglebarView = UIView(frame: originFrame)
@@ -50,7 +58,7 @@ class GiftViewController: UIViewController {
     private var bottomNavBar = UIView()
     private var buyButton = UIButton()
     private var giftButton = UIButton()
-    
+
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +66,7 @@ class GiftViewController: UIViewController {
         addContentView() //먼저 안하면 에러남 어이없음
         setStyle()
         setLayout()
-        
-        self.navigationController?.navigationBar.isHidden = true
-        
+        requestGiftAPI() 
     }
     
     //MARK: - Custom Method
@@ -72,7 +78,7 @@ class GiftViewController: UIViewController {
                                 productImage,productbrandLabel, productnameLabel, productpriceLabel,
                                 cashbackView)
         cashbackView.addSubviews(cashbackIcon, cashbackmessageLabel, cashbackpointLabel)
-        itemInfoView.addSubviews(infoButton, reviewButton)
+        itemInfoView.addSubviews(infoButton, reviewButton, itemInfotextLabel)
         itemEtcView.addSubviews(expirydateinfoLabel, expirydateLabel,
                                 noticeButton, brandconButton)
         topNavBar.addSubviews(backButton, searchButton, heartButton)
@@ -109,17 +115,17 @@ class GiftViewController: UIViewController {
                 $0.image = Image.coffee
             }
             productbrandLabel.do {
-                $0.text = "메가MGC커피"
+                //$0.text = "메가MGC커피"
                 $0.font = .tossBody1
                 $0.textColor = .tossGrey400
             }
             productnameLabel.do {
-                $0.text = "ime"
+                //$0.text = "ime"
                 $0.font = .tossSubTitle
                 $0.textColor = .tossGrey500
             }
             productpriceLabel.do {
-                $0.text = "2,000원"
+                //$0.text = "2,000원"
                 $0.font = .tossHeader1
                 $0.textColor = .tossGrey500
             }
@@ -171,11 +177,20 @@ class GiftViewController: UIViewController {
                 }
                 $0.addTarget(self, action: #selector(infoBtnTap), for: .touchUpInside)
             }
+            itemInfotextLabel.do {
+                //checkInfo = true
+                $0.text = itemInfoText
+                $0.textColor = UIColor.init(hex: 0x6D7582)
+                $0.font = .tossBody1
+                $0.numberOfLines = 2
+                $0.textAlignment = .left
+            }
             rectanglebarView.do {
                 $0.backgroundColor = .black
                 $0.layer.cornerRadius = 3
             }
         }
+        
         itemEtcView.do {
             $0.backgroundColor = .tossWhite
             
@@ -185,7 +200,7 @@ class GiftViewController: UIViewController {
                 $0.textColor = .tossGrey400
             }
             expirydateLabel.do {
-                $0.text = "366일"
+                //$0.text = "366일"
                 $0.font = .tossTitle2
                 $0.textColor = .tossGrey400
             }
@@ -195,6 +210,7 @@ class GiftViewController: UIViewController {
                 $0.setTitleColor(.tossGrey400, for: .normal)
                 $0.titleLabel?.font = .tossBody1
                 $0.titleLabel?.textAlignment = .left
+                $0.titleEdgeInsets = .init(top: 10, left: 19, bottom: 10, right: 210)
             }
             brandconButton.do {
                 $0.backgroundColor = .tossWhite
@@ -202,6 +218,7 @@ class GiftViewController: UIViewController {
                 $0.setTitleColor(.tossGrey400, for: .normal)
                 $0.titleLabel?.font = .tossBody1
                 $0.titleLabel?.textAlignment = .left
+                $0.titleEdgeInsets = .init(top: 10, left: 15, bottom: 10, right: 270)
             }
         }
         
@@ -271,6 +288,7 @@ class GiftViewController: UIViewController {
             productImage.snp.makeConstraints {
                 $0.top.equalToSuperview().inset(45)
                 $0.width.equalToSuperview()
+                $0.height.equalTo(329)
             }
             productbrandLabel.snp.makeConstraints {
                 $0.top.equalTo(productImage.snp.bottom).offset(27)
@@ -278,11 +296,11 @@ class GiftViewController: UIViewController {
             }
             productnameLabel.snp.makeConstraints {
                 $0.top.equalTo(productbrandLabel.snp.bottom).offset(10)
-                $0.leading.equalTo(productbrandLabel.snp.leading)
+                $0.leading.equalToSuperview().inset(22)
             }
             productpriceLabel.snp.makeConstraints {
                 $0.top.equalTo(productnameLabel.snp.bottom).offset(22)
-                $0.leading.equalTo(productbrandLabel.snp.leading)
+                $0.leading.equalTo(productnameLabel.snp.leading)
             }
             cashbackView.snp.makeConstraints {
                 $0.width.equalToSuperview()
@@ -319,6 +337,11 @@ class GiftViewController: UIViewController {
                 $0.top.trailing.equalToSuperview()
                 $0.width.equalTo(187.5)
                 $0.height.equalTo(58)
+            }
+            itemInfotextLabel.snp.makeConstraints {
+                $0.top.equalTo(infoButton.snp.bottom)
+                $0.leading.equalToSuperview().inset(22)
+                $0.bottom.equalToSuperview()
             }
             rectanglebarView.snp.makeConstraints {
                 $0.top.equalTo(infoButton.snp.bottom)
@@ -382,11 +405,13 @@ class GiftViewController: UIViewController {
             infoButton.setTitleColor(UIColor(hex: 0x191919), for: .normal)
             reviewButton.setTitleColor(UIColor(hex: 0x999999), for: .normal)
             rectangleResetAnimation()
+            itemInfotextLabel.text = itemInfoText
         }
         else {
             infoButton.setTitleColor(UIColor(hex: 0x999999), for: .normal)
             reviewButton.setTitleColor(UIColor(hex: 0x191919), for: .normal)
             rectangleAnimation()
+            itemInfotextLabel.text = ""
         }
     }
     
@@ -436,7 +461,21 @@ class GiftViewController: UIViewController {
 extension GiftViewController {
     func requestGiftAPI() {
         GiftAPI.shared.getProduct { result in
-            print("data2 response를 받았습니다")
+            guard let result = self.validateResult(result) as? GiftproductModel else { return }
+            self.productData = result
+            self.dataBind(self.productData)
         }
+    }
+    
+    func dataBind(_ productData: GiftproductModel?) {
+        //productImage.kfSetImage(url: productData?.imageURL)
+        productbrandLabel.text = productData?.brandTitle
+        productnameLabel.text = productData?.productTitle
+        productpriceLabel.text = String(productData?.price ?? 0) + "원"
+        cashbackpointLabel.text = String(productData?.point ?? 0) + "원"
+        expirydateLabel.text = String(productData?.expiration ?? 0) + "일"
+        itemInfotextLabel.text = productData?.productInfo
+        itemInfoText = productData?.productInfo
+//
     }
 }

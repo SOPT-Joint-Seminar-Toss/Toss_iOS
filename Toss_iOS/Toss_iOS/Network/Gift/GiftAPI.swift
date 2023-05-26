@@ -25,7 +25,7 @@ extension GiftAPI{
         }
     }
     public func getProduct(completion: @escaping (NetworkResult<Any>) -> Void) {
-        AFManager.request(GiftService.patchHeart).responseData { response in
+        AFManager.request(GiftService.getProduct).responseData { response in
             self.disposeNetwork(response,
                                 dataModel: GiftproductModel.self,
                                 completion: completion)
