@@ -162,7 +162,6 @@ extension PayCollectionViewLayout {
             let section = self.createSection()
             section.visibleItemsInvalidationHandler = {(item, offset, env) in
                 let index = Int((offset.x / env.container.contentSize.width).rounded(.up))
-                print(">>>> \(index)")
                 NotificationCenter.default.post(name: NSNotification.Name("page"),
                                                         object: index)
             }
