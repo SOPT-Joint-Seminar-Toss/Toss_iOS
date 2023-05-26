@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol Page {
+    func getPage(page: Int)
+}
 
 enum PayCollectionViewLayout {
     case product
@@ -13,7 +16,6 @@ enum PayCollectionViewLayout {
 }
 
 extension PayCollectionViewLayout {
-    
     var defaultEdgeInsets: NSDirectionalEdgeInsets {
         get {
             NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
@@ -84,14 +86,14 @@ extension PayCollectionViewLayout {
         switch self {
         case .product:
             return NSCollectionLayoutBoundarySupplementaryItem(
-               layoutSize: headerSize,
-               elementKind: UICollectionView.elementKindSectionHeader,
-               alignment: .top)
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top)
         case .brand:
             return NSCollectionLayoutBoundarySupplementaryItem(
-               layoutSize: headerSize,
-               elementKind: UICollectionView.elementKindSectionHeader,
-               alignment: .top)
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top)
         }
     }
     
@@ -119,9 +121,9 @@ extension PayCollectionViewLayout {
         switch self {
         case .product:
             return NSCollectionLayoutBoundarySupplementaryItem(
-               layoutSize: footerSize,
-               elementKind: UICollectionView.elementKindSectionFooter,
-               alignment: .bottom)
+                layoutSize: footerSize,
+                elementKind: UICollectionView.elementKindSectionFooter,
+                alignment: .bottom)
         case .brand:
             return nil
         }
@@ -154,8 +156,22 @@ extension PayCollectionViewLayout {
         }
     }
     
-    func createLayout() -> UICollectionViewCompositionalLayout {
-        
+    var section: NSCollectionLayoutSection {
+        switch self {
+        case .product:
+            let section = self.createSection()
+            section.visibleItemsInvalidationHandler = {(item, offset, env) in
+                let index = Int((offset.x / env.container.contentSize.width).rounded(.up))
+                NotificationCenter.default.post(name: NSNotification.Name("page"),
+                                                        object: index)
+            }
+            return section
+        case .brand:
+            return self.createSection()
+        }
+    }
+    
+    func createSection() -> NSCollectionLayoutSection {
         var supplementaryItem: [NSCollectionLayoutBoundarySupplementaryItem] = []
         
         let item = NSCollectionLayoutItem(layoutSize: self.itemSize)
@@ -180,7 +196,11 @@ extension PayCollectionViewLayout {
         }
         
         section.boundarySupplementaryItems = supplementaryItem
-        let layout = UICollectionViewCompositionalLayout(section: section)
+        return section
+    }
+    
+    func createLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout(section: self.section)
         return layout
     }
 }

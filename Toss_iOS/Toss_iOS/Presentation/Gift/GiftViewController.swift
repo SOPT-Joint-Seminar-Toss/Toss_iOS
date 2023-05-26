@@ -93,6 +93,7 @@ class GiftViewController: BaseViewController {
             
             backButton.do {
                 $0.setImage(Image.backArrow, for: .normal)
+                $0.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
             }
             searchButton.do {
                 $0.setImage(Image.search, for: .normal)
@@ -455,6 +456,11 @@ class GiftViewController: BaseViewController {
     func giftButtonTap() {
         let giftcardVC = GiftcardViewController()
         self.navigationController?.pushViewController(giftcardVC, animated: true)
+    }
+    
+    @objc
+    func backButtonDidTap() {
+        self.dismiss(animated: true)
     }
 }
 

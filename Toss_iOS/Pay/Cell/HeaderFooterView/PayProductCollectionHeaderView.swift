@@ -16,7 +16,7 @@ final class PayProductCollectionHeaderView: UICollectionReusableView {
     
     //MARK: - UI Components
     
-    private let productTitleLabel = UILabel()
+    public let productTitleLabel = UILabel()
     private lazy var countLabel = UILabel()
     
     //MARK: - Life Cycle
@@ -65,6 +65,12 @@ final class PayProductCollectionHeaderView: UICollectionReusableView {
             $0.top.equalToSuperview()
             $0.leading.equalTo(self.productTitleLabel.snp.trailing).offset(14)
         }
+    }
+}
+
+extension PayProductCollectionHeaderView {
+    func dataBind(_ title: String?) {
+        countLabel.text = title
     }
 }
 

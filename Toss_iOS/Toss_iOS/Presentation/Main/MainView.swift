@@ -14,11 +14,13 @@ class MainView: UIView {
     //MARK: - Properties
 
     //MARK: - UI Components
-    private let scrollView = UIScrollView()
     
-    private let scrollContentView = UIView()
+    let scrollView = UIScrollView()
     
-    private let tossBankSectionView = MainSectionView(title: "토스뱅크").then {
+    let scrollContentView = UIView()
+    
+    
+    private let tossBankSectionView = MainSectionView(title: "토스뱅크", hasPushButton: true).then {
         $0.layer.cornerRadius = 20
         $0.layer.masksToBounds = true
     }
@@ -34,21 +36,21 @@ class MainView: UIView {
         $0.textColor = UIColor(hex: 0x000000)
     }
     
-    private let assetSectionView = MainSectionView(title: "자산").then {
+    let assetSectionView = MainSectionView(title: "자산", hasPushButton: true).then {
         $0.layer.cornerRadius = 20
         $0.layer.masksToBounds = true
     }
     
-    private let assetTossBankView = MainSectionCellView(
-        title: "토스뱅크 통장",
-        subTitle: "123,456,789 원",
+    let assetTossBankView = MainSectionCellView(
+        title: "",
+        subTitle: "",
         buttonHidden: false,
         buttonTitle: "송금",
         mainImage: Image.toss,
         subImage: UIImage(),
         doubleImage: false)
     
-    private let assetSavingMoneyView = MainSectionCellView(
+    let assetSavingMoneyView = MainSectionCellView(
         title: "토스뱅크 돈 모으기",
         subTitle: "123,456 원",
         buttonHidden: true,
@@ -57,7 +59,7 @@ class MainView: UIView {
         subImage: UIImage(),
         doubleImage: false)
     
-    private let assetKbBankView = MainSectionCellView(
+    let assetKbBankView = MainSectionCellView(
         title: "KB 국민은행 통장",
         subTitle: "123,456 원",
         buttonHidden: true,
@@ -102,7 +104,7 @@ class MainView: UIView {
         return stackView
     }()
     
-    private let investSectionView = MainSectionView(title: "투자").then {
+    private let investSectionView = MainSectionView(title: "투자", hasPushButton: true).then {
         $0.layer.cornerRadius = 20
         $0.layer.masksToBounds = true
     }
@@ -116,41 +118,21 @@ class MainView: UIView {
         subImage: Image.apple,
         doubleImage: true)
     
-    private let consumptionSectionView = MainSectionView(title: "소비").then {
+    let tabConsumptionSectionView = ConsumptionSectionView().then {
         $0.layer.cornerRadius = 20
         $0.layer.masksToBounds = true
     }
-    
-    private let consumptionStockView = MainSectionCellView(
-        title: "주식",
-        subTitle: "123,456,789 원",
-        buttonHidden: false,
-        buttonTitle: "내역",
-        mainImage: Image.card,
-        subImage: UIImage(),
-        doubleImage: false)
-    
-    private let consumptionCardView = MainSectionCellView(
-        title: "5월 15일 낼 카드값",
-        subTitle: "123,456 원",
-        buttonHidden: true,
-        buttonTitle: "",
-        mainImage: Image.icnDday,
-        subImage: UIImage(),
-        doubleImage: false)
+    let consumptionSectionView = MainSectionView(title: "소비", hasPushButton: true).then {
+        $0.layer.cornerRadius = 20
+        $0.layer.masksToBounds = true
+    }
+
     
     private let consumptionSeparateView = UIView().then {
         $0.backgroundColor = .tossGrey100
     }
     
-    private lazy var consumptionSectionStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [consumptionStockView, consumptionSeparateView, consumptionCardView])
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .fill
-        stackView.spacing = 32
-        return stackView
-    }()
+
     
     private let subSectionScrollView = UIScrollView()
     
@@ -228,11 +210,19 @@ class MainView: UIView {
     }
     
     private func setLayout() {
-        self.addSubview(scrollView)
+
+        self.addSubviews(scrollView, tabConsumptionSectionView)
+//        consumptionSectionView.addSubview(consumptionSectionStackView)
         scrollView.addSubview(scrollContentView)
-        scrollContentView.addSubviews(tossBankSectionView, pointSectionView, pointSectionTitleLabel, assetSectionView, assetSectionStackView, investSectionView, investStockView, consumptionSectionView, consumptionSectionStackView, subSectionScrollView, subSectionButtonStackView, privacyPolicyButton)
+        scrollContentView.addSubviews(tossBankSectionView, pointSectionView, pointSectionTitleLabel, assetSectionView, assetSectionStackView, investSectionView, investStockView, consumptionSectionView, subSectionScrollView, subSectionButtonStackView, privacyPolicyButton)
         subSectionScrollView.addSubview(subSectionScrollContentView)
         subSectionScrollContentView.addSubview(subSectionStackView)
+        
+        tabConsumptionSectionView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(260)
+            $0.bottom.equalToSuperview().offset(113)
+        }
         
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -280,17 +270,7 @@ class MainView: UIView {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(260)
         }
-        consumptionSeparateView.snp.makeConstraints {
-            $0.height.equalTo(1)
-            $0.leading.equalTo(assetSectionView.snp.leading).offset(24)
-            $0.trailing.equalTo(assetSectionView.snp.trailing).offset(-24)
-            
-        }
-        consumptionSectionStackView.snp.makeConstraints {
-            $0.top.equalTo(consumptionSectionView.titleLabel.snp.bottom).offset(32)
-            $0.leading.equalTo(assetSectionView.snp.leading).offset(24)
-            $0.trailing.equalTo(assetSectionView.snp.trailing).offset(-24)
-        }
+
         subSectionScrollView.snp.makeConstraints {
             $0.height.equalTo(157)
             $0.top.equalTo(consumptionSectionView.snp.bottom).offset(12)
