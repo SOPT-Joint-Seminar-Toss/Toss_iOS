@@ -196,7 +196,7 @@ extension PayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == rootView.popularConTableView && indexPath.row == 0 {
-            print("true")
+            pushToGiftViewController()
         }
     }
     
@@ -353,5 +353,10 @@ extension PayViewController {
         self.second += timeChecker?.secondResult ?? 0
         self.minute += timeChecker?.minuteResult ?? 0
         self.hour += timeChecker?.hourResult ?? 0
+    }
+    
+    func pushToGiftViewController() {
+        let giftViewController = GiftViewController()
+        self.navigationController?.pushViewController(giftViewController, animated: true)
     }
 }
