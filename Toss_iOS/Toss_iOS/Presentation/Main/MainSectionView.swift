@@ -12,6 +12,7 @@ import Then
 class MainSectionView: UIView {
     //MARK: - Properties
     var title: String
+    var hasPushButton: Bool
 
     //MARK: - UI Components
     private let contentView = UIView().then {
@@ -29,8 +30,9 @@ class MainSectionView: UIView {
         $0.setImage(Image.rightArrow, for: .normal)
     }
     //MARK: - Life Cycle
-    init(title: String) {
+    init(title: String, hasPushButton: Bool) {
         self.title = title
+        self.hasPushButton = hasPushButton
         super.init(frame: .zero)
         
         setUI()
@@ -45,6 +47,9 @@ class MainSectionView: UIView {
     private func setUI() {
         self.backgroundColor = .tossWhite
         
+        if !hasPushButton {
+            pushButton.isHidden = true
+        }
     }
     
     private func setLayout() {
