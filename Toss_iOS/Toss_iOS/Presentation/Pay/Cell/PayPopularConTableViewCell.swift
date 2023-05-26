@@ -93,11 +93,11 @@ final class PayPopularConTableViewCell: UITableViewCell {
         }
     }
     
-    public func dataBind(_ popularCon: PopularConModel) {
-        popularConImage.image = popularCon.image
-        popularConName.text = popularCon.name
-        popularConPrice.text = popularCon.price
-        popularCashBack.text = popularCon.cacheBack
+    public func dataBind(_ popularCon: PopularConResponse) {
+        popularConImage.kfSetImage(url: popularCon.imageURL)
+        popularConName.text = "\(popularCon.brandTitle) | \(popularCon.productTitle)"
+        popularConPrice.text = "\(String(popularCon.price))원"
+        popularCashBack.text = "\(String(popularCon.point)) 적립"
     }
 }
 
