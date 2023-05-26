@@ -35,6 +35,7 @@ class MainViewController : UIViewController {
         super.viewDidLoad()
         
         setUI()
+        MainAssetManager().getMainAsset(self)
     }
     //MARK: - Custom Method
     private func setLayout() {
@@ -148,6 +149,23 @@ extension MainViewController : UIScrollViewDelegate {
         }
     }
 }
-
+extension MainViewController {
+    func getMainAssetResponse(_ response : MainAssetResponse) {
+        self.mainView.assetTossBankView.titleLabel.text = response.data[0].title ?? ""
+        self.mainView.assetTossBankView.subTitleLabel.text = "\((response.data[0].balance ?? 0).addCommas()) 원"
+        self.mainView.assetSavingMoneyView.titleLabel.text = response.data[1].title ?? ""
+        self.mainView.assetSavingMoneyView.subTitleLabel.text = "\((response.data[1].balance ?? 0).addCommas()) 원"
+        self.mainView.assetKbBankView.titleLabel.text = response.data[2].title ?? ""
+        self.mainView.assetKbBankView.subTitleLabel.text = "\((response.data[2].balance ?? 0).addCommas()) 원"
+    }
+}
 //소비 섹션이 딱 나타나는 높이 : 985
 // 소비 텍스트까지는 1010
+
+extension Int {
+    func addCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: self)) ?? ""
+    }
+}

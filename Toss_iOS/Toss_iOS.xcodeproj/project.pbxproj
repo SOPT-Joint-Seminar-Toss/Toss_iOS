@@ -31,6 +31,7 @@
 		A5021EE42A18F789007DE096 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021EE32A18F789007DE096 /* TabBarController.swift */; };
 		A5021EE62A18F7C1007DE096 /* SubSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5021EE52A18F7C1007DE096 /* SubSectionButton.swift */; };
 		A526C1322A1CF98900DAC0EF /* ConsumptionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526C1312A1CF98900DAC0EF /* ConsumptionSectionView.swift */; };
+		A58327722A1FB6FF002F8F6E /* MainAssetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58327712A1FB6FF002F8F6E /* MainAssetResponse.swift */; };
 		D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325C2A11E86200C4281C /* PayNavigationView.swift */; };
 		D217325F2A11E86C00C4281C /* PaySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D217325E2A11E86C00C4281C /* PaySearchView.swift */; };
 		D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21732602A11E87800C4281C /* PayProductCollectionView.swift */; };
@@ -96,6 +97,7 @@
 		A5021EE32A18F789007DE096 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A5021EE52A18F7C1007DE096 /* SubSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSectionButton.swift; sourceTree = "<group>"; };
 		A526C1312A1CF98900DAC0EF /* ConsumptionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionSectionView.swift; sourceTree = "<group>"; };
+		A58327712A1FB6FF002F8F6E /* MainAssetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssetResponse.swift; sourceTree = "<group>"; };
 		D217325C2A11E86200C4281C /* PayNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayNavigationView.swift; path = Pay/View/PayNavigationView.swift; sourceTree = SOURCE_ROOT; };
 		D217325E2A11E86C00C4281C /* PaySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaySearchView.swift; path = Pay/View/PaySearchView.swift; sourceTree = SOURCE_ROOT; };
 		D21732602A11E87800C4281C /* PayProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PayProductCollectionView.swift; path = Pay/View/PayProductCollectionView.swift; sourceTree = SOURCE_ROOT; };
@@ -231,9 +233,9 @@
 		2CDCEC792A0F7E79009E6039 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A58327702A1FB5ED002F8F6E /* Main */,
 				2CDCEC812A0F7F0A009E6039 /* Gift */,
 				2CDCEC802A0F7F05009E6039 /* Pay */,
-				2CDCEC7F2A0F7F00009E6039 /* Main */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -284,13 +286,6 @@
 			path = Gift;
 			sourceTree = "<group>";
 		};
-		2CDCEC7F2A0F7F00009E6039 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		2CDCEC802A0F7F05009E6039 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +333,14 @@
 				A5021EDD2A18EBB2007DE096 /* MainSectionView.swift */,
 				A5021EDF2A18EBC6007DE096 /* MainSectionCellView.swift */,
 				A526C1312A1CF98900DAC0EF /* ConsumptionSectionView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A58327702A1FB5ED002F8F6E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A58327712A1FB6FF002F8F6E /* MainAssetResponse.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				D21732612A11E87800C4281C /* PayProductCollectionView.swift in Sources */,
 				A5021ED82A18EB5C007DE096 /* SubSectionView.swift in Sources */,
 				D2B1433B2A123382006BAB52 /* PayProductModel.swift in Sources */,
+				A58327722A1FB6FF002F8F6E /* MainAssetResponse.swift in Sources */,
 				D217325D2A11E86200C4281C /* PayNavigationView.swift in Sources */,
 				D2E3E2832A13A045002B65C6 /* PayBrandConCollectionViewCell.swift in Sources */,
 				D22AC5842A11B1EA0097210D /* Image.swift in Sources */,
