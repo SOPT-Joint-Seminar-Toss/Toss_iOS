@@ -13,7 +13,11 @@ import Then
 final class PayViewController : BaseViewController {
     
     //MARK: - Properties
-    
+    var timer: DispatchSourceTimer?
+
+    var hour: Int = 0
+    var minute: Int = 0
+    var second: Int  = 0
     
     private let productMockData = Product.mockDummy()
     private let brandConData = BrandCon.mockDummy()
@@ -34,16 +38,18 @@ final class PayViewController : BaseViewController {
     
     public var index: Int = 0 {
         didSet {
-            if !productData.isEmpty {
-                self.endDate = self.productData[self.index].endDate
-            }
+            timer?.cancel()
+            timer = nil
+            self.endDate = self.productData[self.index].endDate
+            self.calculateRemainngTime()
+//            self.rootView.productCollectionView.reloadData()
         }
     }
     
     public var endDate: String? {
         didSet {
+            startTimer(self.hour, self.minute, self.second)
             self.rootView.productCollectionView.reloadData()
-            self.endDate = calculateRemainngTime()
         }
     }
     
@@ -272,6 +278,8 @@ extension PayViewController {
             print("🍏🍏🍏🍏🍏🍏🍏")
             self.productData = result
             self.endDate = self.productData[self.index].endDate
+            self.calculateRemainngTime()
+            self.rootView.productCollectionView.reloadData()
         })
     }
     
@@ -282,14 +290,14 @@ extension PayViewController {
         }
     }
     
-    func calculateRemainngTime() -> String{
+    func calculateRemainngTime() {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-         //1. 주어진 시간 DataFormat으로 바꾸기
-        guard let endDate = self.endDate else { return "옵셔널 처리 중 문제가 발생했습니다"}
+        //1. 주어진 시간 DataFormat으로 바꾸기
+        guard let endDate = self.endDate else { return }
         let formatEndDate: String = endDate.replacingOccurrences(of: "T", with: " ")
         print("🔫🔫🔫🔫🔫🔫\(formatEndDate)🔫🔫🔫🔫🔫🔫🔫")
-        guard let endTime = format.date(from: formatEndDate) else { return "주어진 시간을 format하면 에러가 났스빈다"}
+        guard let endTime = format.date(from: formatEndDate) else { return }
         print("🦁🦁🦁🦁🦁🦁\(endTime)🦁🦁🦁🦁🦁🦁🦁")
         
         //2. 현재 시간 DataFormat으로 바꾸기
@@ -297,22 +305,58 @@ extension PayViewController {
         let currentTime = Date()
         print("🦖🦖🦖🦖🦖🦖🦖\(currentTime)🦖🦖🦖🦖🦖🦖🦖")
         
-         
-         //3. 두 개 시간 빼주기
         
-        var useTime = Int(endTime.timeIntervalSince(currentTime))
+        //3. 두 개 시간 빼주기
+        
+        let useTime = Int(endTime.timeIntervalSince(currentTime))
         print("🐼🐼🐼🐼🐼🐼🐼\(useTime)🐼🐼🐼🐼🐼🐼🐼🐼")
         
-        var hour = String(useTime / 3600)
-        var minute = String((useTime % 3600) / 60)
-        var second = String((useTime % 3600) % 60)
+        let hour = useTime / 3600
+        let minute = (useTime % 3600) / 60
+        let second = (useTime % 3600) % 60
         print("🕊🕊🕊🕊🕊🕊🕊 hour: \(hour)")
         print("🕊🕊🕊🕊🕊🕊🕊 minute: \(minute)")
         print("🕊🕊🕊🕊🕊🕊🕊 second: \(second)")
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+    }
+    
+    // [실시간 반복 작업 시작 호출]
+
+    func startTimer(_ hour: Int, _ minute: Int, _ second: Int) {
+        if timer == nil {
+            timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
+            timer?.schedule(deadline: .now(), repeating: 1)
+            timer?.setEventHandler(handler: {
+                self.timerCallback()
+            })
+            timer?.resume()
+        }
         
-        //4. HH:MM:SS로 format 해주기
-        return hour + ":" + minute + ":" + second + " 남음"
-         
+    }
+    // [실시간 반복 작업 수행 부분]
+    func timerCallback() {
+        if self.second > 0 {
+            self.second -= 1
+        } else {
+            if self.minute > 0 {
+                self.minute -= 1
+                self.second = 59
+            } else {
+                if self.hour > 0 {
+                    self.minute = 59
+                    self.second = 59
+                } else {
+                    self.hour = 0
+                    self.minute = 0
+                    self.second = 0
+                }
+            }
+        }
+        print("🍪🍪🍪🍪🍪🍪🍪 hour: \(hour)")
+        print("🍪🍪🍪🍪🍪🍪🍪 minute: \(minute)")
+        print("🍪🍪🍪🍪🍪🍪🍪 second: \(second)")
+        self.endDate = "\(hour):\(minute):\(second) 남음"
     }
 }
-
