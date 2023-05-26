@@ -357,6 +357,9 @@ extension PayViewController {
     
     func pushToGiftViewController() {
         let giftViewController = GiftViewController()
-        self.navigationController?.pushViewController(giftViewController, animated: true)
+        let giftNVC = UINavigationController(rootViewController: giftViewController)
+        giftNVC.modalPresentationStyle = .fullScreen
+        giftNVC.modalTransitionStyle = .coverVertical
+        present(giftNVC, animated: true)
     }
 }
