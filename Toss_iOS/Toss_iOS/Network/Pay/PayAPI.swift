@@ -24,6 +24,14 @@ extension PayAPI{
                                 completion: completion)
         }
     }
+    
+    public func getProduct(completion: @escaping (NetworkResult<Any>) -> Void) {
+        AFManager.request(PayService.getProduct).responseData { response in
+            self.disposeNetwork(response,
+                                dataModel: [ProductResponse].self,
+                                completion: completion)
+        }
+    }
 }
 
 

@@ -13,6 +13,11 @@ import Then
 final class PayViewController : BaseViewController {
     
     //MARK: - Properties
+    var timer: DispatchSourceTimer?
+
+    var hour: Int = 0
+    var minute: Int = 0
+    var second: Int  = 0
     
     private let productMockData = Product.mockDummy()
     private let brandConData = BrandCon.mockDummy()
@@ -24,6 +29,30 @@ final class PayViewController : BaseViewController {
             self.rootView.popularConTableView.reloadData()
         }
     }
+    
+    private var productData: [ProductResponse] = [] {
+        didSet {
+            self.rootView.productCollectionView.reloadData()
+        }
+    }
+    
+    public var index: Int = 0 {
+        didSet {
+            timer?.cancel()
+            timer = nil
+            self.endDate = self.productData[self.index].endDate
+            self.calculateRemainngTime()
+//            self.rootView.productCollectionView.reloadData()
+        }
+    }
+    
+    public var endDate: String? {
+        didSet {
+            startTimer(self.hour, self.minute, self.second)
+            self.rootView.productCollectionView.reloadData()
+        }
+    }
+    
     
     //MARK: - UI Components
     
@@ -40,7 +69,7 @@ final class PayViewController : BaseViewController {
         
         target()
         requestPay()
-        
+        calculateRemainngTime()
     }
     
     //MARK: - Custom Method
@@ -60,17 +89,18 @@ final class PayViewController : BaseViewController {
         
         rootView.popularBrandTableView.delegate = self
         rootView.popularBrandTableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(dataReceived),
+            name: NSNotification.Name("page"),
+            object: nil)
     }
     
     //MARK: - Action Method
     
 }
 
-extension PayViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("yes")
-    }
-}
 extension PayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableView {
@@ -172,7 +202,7 @@ extension PayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case rootView.productCollectionView:
-            return productMockData.count
+            return productData.count
         case rootView.brandConCollectionView:
             return brandConData.count
         default:
@@ -185,7 +215,7 @@ extension PayViewController: UICollectionViewDataSource {
         switch collectionView {
         case rootView.productCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayProductCollectionViewCell.cellIdentifier, for: indexPath) as? PayProductCollectionViewCell else { return UICollectionViewCell() }
-            cell.dataBind(productMockData[indexPath.item])
+            cell.dataBind(productData[indexPath.item], productMockData[indexPath.item])
             return cell
         case rootView.brandConCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayBrandConCollectionViewCell.cellIdentifier, for: indexPath) as? PayBrandConCollectionViewCell else { return UICollectionViewCell() }
@@ -210,6 +240,7 @@ extension PayViewController: UICollectionViewDataSource {
                     withReuseIdentifier:PayProductCollectionHeaderView.reuseCellIdentifier,
                     for: indexPath
                 )as? PayProductCollectionHeaderView else { return UICollectionReusableView() }
+                header.dataBind(self.endDate)
                 return header
                 
             case UICollectionView.elementKindSectionFooter:
@@ -238,5 +269,84 @@ extension PayViewController {
             print("🍏🍏🍏🍏🍏🍏🍏")
             self.popularConData = result
         })
+        
+        PayAPI.shared.getProduct (completion: { result in
+            guard let result = self.validateResult(result) as? [ProductResponse] else {
+                print("🍎🍎🍎🍎🍎🍎🍎🍎")
+                return
+            }
+            print("🍏🍏🍏🍏🍏🍏🍏")
+            self.productData = result
+            self.endDate = self.productData[self.index].endDate
+            self.calculateRemainngTime()
+            self.rootView.productCollectionView.reloadData()
+        })
+    }
+    
+    @objc func dataReceived(notification: NSNotification) {
+        guard let page = notification.object as? Int else { return }
+        if self.index != page {
+            self.index = page
+        }
+    }
+    
+    func calculateRemainngTime() {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //1. 주어진 시간 DataFormat으로 바꾸기
+        guard let endDate = self.endDate else { return }
+        let formatEndDate: String = endDate.replacingOccurrences(of: "T", with: " ")
+        print("🔫🔫🔫🔫🔫🔫\(formatEndDate)🔫🔫🔫🔫🔫🔫🔫")
+        guard let endTime = format.date(from: formatEndDate) else { return }
+        print("🦁🦁🦁🦁🦁🦁\(endTime)🦁🦁🦁🦁🦁🦁🦁")
+        
+        //2. 현재 시간 DataFormat으로 바꾸기
+        
+        let currentTime = Date()
+        print("🦖🦖🦖🦖🦖🦖🦖\(currentTime)🦖🦖🦖🦖🦖🦖🦖")
+        
+        
+        //3. 두 개 시간 빼주기
+        
+        let useTime = Int(endTime.timeIntervalSince(currentTime))
+        print("🐼🐼🐼🐼🐼🐼🐼\(useTime)🐼🐼🐼🐼🐼🐼🐼🐼")
+        
+        let hour = useTime / 3600
+        let minute = (useTime % 3600) / 60
+        let second = (useTime % 3600) % 60
+        print("🕊🕊🕊🕊🕊🕊🕊 hour: \(hour)")
+        print("🕊🕊🕊🕊🕊🕊🕊 minute: \(minute)")
+        print("🕊🕊🕊🕊🕊🕊🕊 second: \(second)")
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+    }
+    
+    // [실시간 반복 작업 시작 호출]
+
+    func startTimer(_ hour: Int, _ minute: Int, _ second: Int) {
+        if timer == nil {
+            timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
+            timer?.schedule(deadline: .now(), repeating: 1)
+            timer?.setEventHandler(handler: {
+                self.timerCallback()
+            })
+            timer?.resume()
+        }
+        
+    }
+    // [실시간 반복 작업 수행 부분]
+    func timerCallback() {
+        var timeChecker: TimeCheker?
+        if self.second > 1 { timeChecker = .second }
+        else if self.second <= 1 && self.minute > 0 { timeChecker = .minute }
+        else if self.second <= 0 && self.minute <= 0 && self.hour > 0 { timeChecker = .hour }
+        else { timeChecker = .end}
+        
+        self.endDate = timeChecker?.currentTime(hour: self.hour, minute: self.minute, second: self.second)
+        
+        self.second += timeChecker?.secondResult ?? 0
+        self.minute += timeChecker?.minuteResult ?? 0
+        self.hour += timeChecker?.hourResult ?? 0
     }
 }
