@@ -215,7 +215,7 @@ extension PayViewController: UICollectionViewDataSource {
         switch collectionView {
         case rootView.productCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayProductCollectionViewCell.cellIdentifier, for: indexPath) as? PayProductCollectionViewCell else { return UICollectionViewCell() }
-            cell.dataBind(productData[indexPath.item])
+            cell.dataBind(productData[indexPath.item], productMockData[indexPath.item])
             return cell
         case rootView.brandConCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PayBrandConCollectionViewCell.cellIdentifier, for: indexPath) as? PayBrandConCollectionViewCell else { return UICollectionViewCell() }

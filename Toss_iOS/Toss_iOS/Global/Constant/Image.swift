@@ -64,6 +64,7 @@ public enum Image {
     static var search = UIImage(named: "icn_search")!
     static var payMockImage = UIImage(named: "icn_pay_mockData")!
     static let profile = UIImage(named: "icn_profile")!
+    static let profile2 = UIImage(named: "icn_profile2")!
     static let cashBack = UIImage(named: "icn_cashBack")!
     static let baemin = UIImage(named: "brand_baemin")!
     static let musins = UIImage(named: "brand_musinsa")!

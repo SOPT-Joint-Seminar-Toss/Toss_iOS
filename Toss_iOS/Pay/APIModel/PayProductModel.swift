@@ -8,22 +8,15 @@
 import UIKit
 
 struct Product {
-    var image: UIImage
-    var name: String
-    var disCount: String
-    var price: String
+    var profileImage: UIImage
+    var count: String
 }
 
 extension Product {
     static func mockDummy() -> [Product] {
         return [
-            Product(image: Image.payMockImage, name: "나랑드사이다 제로 350ml 페트 1박스(20입)", disCount: "70%", price: "8,900원"),
-            Product(image: Image.payMockImage, name: "나랑드사이다 제로 350ml 페트 1박스(20입)", disCount: "70%", price: "8,900원"),
-            Product(image: Image.payMockImage, name: "나랑드사이다 제로 350ml 페트 1박스(20입)", disCount: "70%", price: "8,900원"),
-            Product(image: Image.payMockImage, name: "나랑드사이다 제로 350ml 페트 1박스(20입)", disCount: "70%", price: "8,900원"),
-            Product(image: Image.payMockImage, name: "나랑드사이다 제로 350ml 페트 1박스(20입)", disCount: "70%", price: "8,900원"),
-            Product(image: Image.payMockImage, name: "나랑드사이다 제로 350ml 페트 1박스(20입)", disCount: "70%", price: "8,900원"),
-            Product(image: Image.payMockImage, name: "나랑드사이다 제로 350ml 페트 1박스(20입)", disCount: "70%", price: "8,900원")
+            Product(profileImage: Image.profile, count: "9,546"),
+            Product(profileImage: Image.profile2, count: "38,977"),
         ]
     }
 }

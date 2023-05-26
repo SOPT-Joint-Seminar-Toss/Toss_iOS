@@ -70,7 +70,6 @@ final class PayProductCollectionViewCell: UICollectionViewCell {
         }
         
         purchaserCountLabel.do {
-            $0.text = "9,536명 구매중"
             $0.font = .tossBody3
             $0.textColor = .tossGrey300
             $0.textAlignment = .left
@@ -122,12 +121,14 @@ final class PayProductCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    public func dataBind(_ product: ProductResponse) {
+    public func dataBind(_ product: ProductResponse, _ profileData: Product) {
         productImage.kfSetImage(url: product.imageURL)
         productLabel.text = product.title
         productDiscount.text = "\(String(product.discountRate))%"
         productPrice.text = "\(String(product.price))원"
         productEndData = product.endDate
         productId = product.id
+        purchaserProfile.image = profileData.profileImage
+        purchaserCountLabel.text = "\(profileData.count)명이 구매중"
     }
 }
