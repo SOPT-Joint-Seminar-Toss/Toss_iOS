@@ -192,7 +192,12 @@ extension PayViewController: UITableViewDataSource {
         default:
             return UIView()
         }
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == rootView.popularConTableView && indexPath.row == 0 {
+            print("true")
+        }
     }
     
     
