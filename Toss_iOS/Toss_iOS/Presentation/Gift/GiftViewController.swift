@@ -13,12 +13,12 @@ import Then
 
 class GiftViewController: BaseViewController {
     
-    //MARK: - Property
+    // MARK: - Property
     
     private var productData: GiftproductModel?
     
+    // MARK: - UI Components
     
-    //MARK: - UI Components
     //scrollview 구현
     private var scrollView = UIScrollView()
     private var contentView = UIView()
@@ -27,12 +27,12 @@ class GiftViewController: BaseViewController {
     private var itemInfoView = UIView()
     private var itemInfotextLabel = UILabel()
     private var itemInfoText : String?
-    private lazy var infoButton = UIButton()
-    private lazy var reviewButton = UIButton()
-    private lazy var rectanglebarView = UIView(frame: originFrame)
-    private var checkInfo = true
+    private lazy var itemInfoButton = UIButton()
+    private lazy var itemReviewButton = UIButton()
+    private lazy var itemRectangleBarView = UIView(frame: originFrame)
+    private var itemInfoCheck = true
     
-    private var itemEtcView = UIView()
+    private var productInfoView = UIView()
     private var productImage = UIImageView()
     private var productbrandLabel = UILabel()
     private var productnameLabel = UILabel()
@@ -40,13 +40,13 @@ class GiftViewController: BaseViewController {
     
     private var cashbackView = UIView()
     private var cashbackIcon = UIImageView()
-    private var cashbackmessageLabel = UILabel()
-    private var cashbackpointLabel = UILabel()
+    private var cashbackMessageLabel = UILabel()
+    private var cashbackPointLabel = UILabel()
     
-    private var expirydateinfoLabel = UILabel()
-    private var expirydateLabel = UILabel()
-    private var noticeButton = UIButton()
-    private var brandconButton = UIButton()
+    private var expirydateNameLabel = UILabel()
+    private var expirydateNumberLabel = UILabel()
+    private var noticeNameButton = UIButton()
+    private var brandconNameButton = UIButton()
     
     //상단 고정영역
     private var topNavBar = UIView()
@@ -60,30 +60,34 @@ class GiftViewController: BaseViewController {
     private var giftButton = UIButton()
 
     //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addContentView() //먼저 안하면 에러남 어이없음
+        addContentView()
         setStyle()
         setLayout()
         requestGiftAPI() 
     }
     
-    //MARK: - Custom Method
+    // MARK: - AddContent
+    
     func addContentView() {
         view.addSubviews(scrollView, bottomNavBar, topNavBar)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(itemMainView, itemInfoView, itemEtcView,
-                                rectanglebarView,
+        contentView.addSubviews(itemMainView, itemInfoView, productInfoView,
+                                itemRectangleBarView,
                                 productImage,productbrandLabel, productnameLabel, productpriceLabel,
                                 cashbackView)
-        cashbackView.addSubviews(cashbackIcon, cashbackmessageLabel, cashbackpointLabel)
-        itemInfoView.addSubviews(infoButton, reviewButton, itemInfotextLabel)
-        itemEtcView.addSubviews(expirydateinfoLabel, expirydateLabel,
-                                noticeButton, brandconButton)
+        cashbackView.addSubviews(cashbackIcon, cashbackMessageLabel, cashbackPointLabel)
+        itemInfoView.addSubviews(itemInfoButton, itemReviewButton, itemInfotextLabel)
+        productInfoView.addSubviews(expirydateNameLabel, expirydateNumberLabel,
+                                noticeNameButton, brandconNameButton)
         topNavBar.addSubviews(backButton, searchButton, heartButton)
         bottomNavBar.addSubviews(giftButton, buyButton)
     }
+    
+    // MARK: - Style
     
     func setStyle() {
         view.backgroundColor = .tossWhite
@@ -102,7 +106,7 @@ class GiftViewController: BaseViewController {
                 $0.setImage(Image.heart, for: .normal)
                 $0.setImage(Image.heartFilled, for: .selected)
                 
-                $0.addTarget(self, action: #selector(heartBtnTap), for: .touchUpInside)
+                $0.addTarget(self, action: #selector(heartButtonTap), for: .touchUpInside)
             }
         }
         
@@ -136,12 +140,12 @@ class GiftViewController: BaseViewController {
                 cashbackIcon.do {
                     $0.image = Image.point
                 }
-                cashbackmessageLabel.do {
+                cashbackMessageLabel.do {
                     $0.text = "3% 캐시백드려요"
                     $0.font = .tossSubTitle
                     $0.textColor = UIColor(hex: 0x6D7582)
                 }
-                cashbackpointLabel.do {
+                cashbackPointLabel.do {
                     $0.text = "60원"
                     $0.font = .tossTitle2
                     $0.textColor = .tossBlue
@@ -152,31 +156,31 @@ class GiftViewController: BaseViewController {
         itemInfoView.do {
             $0.backgroundColor = .tossWhite
             
-            infoButton.do {
+            itemInfoButton.do {
                 $0.backgroundColor = .tossWhite
                 $0.setTitle("상품정보", for: .normal)
                 $0.titleLabel?.font = .tossTitle2
                 $0.titleLabel?.textAlignment = .center
-                if(checkInfo){
+                if(itemInfoCheck){
                     $0.setTitleColor(UIColor(hex: 0x191919), for: .normal)
                 }
                 else {
                     $0.setTitleColor(UIColor(hex: 0x999999), for: .normal)
                 }
-                $0.addTarget(self, action: #selector(infoBtnTap), for: .touchUpInside)
+                $0.addTarget(self, action: #selector(infoButtonTap), for: .touchUpInside)
             }
-            reviewButton.do {
+            itemReviewButton.do {
                 $0.backgroundColor = .tossWhite
                 $0.setTitle("후기", for: .normal)
                 $0.titleLabel?.font = .tossTitle2
                 $0.titleLabel?.textAlignment = .center
-                if(checkInfo){
+                if(itemInfoCheck){
                     $0.setTitleColor(UIColor(hex: 0x999999), for: .normal)
                 }
                 else {
                     $0.setTitleColor(UIColor(hex: 0x191919), for: .normal)
                 }
-                $0.addTarget(self, action: #selector(infoBtnTap), for: .touchUpInside)
+                $0.addTarget(self, action: #selector(infoButtonTap), for: .touchUpInside)
             }
             itemInfotextLabel.do {
                 //checkInfo = true
@@ -186,26 +190,26 @@ class GiftViewController: BaseViewController {
                 $0.numberOfLines = 2
                 $0.textAlignment = .left
             }
-            rectanglebarView.do {
+            itemRectangleBarView.do {
                 $0.backgroundColor = .black
                 $0.layer.cornerRadius = 3
             }
         }
         
-        itemEtcView.do {
+        productInfoView.do {
             $0.backgroundColor = .tossWhite
             
-            expirydateinfoLabel.do {
+            expirydateNameLabel.do {
                 $0.text = "유효기간"
                 $0.font = .tossTitle2
                 $0.textColor = .tossGrey400
             }
-            expirydateLabel.do {
+            expirydateNumberLabel.do {
                 //$0.text = "366일"
                 $0.font = .tossTitle2
                 $0.textColor = .tossGrey400
             }
-            noticeButton.do {
+            noticeNameButton.do {
                 $0.backgroundColor = .tossWhite
                 $0.setTitle("메가MGC커피 유의사항", for: .normal)
                 $0.setTitleColor(.tossGrey400, for: .normal)
@@ -213,7 +217,7 @@ class GiftViewController: BaseViewController {
                 $0.titleLabel?.textAlignment = .left
                 $0.titleEdgeInsets = .init(top: 10, left: 19, bottom: 10, right: 210)
             }
-            brandconButton.do {
+            brandconNameButton.do {
                 $0.backgroundColor = .tossWhite
                 $0.setTitle("브랜드콘 안내", for: .normal)
                 $0.setTitleColor(.tossGrey400, for: .normal)
@@ -247,6 +251,8 @@ class GiftViewController: BaseViewController {
             }
         }
     }
+    
+    // MARK: - Layout
     
     func setLayout() {
         topNavBar.snp.makeConstraints {
@@ -313,11 +319,11 @@ class GiftViewController: BaseViewController {
                     $0.centerY.equalToSuperview()
                     $0.size.equalTo(22)
                 }
-                cashbackmessageLabel.snp.makeConstraints {
+                cashbackMessageLabel.snp.makeConstraints {
                     $0.leading.equalTo(cashbackIcon.snp.trailing).offset(16)
                     $0.centerY.equalToSuperview()
                 }
-                cashbackpointLabel.snp.makeConstraints {
+                cashbackPointLabel.snp.makeConstraints {
                     $0.trailing.equalToSuperview().inset(24)
                     $0.centerY.equalToSuperview()
                 }
@@ -329,50 +335,50 @@ class GiftViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(188)
             
-            infoButton.snp.makeConstraints {
+            itemInfoButton.snp.makeConstraints {
                 $0.top.leading.equalToSuperview()
                 $0.width.equalTo(187.5)
                 $0.height.equalTo(58)
             }
-            reviewButton.snp.makeConstraints {
+            itemReviewButton.snp.makeConstraints {
                 $0.top.trailing.equalToSuperview()
                 $0.width.equalTo(187.5)
                 $0.height.equalTo(58)
             }
             itemInfotextLabel.snp.makeConstraints {
-                $0.top.equalTo(infoButton.snp.bottom)
+                $0.top.equalTo(itemInfoButton.snp.bottom)
                 $0.leading.equalToSuperview().inset(22)
                 $0.bottom.equalToSuperview()
             }
-            rectanglebarView.snp.makeConstraints {
-                $0.top.equalTo(infoButton.snp.bottom)
+            itemRectangleBarView.snp.makeConstraints {
+                $0.top.equalTo(itemInfoButton.snp.bottom)
                 $0.leading.equalToSuperview().offset(60)
                 $0.width.equalTo(67)
                 $0.height.equalTo(3)
             }
         }
         
-        itemEtcView.snp.makeConstraints {
+        productInfoView.snp.makeConstraints {
             $0.top.equalTo(itemInfoView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(242)
             $0.bottom.equalToSuperview()
             
-            expirydateinfoLabel.snp.makeConstraints {
+            expirydateNameLabel.snp.makeConstraints {
                 $0.top.equalToSuperview().offset(28)
                 $0.leading.equalToSuperview().offset(22)
             }
-            expirydateLabel.snp.makeConstraints {
-                $0.top.equalTo(expirydateinfoLabel.snp.top)
+            expirydateNumberLabel.snp.makeConstraints {
+                $0.top.equalTo(expirydateNameLabel.snp.top)
                 $0.trailing.equalToSuperview().inset(22)
             }
-            noticeButton.snp.makeConstraints {
-                $0.top.equalTo(expirydateLabel.snp.bottom).offset(25)
+            noticeNameButton.snp.makeConstraints {
+                $0.top.equalTo(expirydateNumberLabel.snp.bottom).offset(25)
                 $0.width.equalToSuperview()
                 $0.height.equalTo(40)
             }
-            brandconButton.snp.makeConstraints {
-                $0.top.equalTo(noticeButton.snp.bottom).offset(16)
+            brandconNameButton.snp.makeConstraints {
+                $0.top.equalTo(noticeNameButton.snp.bottom).offset(16)
                 $0.width.equalToSuperview()
                 $0.height.equalTo(40)
             }
@@ -399,25 +405,27 @@ class GiftViewController: BaseViewController {
         
     }
     
+    // MARK: - Actions
+    
     @objc
-    func infoBtnTap() {
-        checkInfo.toggle()
-        if(checkInfo){
-            infoButton.setTitleColor(UIColor(hex: 0x191919), for: .normal)
-            reviewButton.setTitleColor(UIColor(hex: 0x999999), for: .normal)
+    func infoButtonTap() {
+        itemInfoCheck.toggle()
+        if(itemInfoCheck){
+            itemInfoButton.setTitleColor(UIColor(hex: 0x191919), for: .normal)
+            itemReviewButton.setTitleColor(UIColor(hex: 0x999999), for: .normal)
             rectangleResetAnimation()
             itemInfotextLabel.text = itemInfoText
         }
         else {
-            infoButton.setTitleColor(UIColor(hex: 0x999999), for: .normal)
-            reviewButton.setTitleColor(UIColor(hex: 0x191919), for: .normal)
+            itemInfoButton.setTitleColor(UIColor(hex: 0x999999), for: .normal)
+            itemReviewButton.setTitleColor(UIColor(hex: 0x191919), for: .normal)
             rectangleAnimation()
             itemInfotextLabel.text = ""
         }
     }
     
     @objc
-    func heartBtnTap() {
+    func heartButtonTap() {
         heartButton.isSelected.toggle()
         GiftAPI.shared.patchHeart { result in
             print("data response를 받았습니다")
@@ -428,27 +436,27 @@ class GiftViewController: BaseViewController {
     let newFrame = CGRect(x: 100, y: 0, width: 67, height: 3)
     
     func rectangleAnimation() {
-        rectanglebarView.snp.remakeConstraints {
-            $0.centerX.equalTo(reviewButton.snp.centerX)
-            $0.bottom.equalTo(reviewButton.snp.bottom)
-            $0.width.equalTo(reviewButton.titleLabel!.snp.width)
+        itemRectangleBarView.snp.remakeConstraints {
+            $0.centerX.equalTo(itemReviewButton.snp.centerX)
+            $0.bottom.equalTo(itemReviewButton.snp.bottom)
+            $0.width.equalTo(itemReviewButton.titleLabel!.snp.width)
             $0.height.equalTo(3)
         }
         UIView.animate(withDuration: 0.5) { [self] in
             
-            self.rectanglebarView.superview?.layoutIfNeeded()
+            self.itemRectangleBarView.superview?.layoutIfNeeded()
         }
     }
     
     func rectangleResetAnimation() {
-        rectanglebarView.snp.remakeConstraints {
-            $0.centerX.equalTo(infoButton.snp.centerX)
-            $0.bottom.equalTo(reviewButton.snp.bottom)
-            $0.width.equalTo(infoButton.titleLabel!.snp.width)
+        itemRectangleBarView.snp.remakeConstraints {
+            $0.centerX.equalTo(itemInfoButton.snp.centerX)
+            $0.bottom.equalTo(itemReviewButton.snp.bottom)
+            $0.width.equalTo(itemInfoButton.titleLabel!.snp.width)
             $0.height.equalTo(3)
         }
         UIView.animate(withDuration: 0.5) { [self] in
-            self.rectanglebarView.superview?.layoutIfNeeded()
+            self.itemRectangleBarView.superview?.layoutIfNeeded()
         }
     }
     
@@ -463,6 +471,8 @@ class GiftViewController: BaseViewController {
         self.dismiss(animated: true)
     }
 }
+
+// MARK: - GIftViewDataSource
 
 extension GiftViewController {
     func requestGiftAPI() {
@@ -479,8 +489,8 @@ extension GiftViewController {
         productbrandLabel.text = productData.brandTitle
         productnameLabel.text = productData.productTitle
         productpriceLabel.text = String(productData.price ?? 0) + "원"
-        cashbackpointLabel.text = String(productData.point ?? 0) + "원"
-        expirydateLabel.text = String(productData.expiration ?? 0) + "일"
+        cashbackPointLabel.text = String(productData.point ?? 0) + "원"
+        expirydateNumberLabel.text = String(productData.expiration ?? 0) + "일"
         itemInfotextLabel.text = productData.productInfo
         itemInfoText = productData.productInfo
         
