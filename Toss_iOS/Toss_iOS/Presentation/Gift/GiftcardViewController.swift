@@ -12,6 +12,8 @@ import Then
 
 class GiftcardViewController: UIViewController {
     
+    //MARK: - UI Components
+    
     let placeHolder = "고마운 마음을 담아\n선물을 보내요"
     
     //상단 고정 영역
@@ -20,7 +22,7 @@ class GiftcardViewController: UIViewController {
     
     //카드 선택 영역
     private var cardLabel = UILabel()
-    private var cardselectView = UIView()
+    private var cardSelectView = UIView()
     private var ballonButton = UIButton()
     private var turtleButton = UIButton()
     private var ghostButton = UIButton()
@@ -51,6 +53,8 @@ class GiftcardViewController: UIViewController {
     private var textViewAccessoryView = UIView()
     private var textViewEditMessageButton = UIButton()
     
+    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,9 +65,12 @@ class GiftcardViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    
+    //MARK: - AddContent
+    
     func addContentView() {
         view.addSubviews(topNavBar,
-                         cardselectView,
+                         cardSelectView,
                          balloncardView,
                          editCompleteButton,
                          completeButton,
@@ -71,7 +78,7 @@ class GiftcardViewController: UIViewController {
         
         topNavBar.addSubview(backButton)
         
-        cardselectView.addSubviews(cardLabel,
+        cardSelectView.addSubviews(cardLabel,
                                    ballonButton,
                                    turtleButton,
                                    ghostButton,
@@ -90,6 +97,8 @@ class GiftcardViewController: UIViewController {
         
     }
     
+    //MARK: - Style
+    
     func setStyle() {
         view.backgroundColor = .tossWhite
         
@@ -98,11 +107,11 @@ class GiftcardViewController: UIViewController {
             
             backButton.do {
                 $0.setImage(Image.backArrow, for: .normal)
-                $0.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+                $0.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
             }
         }
         
-        cardselectView.do {
+        cardSelectView.do {
             $0.backgroundColor = .tossWhite
             
             cardLabel.do {
@@ -178,7 +187,7 @@ class GiftcardViewController: UIViewController {
                 $0.setTitleColor(.tossWhite, for: .normal)
                 $0.makeCornerRound(radius: 20)
                 $0.backgroundColor = .tossBlue
-                $0.addTarget(self, action: #selector(editCompletedTap), for: .touchUpInside)
+                $0.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
             }
             writeContentLabel.do {
                 $0.isHidden = true
@@ -204,7 +213,7 @@ class GiftcardViewController: UIViewController {
                 $0.makeCornerRound(radius: 20)
                 $0.backgroundColor = .tossBlue
                 $0.addTarget(self,
-                             action: #selector(editCompletedTap),
+                             action: #selector(completeButtonTap),
                              for: .touchUpInside)
             }
         }
@@ -215,10 +224,12 @@ class GiftcardViewController: UIViewController {
             $0.setTitleColor(.tossWhite, for: .normal)
             $0.backgroundColor = UIColor(hex: 0xD478C5)
             $0.layer.cornerRadius = 14
-            $0.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+            $0.addTarget(self, action: #selector(completeButtonTap), for: .touchUpInside)
         }
         
     }
+    
+    // MARK: - Layout
     
     func setLayout() {
         topNavBar.snp.makeConstraints {
@@ -233,7 +244,7 @@ class GiftcardViewController: UIViewController {
             }
         }
         
-        cardselectView.snp.makeConstraints {
+        cardSelectView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(97)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(127)
@@ -283,7 +294,7 @@ class GiftcardViewController: UIViewController {
         }
         
         balloncardView.snp.makeConstraints {
-            $0.top.equalTo(cardselectView.snp.bottom).offset(21)
+            $0.top.equalTo(cardSelectView.snp.bottom).offset(21)
             $0.bottom.equalTo(completeButton.snp.top).offset(-30)
             $0.leading.trailing.equalToSuperview().inset(22)
             
@@ -334,6 +345,11 @@ class GiftcardViewController: UIViewController {
             $0.height.equalTo(54)
         }
     }
+}
+
+// MARK: - Actions
+
+extension GiftcardViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         balloncardTextView.resignFirstResponder()
@@ -341,11 +357,7 @@ class GiftcardViewController: UIViewController {
             writeContentLabel.isHidden = true
             deleteButton.isHidden = true
         }
-        
     }
-}
-
-extension GiftcardViewController {
     
     @objc
     private func editMessageButtonTap() {
@@ -357,7 +369,7 @@ extension GiftcardViewController {
     }
     
     @objc
-    private func editCompletedTap() {
+    private func completeButtonTap() {
         let text = balloncardTextView.text
         print("수정 완료 버튼이 눌렸습니다.")
         balloncardTextView.resignFirstResponder()
@@ -366,8 +378,30 @@ extension GiftcardViewController {
         deleteButton.isHidden = true
         editMessageButton.isHidden = false
     }
-    @objc func completeButtonTapped() {
+    
+    @objc
+    private func clean() {
+        balloncardTextView.text = ""
+        writeContentLabel.text = "0자/86자"
+        writeContentLabel.isHidden = true
+        deleteButton.isHidden = true
+        
+    }
+    
+    @objc
+    func backButtonTap() {
+        if self.navigationController == nil {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    @objc
+    func completeButtonTapped() {
         indicator.startAnimating()
+        
+        // MARK: - GIftViewDataSource
         
         GiftManager().postGift(self, productID: 1) { statusCode in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2 , execute: {
@@ -399,27 +433,9 @@ extension GiftcardViewController {
             })
         }
     }
-
-    @objc
-    private func clean() {
-        balloncardTextView.text = ""
-        writeContentLabel.text = "0자/86자"
-        writeContentLabel.isHidden = true
-        deleteButton.isHidden = true
-        
-    }
-    
-    @objc
-    func backButtonTapped() {
-        if self.navigationController == nil {
-            self.dismiss(animated: true, completion: nil)
-        }
-        else {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
 }
+
+// MARK: - UITextViewDelegate
 
 extension GiftcardViewController: UITextViewDelegate {
     
@@ -473,10 +489,3 @@ extension GiftcardViewController: UITextViewDelegate {
         return changedText.count <= 85
     }
 }
-
-//
-//extension GiftcardViewController {
-//    func postGiftRespnse(_ respnse : GiftResponse) {
-//        print(respnse.status, "dddd")
-//    }
-//}
