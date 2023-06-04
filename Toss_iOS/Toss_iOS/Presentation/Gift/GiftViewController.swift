@@ -64,7 +64,9 @@ class GiftViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubviews(scrollView, bottomNavBar, topNavBar)
         addContentView()
+        
         setStyle()
         setLayout()
         requestGiftAPI() 
@@ -73,7 +75,6 @@ class GiftViewController: BaseViewController {
     // MARK: - AddContent
     
     func addContentView() {
-        view.addSubviews(scrollView, bottomNavBar, topNavBar)
         scrollView.addSubview(contentView)
         contentView.addSubviews(itemMainView, itemInfoView, productInfoView,
                                 itemRectangleBarView,

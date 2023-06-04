@@ -390,13 +390,9 @@ extension GiftcardViewController {
     
     @objc
     func backButtonTap() {
-        if self.navigationController == nil {
-            self.dismiss(animated: true, completion: nil)
-        }
-        else {
-            self.navigationController?.popViewController(animated: true)
-        }
+        self.navigationController?.popViewController(animated: true)
     }
+    
     @objc
     func completeButtonTapped() {
         indicator.startAnimating()
@@ -451,7 +447,7 @@ extension GiftcardViewController: UITextViewDelegate {
         writeContentLabel.isHidden = false
         deleteButton.isHidden = false
     }
-
+    
     func textViewDidChange(_ textView: UITextView) {
         deleteButton.isHidden = false
         writeContentLabel.isHidden = false
@@ -477,15 +473,21 @@ extension GiftcardViewController: UITextViewDelegate {
         guard let stringRange = Range(range, in: currentText) else  { return false }
         let changedText = currentText.replacingCharacters(in: stringRange, with: text)
         writeContentLabel.text = "\(changedText.count)자/86자"
-
-        if(changedText.count > 21) {
-            balloncardTextView.font = .tossTitle2
-            balloncardTextView.textContainerInset = UIEdgeInsets(top: 20, left: 18, bottom: 18, right: 18)
+        
+        if(changedText.count <= 85) {
+            if(changedText.count > 21) {
+                balloncardTextView.font = .tossTitle2
+                balloncardTextView.textContainerInset = UIEdgeInsets(top: 20, left: 18, bottom: 18, right: 18)
+            }
+            else {
+                balloncardTextView.font = .tossHeader2
+                balloncardTextView.textContainerInset = UIEdgeInsets(top: 20, left: 18, bottom: 18, right: 18)
+            }
         }
         else {
-            balloncardTextView.font = .tossHeader2
-            balloncardTextView.textContainerInset = UIEdgeInsets(top: 20, left: 18, bottom: 18, right: 18)
+            return false
         }
-        return changedText.count <= 85
+        
+        return true
     }
 }
